@@ -4,12 +4,17 @@ from django.db import models
 
 class Music(models.Model):
     
-    name = models.CharField(
-        verbose_name="نام",
+    title = models.CharField(
+        verbose_name="عنوان",
         max_length=200,
         unique=True
     )
     
+    slug = models.SlugField(
+        verbose_name="اسلاگ",
+        max_length=200,
+        unique=True
+    )
     artist = models.CharField(
         verbose_name="آرتیست",
         max_length=200
@@ -62,9 +67,14 @@ class Music(models.Model):
         verbose_name="زمان موزیک",
         max_length=20,
     )
+    
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['release_date']
-        verbose_name = "کاربر"
-        verbose_name_plural = "کاربر ها"
+        verbose_name = "موزیک"
+        verbose_name_plural = "موزیک ها"
         
+    def __str__(self):
+        return f'{self.title} از {self.artist}'
