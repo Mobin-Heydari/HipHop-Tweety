@@ -1,5 +1,6 @@
 from django.db import models
 from musices.models import Music
+from users.models import User
 
 
 class Albom(models.Model):
@@ -67,3 +68,41 @@ class MusicAlbom(models.Model):
     
     def __str__(self):
         return f'آلبوم {self.music.title} از {self.albome.title}'  
+
+
+class AlbomComment(models.Model):
+    
+    albome = models.ForeignKey(
+        Albom,
+        on_delete=models.CASCADE,
+        related_name="albome_comments",
+        verbose_name="آلبوم"
+    )
+    
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="user_albome_comments",
+        verbose_name="کاربر"
+    )
+    
+    title = models.CharField(
+        verbose_name="عنوان",
+        max_length=100
+    )
+    
+    text = models.TextField(
+        verbose_name="متن"
+    )
+    
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['created']
+        verbose_name = "نظر آلبوم"
+        verbose_name_plural = "نظرات آلبوم"
+    
+      
+    def __str__(self):
+        return f'نظر کاربر:{self.user.username} درمورد آلبوم {self.albome.title} از {self.albome.singer}'
