@@ -8,3 +8,9 @@ from . import models
 class MusicAdmin(admin.ModelAdmin):
     list_display = ['title', 'slug', 'artist']
     prepopulated_fields = {'slug': ('artist', 'title',)}
+    
+
+@admin.register(models.Genre)
+class GenreAdmin(admin.ModelAdmin):
+    list_display = ['genre', 'slug']
+    prepopulated_fields = {'slug': ('genre',)}

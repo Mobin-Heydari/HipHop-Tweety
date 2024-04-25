@@ -2,12 +2,42 @@ from django.db import models
 
 
 
+class Genre(models.Model):
+    
+    genre = models.CharField(
+        verbose_name= "ژانر",
+        max_length=200,
+        unique=True
+    )
+    
+    slug = models.SlugField(
+        verbose_name= "اسلاگ",
+        max_length=200,
+        unique=True
+    )
+    
+    class Meta:
+        ordering = ['genre']
+        verbose_name = "ژانر"
+        verbose_name_plural = "ژانر ها"
+
+    def __str__(self):
+        return self.genre
+
+
 class Music(models.Model):
     
     title = models.CharField(
         verbose_name="عنوان",
         max_length=200,
         unique=True
+    )
+    
+    genre = models.ForeignKey(
+        Genre,
+        verbose_name="ژانر",
+        on_delete=models.CASCADE,
+        related_name="musices_genre"
     )
     
     slug = models.SlugField(
