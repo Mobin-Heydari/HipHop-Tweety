@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'musices.apps.MusicesConfig',
     'profiles.apps.ProfilesConfig',
+    'alboms.apps.AlbomsConfig',
 ]
 
 MIDDLEWARE = [
