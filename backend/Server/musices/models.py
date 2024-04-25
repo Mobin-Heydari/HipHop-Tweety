@@ -1,5 +1,5 @@
 from django.db import models
-
+from users.models import User
 
 
 class Genre(models.Model):
@@ -108,3 +108,40 @@ class Music(models.Model):
         
     def __str__(self):
         return f'{self.title} از {self.artist}'
+    
+    
+class Comment(models.Model):
+    
+    music = models.ForeignKey(
+        Music,
+        on_delete=models.CASCADE,
+        related_name="music_comments",
+        verbose_name="موزیک"
+    )
+    
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="user_comments",
+        verbose_name="کاربر"
+    )
+    
+    title = models.CharField(
+        verbose_name="عنوان",
+        max_length=100
+    )
+    
+    text = models.TextField(
+        verbose_name="متن"
+    )
+    
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['created']
+        verbose_name = "نظر"
+        verbose_name_plural = "نظرات"
+        
+    def __str__(self):
+        return f'{self.user} - {self.music}'

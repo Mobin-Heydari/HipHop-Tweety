@@ -14,3 +14,9 @@ class MusicAdmin(admin.ModelAdmin):
 class GenreAdmin(admin.ModelAdmin):
     list_display = ['genre', 'slug']
     prepopulated_fields = {'slug': ('genre',)}
+
+
+@admin.register(models.Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['user', 'music', 'title', 'text', 'created', 'updated']
+    list_editable = ['text', 'title']
