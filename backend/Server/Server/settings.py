@@ -33,9 +33,10 @@ INSTALLED_APPS = [
     
     # Custome apps
     'users.apps.UsersConfig',
+    'alboms.apps.AlbomsConfig',
     'musices.apps.MusicesConfig',
     'profiles.apps.ProfilesConfig',
-    'alboms.apps.AlbomsConfig',
+    'favorites.apps.FavoritesConfig',
 ]
 
 MIDDLEWARE = [
