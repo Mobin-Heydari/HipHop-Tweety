@@ -3,6 +3,7 @@ from users.models import User
 
 
 class UserProfile(models.Model):
+    
     user = models.OneToOneField(
         User,
         verbose_name="کاربر",
@@ -28,11 +29,11 @@ class UserProfile(models.Model):
         verbose_name="نام کامل کاربر",
     )
     
-    
-    def __str__(self):
-        return f"{self.user.username}.....{self.full_name}"
-
-
     class Meta:
         verbose_name = "پروفایل کاربر"
         verbose_name_plural = "پروفایل کاربران"
+    
+       
+    def __str__(self):
+        return f"{self.user.username}.....{self.full_name}"
+
