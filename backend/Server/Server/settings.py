@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # Custome apps
     'users.apps.UsersConfig',
     'alboms.apps.AlbomsConfig',
+    'genres.apps.GenresConfig',
     'musices.apps.MusicesConfig',
     'profiles.apps.ProfilesConfig',
     'favorites.apps.FavoritesConfig',
