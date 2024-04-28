@@ -10,11 +10,6 @@ class MusicAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('artist', 'title',)}
     
 
-@admin.register(models.Genre)
-class GenreAdmin(admin.ModelAdmin):
-    list_display = ['genre', 'slug']
-    prepopulated_fields = {'slug': ('genre',)}
-
 
 @admin.register(models.Comment)
 class CommentAdmin(admin.ModelAdmin):

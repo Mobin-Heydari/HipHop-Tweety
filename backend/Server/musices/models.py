@@ -1,28 +1,8 @@
 from django.db import models
 from users.models import User
+from genres.models import Genre
 
 
-class Genre(models.Model):
-    
-    genre = models.CharField(
-        verbose_name= "ژانر",
-        max_length=200,
-        unique=True
-    )
-    
-    slug = models.SlugField(
-        verbose_name= "اسلاگ",
-        max_length=200,
-        unique=True
-    )
-    
-    class Meta:
-        ordering = ['genre']
-        verbose_name = "ژانر"
-        verbose_name_plural = "ژانر ها"
-
-    def __str__(self):
-        return self.genre
 
 
 class Music(models.Model):
