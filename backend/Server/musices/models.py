@@ -73,6 +73,11 @@ class Music(models.Model):
         default=0
     )
     
+    plays = models.IntegerField(
+        verbose_name="بلی",
+        default=0
+    )
+    
     music_time = models.CharField(
         verbose_name="زمان موزیک",
         max_length=20,
