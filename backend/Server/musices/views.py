@@ -32,7 +32,17 @@ class MusicDetail(View):
         
         music = get_object_or_404(Music, slug=slug)
         
-        return render(request, 'musices/music_detail.html', {'music':music})
+        related_musices = Music.objects.filter(genre=music.genre)
+        
+        related_musices = related_musices.order_by('-likes')[:8]
+        
+        return render(
+            request, 'musices/music_detail.html',
+            {
+                'music' : music,
+                'related_musices' : related_musices
+            }
+        )
     
     
     def post(self, request, slug):

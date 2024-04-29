@@ -1,7 +1,7 @@
 from django.db import models
+from django.urls import reverse
 from users.models import User
 from genres.models import Genre
-
 
 
 
@@ -94,6 +94,10 @@ class Music(models.Model):
         
     def __str__(self):
         return f'{self.title} از {self.artist}'
+    
+    def get_absolute_url(self):
+        return reverse("musices:music_detail", kwargs={"slug": self.slug})
+    
     
     
 class Comment(models.Model):
