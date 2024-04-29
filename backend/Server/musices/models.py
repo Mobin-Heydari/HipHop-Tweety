@@ -25,22 +25,23 @@ class Music(models.Model):
         max_length=200,
         unique=True
     )
+    
     artist = models.CharField(
         verbose_name="آرتیست",
         max_length=200
     )
     
-    Composer = models.CharField(
+    composer = models.CharField(
         verbose_name="آهنگساز",
         max_length=200
     )
     
-    Songwriter = models.CharField(
+    songwriter = models.CharField(
         verbose_name="ترانه سرا",
         max_length=200
     )
     
-    Regulators = models.CharField(
+    regulators = models.CharField(
         verbose_name="تنظیم کننده",
         max_length=200
     )

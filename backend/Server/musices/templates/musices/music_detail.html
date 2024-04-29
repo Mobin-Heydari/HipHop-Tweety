@@ -1,0 +1,1083 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% comment %} Sidebar {% endcomment %}
+{% block sidebar %}
+    <aside id="sidebar">
+        <div
+        class="sidebar-head d-flex align-items-center justify-content-between"
+        >
+            <a href="home.html" class="brand external"
+                ><img src="{% static "images/logos/logo.svg" %}" alt="Listen app" /> </a
+            ><a
+                href="javascript:void(0);"
+                role="button"
+                class="sidebar-toggler"
+                aria-label="Sidebar toggler"
+                ><div class="d-none d-lg-block">
+                <i class="ri-menu-3-line sidebar-menu-1"></i>
+                <i class="ri-menu-line sidebar-menu-2"></i>
+                </div>
+                <i class="ri-menu-fold-line d-lg-none"></i
+            ></a>
+        </div>
+        <div class="sidebar-body" data-scroll="true">
+        <nav class="navbar d-block p-0">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="home.html" class="nav-link d-flex align-items-center"
+                    ><i class="ri-home-4-line fs-5"></i>
+                    <span class="ps-3">خانه</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a href="genres.html" class="nav-link d-flex align-items-center"
+                    ><i class="ri-disc-line fs-5"></i>
+                    <span class="ps-3">ژانر ها</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a href="music.html" class="nav-link d-flex align-items-center"
+                    ><i class="ri-music-2-line fs-5"></i>
+                    <span class="ps-3">موزیک ها</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a href="albums.html" class="nav-link d-flex align-items-center"
+                    ><i class="ri-album-line fs-5"></i>
+                    <span class="ps-3">آلبوم ها</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                    href="artists.html"
+                    class="nav-link d-flex align-items-center"
+                    ><i class="ri-mic-line fs-5"></i>
+                    <span class="ps-3">هنرمندان</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                    href="stations.html"
+                    class="nav-link d-flex align-items-center"
+                    ><i class="ri-radio-2-line fs-5"></i>
+                    <span class="ps-3">ایستگاه موزیک</span></a
+                    >
+                </li>
+                <li class="nav-item nav-item--head">
+                    <span class="nav-item--head__text">موزیک</span>
+                    <span class="nav-item--head__dots">...</span>
+                </li>
+                <li class="nav-item">
+                    <a
+                    href="analytics.html"
+                    class="nav-link d-flex align-items-center"
+                    ><i class="ri-pie-chart-line fs-5"></i>
+                    <span class="ps-3">آنالیز ها</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                    href="favorites.html"
+                    class="nav-link d-flex align-items-center"
+                    ><i class="ri-heart-line fs-5"></i>
+                    <span class="ps-3">مورد علاقه</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                    href="history.html"
+                    class="nav-link d-flex align-items-center"
+                    ><i class="ri-history-line fs-5"></i>
+                    <span class="ps-3">تاریخچه</span></a
+                    >
+                </li>
+                <li class="nav-item nav-item--head">
+                    <span class="nav-item--head__text">رویداد ها</span>
+                    <span class="nav-item--head__dots">...</span>
+                </li>
+                <li class="nav-item">
+                    <a href="events.html" class="nav-link d-flex align-items-center"
+                    ><i class="ri-calendar-event-line fs-5"></i>
+                    <span class="ps-3">رویداد ها</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                    href="event-details.html"
+                    class="nav-link d-flex align-items-center"
+                    ><i class="ri-newspaper-line fs-5"></i>
+                    <span class="ps-3">جزئیات رویداد</span></a
+                    >
+                </li>
+            </ul>
+        </nav>
+        </div>
+        <div class="sidebar-foot">
+        <a href="add-music.html" class="btn btn-primary d-flex"
+            ><div class="btn__wrap">
+            <i class="ri-music-fill"></i> <span> افزودن موزیک</span>
+            </div></a
+        >
+        </div>
+  </aside>
+{% endblock sidebar %}
+
+{% block main %}
+<main id="page_content">
+    <div
+      class="hero"
+      style="background-image: url({{ music.banner.url }})"
+    ></div>
+    <div class="under-hero container">
+      <div class="section">
+        <div
+          class="row"
+          data-song-id="{{ music.id }}"
+          data-song-name="{{ music.title }}"
+          data-song-artist="{{ music.artist }}"
+          data-song-album="{{ music.albom_musics.title }}"
+          data-song-url="{{ music.music_file.url }}"
+          data-song-cover="{{ music.image.url }}"
+        >
+          <div class="col-xl-3 col-md-4">
+            <div class="cover cover--round">
+              <div class="cover__image">
+                <img src="{{ music.image.url }}" alt="{{ music.title }}" />
+              </div>
+            </div>
+          </div>
+          <div class="col-1 d-none d-xl-block"></div>
+          <div class="col-md-8 mt-5 mt-md-0">
+            <div class="d-flex flex-wrap mb-2">
+              <span class="text-dark fs-4 fw-semi-bold pe-2">{{ music.artist }}</span>
+              <div class="dropstart d-inline-flex ms-auto">
+                <a
+                  class="dropdown-link"
+                  href="javascript:void(0);"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-label="Cover options"
+                  aria-expanded="false"
+                  ><i class="ri-more-fill"></i
+                ></a>
+                <ul class="dropdown-menu dropdown-menu-sm">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="javascript:void(0);"
+                      role="button"
+                      data-queue-id="{{ music.id }}"
+                      >افزودن به لیست</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="javascript:void(0);"
+                      role="button"
+                      data-next-id="{{ music.id }}"
+                      >بعدی برای پخش</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="javascript:void(0);"
+                      role="button"
+                      >اشتراک</a
+                    >
+                  </li>
+                  <li class="dropdown-divider"></li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="javascript:void(0);"
+                      role="button"
+                      data-play-id="{{ music.id }}"
+                      >پخش</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <ul class="info-list info-list--dotted mb-3">
+              <li>{{ music.genre }}</li>
+              <li>{{ music.music_time }}</li>
+              <li>{{ music.release_date }}</li>
+            </ul>
+            <div class="mb-4">
+              <p class="mb-2">
+                آهنگساز:
+                <span class="text-dark fw-medium">{{ music.Composer }}</span>
+              </p>
+              <p class="mb-2">
+                ترانه سرا:
+                <span class="text-dark fw-medium">{{ music.songwriter }}</span>
+              </p>
+              <p class="mb-2 text-right">
+                تنظیم کننده:
+                <span class="text-dark fw-medium">{{ music.regulators }}</span>
+              </p>
+            </div>
+            <ul class="info-list mb-5">
+              <li>
+                <div class="d-flex align-items-center">
+                  <button
+                    type="button"
+                    id="play_all"
+                    class="btn btn-icon btn-primary rounded-pill"
+                    data-play-id="{{ music.id }}"
+                  >
+                    <i class="ri-play-fill icon-play"></i>
+                    <i class="ri-pause-fill icon-pause"></i>
+                  </button>
+                  <span class="ps-2 fw-semi-bold">{{ music.plays }}</span>
+                </div>
+              </li>
+              <li>
+                <a
+                  href="javascript:void(0);"
+                  role="button"
+                  class="text-dark d-flex align-items-center"
+                  aria-label="Favorite"
+                  data-favorite-id="{{ music.id }}"
+                  ><i class="ri-heart-line heart-empty"></i>
+                  <i class="ri-heart-fill heart-fill"></i>
+                  <span class="ps-2 fw-medium">{{ music.likes }}</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="javascript:void(0);"
+                  role="button"
+                  class="text-dark d-flex align-items-center"
+                  aria-label="Download"
+                  ><i class="ri-download-2-line"></i>
+                  <span class="ps-2 fw-medium">24</span></a
+                >
+              </li>
+              <li>
+                <span class="text-dark d-flex align-items-center"
+                  ><i class="ri-star-fill text-warning"></i>
+                  <span class="ps-2 fw-medium">4.5</span></span
+                >
+              </li>
+            </ul>
+            <div class="mt-2 text-right">
+              <span class="d-block text-dark fs-6 fw-semi-bold mb-3">متن موزیک</span>
+              <p>
+               {{ music.text }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section__head">
+          <h3 class="mb-0">
+            موزیک های <span class="text-primary">مرتبط</span>
+          </h3>
+        </div>
+        <div class="swiper-carousel swiper-carousel-button">
+          <div
+            dir="rtl"
+            class="swiper"
+            data-swiper-slides="5"
+            data-swiper-autoplay="true"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div
+                  class="cover cover--round"
+                  data-song-id="1"
+                  data-song-name="تو"
+                  data-song-artist="عرفان طهماسبی"
+                  data-song-album="تو"
+                  data-song-url="audio/ringtone-1.mp3"
+                  data-song-cover="images/cover/small/1.jpg"
+                >
+                  <div class="cover__head">
+                    <ul class="cover__label d-flex">
+                      <li>
+                        <span class="badge rounded-pill bg-danger"
+                          ><i class="ri-heart-fill"></i
+                        ></span>
+                      </li>
+                    </ul>
+                    <div
+                      class="cover__options dropstart d-inline-flex ms-auto"
+                    >
+                      <a
+                        class="dropdown-link"
+                        href="javascript:void(0);"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-label="Cover options"
+                        aria-expanded="false"
+                        ><i class="ri-more-2-fill"></i
+                      ></a>
+                      <ul class="dropdown-menu dropdown-menu-sm">
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-favorite-id="1"
+                            >مورد علاقه</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-playlist-id="1"
+                            >افزودن به لیست</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-queue-id="1"
+                            >افزودن به صف</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-next-id="1"
+                            >بعدی برای پخش</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            >اشتراک</a
+                          >
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-play-id="1"
+                            >پخش</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cover__image">
+                    <img src="images/cover/large/1.jpg" alt="تو" />
+                    <button
+                      type="button"
+                      class="btn btn-play btn-default btn-icon rounded-pill"
+                      data-play-id="1"
+                    >
+                      <i class="ri-play-fill icon-play"></i>
+                      <i class="ri-pause-fill icon-pause"></i>
+                    </button>
+                  </div>
+                  <div class="cover__foot">
+                    <a
+                      href="song-details.html"
+                      class="cover__title text-truncate"
+                      >تو</a
+                    >
+                    <p class="cover__subtitle text-truncate">
+                      <a href="artist-details.html">عرفان طهماسبی</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div
+                  class="cover cover--round"
+                  data-song-id="2"
+                  data-song-name="نصف شب"
+                  data-song-artist="علی یاسینی"
+                  data-song-album="نصف شب"
+                  data-song-url="audio/ringtone-2.mp3"
+                  data-song-cover="images/cover/small/2.jpg"
+                >
+                  <div class="cover__head">
+                    <ul class="cover__label d-flex">
+                      <li>
+                        <span class="badge rounded-pill bg-info"
+                          ><i class="ri-vip-crown-fill"></i
+                        ></span>
+                      </li>
+                    </ul>
+                    <div
+                      class="cover__options dropstart d-inline-flex ms-auto"
+                    >
+                      <a
+                        class="dropdown-link"
+                        href="javascript:void(0);"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-label="Cover options"
+                        aria-expanded="false"
+                        ><i class="ri-more-2-fill"></i
+                      ></a>
+                      <ul class="dropdown-menu dropdown-menu-sm">
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-favorite-id="2"
+                            >مورد علاقه</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-playlist-id="2"
+                            >افزودن به لیست</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-queue-id="2"
+                            >افزودن به صف</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-next-id="2"
+                            >بعدی برای پخش</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            >اشتراک</a
+                          >
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-play-id="2"
+                            >پخش</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cover__image">
+                    <img src="images/cover/large/2.jpg" alt="نصف شب" />
+                    <button
+                      type="button"
+                      class="btn btn-play btn-default btn-icon rounded-pill"
+                      data-play-id="2"
+                    >
+                      <i class="ri-play-fill icon-play"></i>
+                      <i class="ri-pause-fill icon-pause"></i>
+                    </button>
+                  </div>
+                  <div class="cover__foot">
+                    <a
+                      href="song-details.html"
+                      class="cover__title text-truncate"
+                      >نصف شب</a
+                    >
+                    <p class="cover__subtitle text-truncate">
+                      <a href="artist-details.html">علی یاسینی</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div
+                  class="cover cover--round"
+                  data-song-id="3"
+                  data-song-name="رهایم کن"
+                  data-song-artist="محسن چاوشی"
+                  data-song-album="رهایم کن"
+                  data-song-url="audio/ringtone-3.mp3"
+                  data-song-cover="images/cover/small/3.jpg"
+                >
+                  <div class="cover__head">
+                    <div
+                      class="cover__options dropstart d-inline-flex ms-auto"
+                    >
+                      <a
+                        class="dropdown-link"
+                        href="javascript:void(0);"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-label="Cover options"
+                        aria-expanded="false"
+                        ><i class="ri-more-2-fill"></i
+                      ></a>
+                      <ul class="dropdown-menu dropdown-menu-sm">
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-favorite-id="3"
+                            >مورد علاقه</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-playlist-id="3"
+                            >افزودن به لیست</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-queue-id="3"
+                            >افزودن به صف</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-next-id="3"
+                            >بعدی برای پخش</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            >اشتراک</a
+                          >
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-play-id="3"
+                            >پخش</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cover__image">
+                    <img src="images/cover/large/3.jpg" alt="رهایم کن" />
+                    <button
+                      type="button"
+                      class="btn btn-play btn-default btn-icon rounded-pill"
+                      data-play-id="3"
+                    >
+                      <i class="ri-play-fill icon-play"></i>
+                      <i class="ri-pause-fill icon-pause"></i>
+                    </button>
+                  </div>
+                  <div class="cover__foot">
+                    <a
+                      href="song-details.html"
+                      class="cover__title text-truncate"
+                      >رهایم کن</a
+                    >
+                    <p class="cover__subtitle text-truncate">
+                      <a href="artist-details.html">محسن چاوشی</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div
+                  class="cover cover--round"
+                  data-song-id="4"
+                  data-song-name="بعد از رفتن"
+                  data-song-artist="روزبه بمانی"
+                  data-song-album="بعد از رفتن"
+                  data-song-url="audio/ringtone-4.mp3"
+                  data-song-cover="images/cover/small/4.jpg"
+                >
+                  <div class="cover__head">
+                    <ul class="cover__label d-flex">
+                      <li>
+                        <span class="badge rounded-pill bg-danger"
+                          ><i class="ri-heart-fill"></i
+                        ></span>
+                      </li>
+                      <li>
+                        <span class="badge rounded-pill bg-info"
+                          ><i class="ri-vip-crown-fill"></i
+                        ></span>
+                      </li>
+                    </ul>
+                    <div
+                      class="cover__options dropstart d-inline-flex ms-auto"
+                    >
+                      <a
+                        class="dropdown-link"
+                        href="javascript:void(0);"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-label="Cover options"
+                        aria-expanded="false"
+                        ><i class="ri-more-2-fill"></i
+                      ></a>
+                      <ul class="dropdown-menu dropdown-menu-sm">
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-favorite-id="4"
+                            >مورد علاقه</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-playlist-id="4"
+                            >افزودن به لیست</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-queue-id="4"
+                            >افزودن به صف</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-next-id="4"
+                            >بعدی برای پخش</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            >اشتراک</a
+                          >
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-play-id="4"
+                            >پخش</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cover__image">
+                    <img src="images/cover/large/4.jpg" alt="بعد از رفتن" />
+                    <button
+                      type="button"
+                      class="btn btn-play btn-default btn-icon rounded-pill"
+                      data-play-id="4"
+                    >
+                      <i class="ri-play-fill icon-play"></i>
+                      <i class="ri-pause-fill icon-pause"></i>
+                    </button>
+                  </div>
+                  <div class="cover__foot">
+                    <a
+                      href="song-details.html"
+                      class="cover__title text-truncate"
+                      >بعد از رفتن</a
+                    >
+                    <p class="cover__subtitle text-truncate">
+                      <a href="artist-details.html">روزبه بمانی</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div
+                  class="cover cover--round"
+                  data-song-id="5"
+                  data-song-name="بی حسی"
+                  data-song-artist="مهدی احمدوند"
+                  data-song-album="بی حسی"
+                  data-song-url="audio/ringtone-5.mp3"
+                  data-song-cover="images/cover/small/5.jpg"
+                >
+                  <div class="cover__head">
+                    <ul class="cover__label d-flex">
+                      <li>
+                        <span class="badge rounded-pill bg-info"
+                          ><i class="ri-vip-crown-fill"></i
+                        ></span>
+                      </li>
+                    </ul>
+                    <div
+                      class="cover__options dropstart d-inline-flex ms-auto"
+                    >
+                      <a
+                        class="dropdown-link"
+                        href="javascript:void(0);"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-label="Cover options"
+                        aria-expanded="false"
+                        ><i class="ri-more-2-fill"></i
+                      ></a>
+                      <ul class="dropdown-menu dropdown-menu-sm">
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-favorite-id="5"
+                            >مورد علاقه</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-playlist-id="5"
+                            >افزودن به لیست</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-queue-id="5"
+                            >افزودن به صف</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-next-id="5"
+                            >بعدی برای پخش</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            >اشتراک</a
+                          >
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-play-id="5"
+                            >پخش</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cover__image">
+                    <img src="images/cover/large/5.jpg" alt="بی حسی" />
+                    <button
+                      type="button"
+                      class="btn btn-play btn-default btn-icon rounded-pill"
+                      data-play-id="5"
+                    >
+                      <i class="ri-play-fill icon-play"></i>
+                      <i class="ri-pause-fill icon-pause"></i>
+                    </button>
+                  </div>
+                  <div class="cover__foot">
+                    <a
+                      href="song-details.html"
+                      class="cover__title text-truncate"
+                      >بی حسی</a
+                    >
+                    <p class="cover__subtitle text-truncate">
+                      <a href="artist-details.html">مهدی احمدوند</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div
+                  class="cover cover--round"
+                  data-song-id="6"
+                  data-song-name="دفتر ماه"
+                  data-song-artist="اسحاق انور"
+                  data-song-album="دفتر ماه"
+                  data-song-url="audio/ringtone-6.mp3"
+                  data-song-cover="images/cover/small/6.jpg"
+                >
+                  <div class="cover__head">
+                    <ul class="cover__label d-flex">
+                      <li>
+                        <span class="badge rounded-pill bg-info"
+                          ><i class="ri-vip-crown-fill"></i
+                        ></span>
+                      </li>
+                    </ul>
+                    <div
+                      class="cover__options dropstart d-inline-flex ms-auto"
+                    >
+                      <a
+                        class="dropdown-link"
+                        href="javascript:void(0);"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-label="Cover options"
+                        aria-expanded="false"
+                        ><i class="ri-more-2-fill"></i
+                      ></a>
+                      <ul class="dropdown-menu dropdown-menu-sm">
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-favorite-id="6"
+                            >مورد علاقه</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-playlist-id="6"
+                            >افزودن به لیست</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-queue-id="6"
+                            >افزودن به صف</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-next-id="6"
+                            >بعدی برای پخش</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            >اشتراک</a
+                          >
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-play-id="6"
+                            >پخش</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cover__image">
+                    <img src="images/cover/large/6.jpg" alt="دفتر ماه" />
+                    <button
+                      type="button"
+                      class="btn btn-play btn-default btn-icon rounded-pill"
+                      data-play-id="6"
+                    >
+                      <i class="ri-play-fill icon-play"></i>
+                      <i class="ri-pause-fill icon-pause"></i>
+                    </button>
+                  </div>
+                  <div class="cover__foot">
+                    <a
+                      href="song-details.html"
+                      class="cover__title text-truncate"
+                      >دفتر ماه</a
+                    >
+                    <p class="cover__subtitle text-truncate">
+                      <a href="artist-details.html">اسحاق انور</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-prev btn-default rounded-pill"></div>
+          <div class="swiper-button-next btn-default rounded-pill"></div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section__head"><h3 class="mb-0">نظرات</h3></div>
+        <div class="row">
+          <div class="col-xl-8">
+            <form action="#" class="row mb-5">
+              <div class="col-12 mb-3 d-flex align-items-center">
+                <span class="form-label mb-0">امتیاز:</span>
+                <div class="ps-2">
+                  <select
+                    class="form-select"
+                    style="min-width: 100px"
+                    aria-label="Select ratings"
+                  >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6 mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="نام کامل"
+                />
+              </div>
+              <div class="col-6 mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="ایمیل"
+                />
+              </div>
+              <div class="col-12 mb-4">
+                <textarea
+                  name="comment"
+                  id="comment"
+                  cols="30"
+                  rows="4"
+                  class="form-control"
+                  placeholder="نظر خود را بنویسید"
+                ></textarea>
+              </div>
+              <div class="col-12">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="min-width: 160px"
+                >
+                  ثبت
+                </button>
+              </div>
+            </form>
+            <div class="avatar avatar--lg align-items-start">
+              <div class="avatar__image">
+                <img src="images/users/thumb.jpg" alt="user" />
+              </div>
+              <div class="avatar__content">
+                <span class="avatar__title mb-1">ادمین</span>
+                <span class="avatar__subtitle mb-2">12 مهر ، 1401</span>
+                <div class="text-warning d-flex mb-1">
+                  <i class="ri-star-s-fill"></i>
+                  <i class="ri-star-s-fill"></i>
+                  <i class="ri-star-s-fill"></i>
+                  <i class="ri-star-s-fill"></i>
+                </div>
+                <p>
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
+                  و با استفاده از طراحان گرافیک است،
+                </p>
+                <a href="javascript:void(0);" class="btn btn-link"
+                  ><div class="btn__wrap">
+                    <i class="ri-reply-line fs-6"></i> <span>پاسخ</span>
+                  </div></a
+                >
+                <div class="avatar avatar--lg align-items-start mt-4">
+                  <div class="avatar__image">
+                    <img src="images/users/thumb.jpg" alt="user" />
+                  </div>
+                  <div class="avatar__content">
+                    <span class="avatar__title">ادمین</span>
+                    <span class="avatar__subtitle mb-2">12 مهر ، 1401</span>
+                    <p>
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                      چاپ، و با استفاده از طراحان گرافیک است،
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="avatar avatar--lg align-items-start mt-4">
+              <div class="avatar__image">
+                <img src="images/users/thumb.jpg" alt="user" />
+              </div>
+              <div class="avatar__content">
+                <span class="avatar__title mb-1">ادمین</span>
+                <span class="avatar__subtitle mb-2">12 مهر ، 1401</span>
+                <div class="text-warning d-flex mb-1">
+                  <i class="ri-star-s-fill"></i>
+                  <i class="ri-star-s-fill"></i>
+                  <i class="ri-star-s-fill"></i>
+                  <i class="ri-star-s-fill"></i>
+                  <i class="ri-star-s-fill"></i>
+                </div>
+                <p>
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
+                  و با استفاده از طراحان گرافیک است،
+                </p>
+                <a href="javascript:void(0);" class="btn btn-link"
+                  ><div class="btn__wrap">
+                    <i class="ri-reply-line fs-6"></i> <span>پاسخ</span>
+                  </div></a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock main %}

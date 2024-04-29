@@ -35,7 +35,7 @@ class MusicDetail(View):
         return render(request, 'musices/music_detail.html', {'music':music})
     
     
-    def post(self, request, slug, pk):
+    def post(self, request, slug):
         
         form = CommentForm(request.POST)
         
