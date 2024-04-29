@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from .models import Music, Comment
 from .forms import CommentForm
+from alboms.models import Albom
 
 
 
@@ -9,9 +10,20 @@ class MusicesView(View):
     
     def get(self, request):
         
-        musices = Music.objects.all()
+        musices_queryset = Music.objects.all()
         
-        return render(request, 'musices/musices_list.html', {'musices':musices})
+        albomes_queryset = Albom.objects.all()
+        
+        albomes_queryset = albomes_queryset.order_by('-likes')[0:5]
+        
+        return render(
+            request, 'musices/musices_list.html',
+            {
+                'musices' : musices_queryset,
+                'alboms' : albomes_queryset
+               
+            }
+        )
     
 
 class MusicDetail(View):
