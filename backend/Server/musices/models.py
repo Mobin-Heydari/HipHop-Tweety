@@ -137,3 +137,39 @@ class Comment(models.Model):
         
     def __str__(self):
         return f'{self.user} - {self.music}'
+    
+
+
+class CommentReply(models.Model):
+    
+    comment = models.ForeignKey(
+        Comment,
+        on_delete=models.CASCADE,
+        related_name="comment_replies",
+        verbose_name="نظر"
+    )
+    
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="user_replies",
+        verbose_name="کاربر",
+    )
+    
+    reply = models.TextField(
+        verbose_name="پاسخ"
+    )
+    
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        verbose_name = "پاسخ"
+        verbose_name_plural = "پاسخ ها"
+        
+    
+    
+    def __str__(self):
+        return f'{self.user.username}--{self.comment.id}'
+    
+    
