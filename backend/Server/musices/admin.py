@@ -13,5 +13,5 @@ class MusicAdmin(admin.ModelAdmin):
 
 @admin.register(models.Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['user', 'music', 'title', 'text', 'created', 'updated']
-    list_editable = ['text', 'title']
+    list_display = ['user', 'music', 'text', 'created', 'updated']
+    list_editable = ['text']

@@ -394,57 +394,56 @@
         <div class="section__head"><h3 class="mb-0">نظرات</h3></div>
         <div class="row">
           <div class="col-xl-8">
-            <form action="#" class="row mb-5">
-              <div class="col-12 mb-3 d-flex align-items-center">
-                <span class="form-label mb-0">امتیاز:</span>
-                <div class="ps-2">
-                  <select
-                    class="form-select"
-                    style="min-width: 100px"
-                    aria-label="Select ratings"
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-6 mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="نام کامل"
-                />
-              </div>
-              <div class="col-6 mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="ایمیل"
-                />
-              </div>
-              <div class="col-12 mb-4">
-                <textarea
-                  name="comment"
-                  id="comment"
-                  cols="30"
-                  rows="4"
-                  class="form-control"
-                  placeholder="نظر خود را بنویسید"
-                ></textarea>
-              </div>
+            {% comment %} Comments form started{% endcomment %}
+              {% if user.is_authenticated %}
+                <form action="#" method="post" class="row mb-5">
+                  {% csrf_token %}
+                  <div class="col-12 mb-3 d-flex align-items-center">
+                    <span class="form-label mb-0">امتیاز:</span>
+                    <div class="ps-2">
+                      <select
+                        class="form-select"
+                        style="min-width: 100px"
+                        aria-label="Select ratings"
+                        name="score"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 mb-4">
+                    {{ form.comment }}
+                  </div>
+                  <div class="col-12">
+                    <button
+                      type="submite"
+                      class="btn btn-primary"
+                      style="min-width: 160px"
+                    >
+                      ثبت
+                    </button>
+                  </div>
+                </form>
+              {% else %}
               <div class="col-12">
+                <span class="d-block text-dark fs-6 fw-semi-bold mb-3">
+                  برای ثبت نظر نیاز به <span class="text-primary"> حساب کاربری</span> دارید.
+                </span>
                 <button
                   type="button"
                   class="btn btn-primary"
                   style="min-width: 160px"
                 >
-                  ثبت
+                  ورود
                 </button>
               </div>
-            </form>
+              <br>
+              {% endif %}
+            {% comment %} Comments form ended {% endcomment %}
             <div class="avatar avatar--lg align-items-start">
               <div class="avatar__image">
                 <img src="images/users/thumb.jpg" alt="user" />

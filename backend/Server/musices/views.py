@@ -36,35 +36,42 @@ class MusicDetail(View):
         
         related_musices = related_musices.order_by('-likes')[:8]
         
+        form = CommentForm()
+        
         return render(
             request, 'musices/music_detail.html',
             {
                 'music' : music,
-                'related_musices' : related_musices
+                'related_musices' : related_musices,
+                'form' : form
             }
         )
     
     
     def post(self, request, slug):
-        
-        form = CommentForm(request.POST)
-        
-        if form.is_valid():
+        if request.user.is_authenticated == True:
+            form = CommentForm(request.POST)
             
-            cd = form.cleaned_data
+            if form.is_valid():
+                
+                cd = form.cleaned_data
+                
+                music = get_object_or_404(
+                    Music,
+                    slug=slug
+                )
+                
+                comment = Comment.objects.create(
+                    music = music,
+                    user=request.user,
+                    text = cd['comment'],
+                    score = request.POST.get('score')
+                )
+                
+                comment.save()
+                
+                return redirect('musices:music_detail', slug)
             
-            music = get_object_or_404(
-                Music,
-                available=True,
-                slug=slug
-            )
-            
-            Comment.objects.create(
-                music = music,
-                comment = cd['comment'],
-                title = cd['title']
-            )
-            
+            return render(request, 'musices/detail.html', {'form' : form})
+        else:
             return redirect('musices:music_detail', slug)
-        
-        return render(request, 'musices/detail.html', {'form' : form})

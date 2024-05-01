@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from users.models import User
 from genres.models import Genre
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 
@@ -116,13 +117,14 @@ class Comment(models.Model):
         verbose_name="کاربر"
     )
     
-    title = models.CharField(
-        verbose_name="عنوان",
-        max_length=100
-    )
-    
     text = models.TextField(
         verbose_name="متن"
+    )
+    
+    score =models.IntegerField(
+         default=1,
+         verbose_name="امتیاز",
+        validators=[MinValueValidator(1), MaxValueValidator(5)],
     )
     
     created = models.DateTimeField(auto_now_add=True)
