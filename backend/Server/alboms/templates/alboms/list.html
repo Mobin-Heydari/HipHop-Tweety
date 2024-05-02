@@ -1,0 +1,327 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidebar %}
+    <aside id="sidebar">
+        <div
+        class="sidebar-head d-flex align-items-center justify-content-between"
+        >
+            <a href="home.html" class="brand external"
+                ><img src="images/logos/logo.svg" alt="Listen app" /> </a
+            ><a
+                href="javascript:void(0);"
+                role="button"
+                class="sidebar-toggler"
+                aria-label="Sidebar toggler"
+                ><div class="d-none d-lg-block">
+                <i class="ri-menu-3-line sidebar-menu-1"></i>
+                <i class="ri-menu-line sidebar-menu-2"></i>
+                </div>
+                <i class="ri-menu-fold-line d-lg-none"></i
+            ></a>
+        </div>
+        <div class="sidebar-body" data-scroll="true">
+        <nav class="navbar d-block p-0">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="home.html" class="nav-link d-flex align-items-center"
+                    ><i class="ri-home-4-line fs-5"></i>
+                    <span class="ps-3">خانه</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a href="genres.html" class="nav-link d-flex align-items-center"
+                    ><i class="ri-disc-line fs-5"></i>
+                    <span class="ps-3">ژانر</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a href="music.html" class="nav-link d-flex align-items-center"
+                    ><i class="ri-music-2-line fs-5"></i>
+                    <span class="ps-3">موزیک رایگان</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                    href="albums.html"
+                    class="nav-link d-flex align-items-center active"
+                    ><i class="ri-album-line fs-5"></i>
+                    <span class="ps-3">آلبوم ها</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                    href="artists.html"
+                    class="nav-link d-flex align-items-center"
+                    ><i class="ri-mic-line fs-5"></i>
+                    <span class="ps-3">هنرمندان</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                    href="stations.html"
+                    class="nav-link d-flex align-items-center"
+                    ><i class="ri-radio-2-line fs-5"></i>
+                    <span class="ps-3">ایستگاه موزیک</span></a
+                    >
+                </li>
+                <li class="nav-item nav-item--head">
+                    <span class="nav-item--head__text">موزیک</span>
+                    <span class="nav-item--head__dots">...</span>
+                </li>
+                <li class="nav-item">
+                    <a
+                    href="analytics.html"
+                    class="nav-link d-flex align-items-center"
+                    ><i class="ri-pie-chart-line fs-5"></i>
+                    <span class="ps-3">آنالیز ها</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                    href="favorites.html"
+                    class="nav-link d-flex align-items-center"
+                    ><i class="ri-heart-line fs-5"></i>
+                    <span class="ps-3">مورد علاقه</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                    href="history.html"
+                    class="nav-link d-flex align-items-center"
+                    ><i class="ri-history-line fs-5"></i>
+                    <span class="ps-3">تاریخچه</span></a
+                    >
+                </li>
+                <li class="nav-item nav-item--head">
+                    <span class="nav-item--head__text">رویداد ها</span>
+                    <span class="nav-item--head__dots">...</span>
+                </li>
+                <li class="nav-item">
+                    <a href="events.html" class="nav-link d-flex align-items-center"
+                    ><i class="ri-calendar-event-line fs-5"></i>
+                    <span class="ps-3">رویداد ها</span></a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                    href="event-details.html"
+                    class="nav-link d-flex align-items-center"
+                    ><i class="ri-newspaper-line fs-5"></i>
+                    <span class="ps-3">جزئیات رویداد</span></a
+                    >
+                </li>
+            </ul>
+        </nav>
+    </aside>
+{% endblock sidebar %}
+
+{% block main %}
+<main id="page_content">
+    <div
+      class="hero"
+      style="background-image: url(images/banner/song.jpg)"
+    ></div>
+    <div class="under-hero container">
+      <div class="section">
+        <div class="section__head">
+          <h3 class="mb-0">
+            محبوب ترین <span class="text-primary">آلبوم ها</span>
+          </h3>
+        </div>
+        <div class="swiper-carousel swiper-carousel-button">
+          <div
+            dir="rtl"
+            class="swiper"
+            data-swiper-slides="5"
+            data-swiper-autoplay="true"
+          >
+            <div class="swiper-wrapper">
+                {% for albome in most_rated_albomes %}
+                
+                <div class="swiper-slide">
+                  <div class="cover cover--round">
+                    <div class="cover__head">
+                      <ul class="cover__label d-flex">
+                        <li>
+                          <span class="badge rounded-pill bg-danger"
+                            ><i class="ri-heart-fill"></i
+                          ></span>
+                        </li>
+                      </ul>
+                      <div
+                        class="cover__options dropstart d-inline-flex ms-auto"
+                      >
+                        <a
+                          class="dropdown-link"
+                          href="javascript:void(0);"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-label="Cover options"
+                          aria-expanded="false"
+                          ><i class="ri-more-2-fill"></i
+                        ></a>
+                        <ul class="dropdown-menu dropdown-menu-sm">
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="javascript:void(0);"
+                              role="button"
+                              data-favorite-id="{{ albome.id }}"
+                              >مورد علاقه</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="audio/ringtone-1.mp3"
+                              download
+                              >دانلود</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="javascript:void(0);"
+                              role="button"
+                              >اشتراک</a
+                            >
+                          </li>
+                          <li class="dropdown-divider"></li>
+                          <li>
+                            <a class="dropdown-item" href="album-details.html"
+                              >نمایش جزئیات</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <a href="album-details.html" class="cover__image"
+                      ><img src="{{ albome.image.url }}" alt="{{ albome.title }}"
+                    /></a>
+                    <div class="cover__foot">
+                      <a
+                        href="album-details.html"
+                        class="cover__title text-truncate"
+                        >{{ albome.title }}</a
+                      >
+                      <p class="cover__subtitle text-truncate">
+                        <a href="artist-details.html">{{ albome.singer }}</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+            </div>
+          </div>
+          <div class="swiper-button-prev btn-default rounded-pill"></div>
+          <div class="swiper-button-next btn-default rounded-pill"></div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section__head align-items-center">
+          <span class="d-block pe-3 fs-6 fw-semi-bold"
+            >400 آلبوم در لیست</span
+          >
+          <div>
+            <select class="form-select" aria-label="Filter song">
+              <option value="Popular">محبوب</option>
+              <option value="Most played">بیشترین پخش</option>
+              <option value="A to Z">الفبا (صعودی)</option>
+              <option value="Z to A">الفبا (نزولی)</option>
+            </select>
+          </div>
+        </div>
+        {% comment %} Albome list {% endcomment %}
+        <div class="list list--lg">
+          <div class="row">
+            <div class="col-xl-12">
+                {% comment %} List items {% endcomment %}
+                {% for albome in albomes %}
+                  <div class="list__item">
+                    <a href="album-details.html" class="list__cover"
+                      ><img src="{{ albome.image.url }}" alt="{{ albome.title }}"
+                    /></a>
+                    <div class="list__content">
+                      <a
+                        href="album-details.html"
+                        class="list__title text-truncate"
+                        >{{ albome.title }}</a
+                      >
+                      <p class="list__subtitle text-truncate">
+                        <a href="artist-details.html">{{ albome.singer }}</a>
+                      </p>
+                    </div>
+                    <ul class="list__option">
+                      <li>
+                        <a
+                          href="javascript:void(0);"
+                          role="button"
+                          class="d-inline-flex"
+                          aria-label="Favorite"
+                          data-favorite-id="{{ albome.id }}"
+                          ><i class="ri-heart-line heart-empty"></i>
+                          <i class="ri-heart-fill heart-fill"></i
+                        ></a>
+                      </li>
+                      <li class="dropstart d-inline-flex">
+                        <a
+                          class="dropdown-link"
+                          href="javascript:void(0);"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-label="Cover options"
+                          aria-expanded="false"
+                          ><i class="ri-more-fill"></i
+                        ></a>
+                        <ul class="dropdown-menu dropdown-menu-sm">
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="javascript:void(0);"
+                              role="button"
+                              data-favorite-id="{{ albome.id }}"
+                              >مورد علاقه</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="audio/ringtone-8.mp3"
+                              download
+                              >دانلود</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="javascript:void(0);"
+                              role="button"
+                              >اشتراک</a
+                            >
+                          </li>
+                          <li class="dropdown-divider"></li>
+                          <li>
+                            <a class="dropdown-item" href="album-details.html"
+                              >نمایش جزئیات</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="mt-5 text-center">
+          <a href="javascript:void(0);" class="btn btn-primary"
+            ><div class="btn__wrap">
+              <i class="ri-loader-3-fill"></i> <span>بارگیری بیشتر</span>
+            </div></a
+          >
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock main %}
