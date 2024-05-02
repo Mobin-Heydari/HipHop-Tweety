@@ -816,119 +816,133 @@
         <div class="section__head"><h3 class="mb-0">نظرات</h3></div>
         <div class="row">
           <div class="col-xl-8">
-            <form action="#" class="row mb-5">
-              <div class="col-12 mb-3 d-flex align-items-center">
-                <span class="form-label mb-0">امتیاز:</span>
-                <div class="ps-2">
-                  <select
-                    class="form-select"
-                    style="min-width: 100px"
-                    aria-label="Select ratings"
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-6 mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="نام کامل"
-                />
-              </div>
-              <div class="col-6 mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="ایمیل"
-                />
-              </div>
-              <div class="col-12 mb-4">
-                <textarea
-                  name="comment"
-                  id="comment"
-                  cols="30"
-                  rows="4"
-                  class="form-control"
-                  placeholder="نظر خود را بنویسید"
-                ></textarea>
-              </div>
+            {% comment %} Comments form started{% endcomment %}
+              {% if user.is_authenticated %}
+                <form action="{% url 'albomes:add_comment' albome.slug albome.id %}" method="post" class="row mb-5">
+                  {% csrf_token %}
+                  <div class="col-12 mb-3 d-flex align-items-center">
+                    <span class="form-label mb-0">امتیاز:</span>
+                    <div class="ps-2">
+                      <select
+                        class="form-select"
+                        style="min-width: 100px"
+                        aria-label="Select ratings"
+                        name="score"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 mb-4">
+                    {{ form.comment }}
+                  </div>
+                  <div class="col-12">
+                    <button
+                      type="submite"
+                      class="btn btn-primary"
+                      style="min-width: 160px"
+                    >
+                      ثبت
+                    </button>
+                  </div>
+                </form>
+              {% else %}
               <div class="col-12">
+                <span class="d-block text-dark fs-6 fw-semi-bold mb-3">
+                  برای ثبت نظر نیاز به <span class="text-primary"> حساب کاربری</span> دارید.
+                </span>
                 <button
                   type="button"
                   class="btn btn-primary"
                   style="min-width: 160px"
                 >
-                  ثبت
+                  ورود
                 </button>
               </div>
-            </form>
-            <div class="avatar avatar--lg align-items-start">
-              <div class="avatar__image">
-                <img src="images/users/thumb.jpg" alt="user" />
-              </div>
-              <div class="avatar__content">
-                <span class="avatar__title mb-1">ادمین</span>
-                <span class="avatar__subtitle mb-2">12 مهر ، 1401</span>
-                <div class="text-warning d-flex mb-1">
-                  <i class="ri-star-s-fill"></i>
-                  <i class="ri-star-s-fill"></i>
-                  <i class="ri-star-s-fill"></i>
-                  <i class="ri-star-s-fill"></i>
+              <br>
+              {% endif %}
+            {% comment %} Comments form ended {% endcomment %}
+            {% for comment in albome.albome_comments.all %}
+              <div class="avatar avatar--lg align-items-start">
+                <div class="avatar__image">
+                  {% if request.user.user_profile.image %}
+                    <img src="{{ request.user.user_profile.image.url }}" alt="user"/>
+                  {% else %}
+                    <img src="{% static "images/users/user.png" %}" alt="user"/>
+                  {% endif %}
                 </div>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
-                  و با استفاده از طراحان گرافیک است،
-                </p>
-                <a href="javascript:void(0);" class="btn btn-link"
-                  ><div class="btn__wrap">
-                    <i class="ri-reply-line fs-6"></i> <span>پاسخ</span>
-                  </div></a
-                >
-                <div class="avatar avatar--lg align-items-start mt-4">
-                  <div class="avatar__image">
-                    <img src="images/users/thumb.jpg" alt="user" />
+                <div class="avatar__content">
+                  <span class="avatar__title mb-1">{{ request.user.username }}</span>
+                  <span class="avatar__subtitle mb-2">{{ comment.created }}</span>
+                  <div class="text-warning d-flex mb-1">
+                    <i class="ri-star-s-fill"></i>
                   </div>
-                  <div class="avatar__content">
-                    <span class="avatar__title">ادمین</span>
-                    <span class="avatar__subtitle mb-2">12 مهر ، 1401</span>
-                    <p>
-                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                      چاپ، و با استفاده از طراحان گرافیک است،
-                    </p>
-                  </div>
+                  <p>
+                    {{ comment.text }}
+                  </p>
+                  {% comment %} Reply {% endcomment %}
+                  {% for reply in comment.albome_comment_replies.all %}
+                    <div class="avatar avatar--lg align-items-start mt-4">
+                      <div class="avatar__image">
+                          {% if request.user.user_profile.image %}
+                            <img src="{{ request.user.user_profile.image.url }}" alt="user"/>
+                          {% else %}
+                            <img src="{% static "images/users/user.png" %}" alt="user"/>
+                          {% endif %}
+                      </div>
+                      <div class="avatar__content">
+                        <span class="avatar__title">{{ reply.user.username }}</span>
+                        <span class="avatar__subtitle mb-2">{{ reply.created }}</span>
+                        <p>
+                          {{ reply.reply }}
+                        </p>
+                      </div>
+                    </div>
+                  {% endfor %}
+                  <br>
+                  {% comment %} Reply form {% endcomment %}
+                  <a href="javascript:void(0);" class="btn btn-link">
+                    <div class="btn__wrap">
+                      {% if user.is_authenticated %}
+                        <form action="{% url 'albomes:add_reply' albome.slug comment.id %}" method="post" class="row mb-5">
+                          {% csrf_token %}
+                          <div class="col-12 mb-4">
+                            {{ reply.reply }}
+                          </div>
+                          <div class="col-12">
+                            <button
+                              type="submite"
+                              class="btn btn-primary"
+                              style="min-width: 160px"
+                            >
+                            <i class="ri-reply-line fs-6"></i> <span>پاسخ</span>
+                            </button>
+                          </div>
+                        </form>
+                    {% else %}
+                      <div class="col-12">
+                        <span class="d-block text-dark fs-6 fw-semi-bold mb-3">
+                          برای پاسخ نیاز به <span class="text-primary"> حساب کاربری</span> دارید.
+                        </span>
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          style="min-width: 160px"
+                        >
+                          ورود
+                        </button>
+                      </div>
+                      <br>
+                    {% endif %}                    
+                    </div>
+                  </a>
                 </div>
               </div>
-            </div>
-            <div class="avatar avatar--lg align-items-start mt-4">
-              <div class="avatar__image">
-                <img src="images/users/thumb.jpg" alt="user" />
-              </div>
-              <div class="avatar__content">
-                <span class="avatar__title mb-1">ادمین</span>
-                <span class="avatar__subtitle mb-2">12 مهر ، 1401</span>
-                <div class="text-warning d-flex mb-1">
-                  <i class="ri-star-s-fill"></i>
-                  <i class="ri-star-s-fill"></i>
-                  <i class="ri-star-s-fill"></i>
-                  <i class="ri-star-s-fill"></i>
-                  <i class="ri-star-s-fill"></i>
-                </div>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
-                  و با استفاده از طراحان گرافیک است،
-                </p>
-                <a href="javascript:void(0);" class="btn btn-link"
-                  ><div class="btn__wrap">
-                    <i class="ri-reply-line fs-6"></i> <span>پاسخ</span>
-                  </div></a
-                >
-              </div>
-            </div>
+            {% endfor %}
           </div>
           <div class="col-xl-4"></div>
         </div>

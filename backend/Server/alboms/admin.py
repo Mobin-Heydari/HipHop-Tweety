@@ -12,4 +12,5 @@ class AlbomAdmin(admin.ModelAdmin):
     inlines = [MusiceInline]
     list_display = ['title', 'release_date', 'likes']
     
-admin.site.register(models.AlbomComment)
+admin.site.register(models.Comment)
+admin.site.register(models.CommentReply)

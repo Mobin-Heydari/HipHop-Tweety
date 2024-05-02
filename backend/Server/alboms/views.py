@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from .models import Albom, MusicAlbom
+from .models import Albom, MusicAlbom, Comment, CommentReply
+from . import forms
 
 
 
@@ -24,10 +25,71 @@ class AlbomDetail(View):
         albome = get_object_or_404(Albom, slug=slug)
         albome_musices = MusicAlbom.objects.filter(albome=albome)
         
+        comment_form = forms.CommentForm()
+        reply_form = forms.ReplyForm()
+        
         return render(
             request, 'alboms/detail.html', {
-                'albome' : albome,
+                'form' : comment_form,
+                'reply' : reply_form,
+                'albome' : albome
             }
         )
         
         
+class AddCommentView(View):
+    def post(self, request, slug, pk):
+        if request.user.is_authenticated == True:
+            form = forms.CommentForm(request.POST)
+            
+            if form.is_valid():
+                
+                cd = form.cleaned_data
+                
+                albome = get_object_or_404(
+                    Albom,
+                    pk=pk
+                )
+                
+                comment = Comment.objects.create(
+                    user = request.user,
+                    albome = albome,
+                    text = cd['comment'],
+                    score = request.POST.get('score')
+                )
+                
+                comment.save()
+                
+                return redirect('albomes:albome_detail', slug)
+            else:
+                return redirect('albomes:albome_detail', slug)
+        else:
+            return redirect('albomes:albome_detail', slug)
+        
+class AddReplyView(View):
+    def post(self, request, slug, pk):
+        if request.user.is_authenticated == True:
+            form = forms.ReplyForm(request.POST)
+            
+            if form.is_valid():
+                
+                cd = form.cleaned_data
+                
+                comment = get_object_or_404(
+                    Comment,
+                    pk=pk
+                )
+                
+                reply = CommentReply.objects.create(
+                    comment = comment,
+                    user=request.user,
+                    reply = cd['reply'],
+                )
+                
+                reply.save()
+                
+                return redirect('albomes:albome_detail', slug)
+            else:
+                return redirect('albomes:albome_detail', slug)
+        else:
+            return redirect('albomes:albome_detail', slug)

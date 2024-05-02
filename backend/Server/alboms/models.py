@@ -1,6 +1,7 @@
 from django.db import models
 from musices.models import Music
 from users.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Albom(models.Model):
@@ -70,7 +71,7 @@ class MusicAlbom(models.Model):
         return f'آلبوم {self.music.title} از {self.albome.title}'  
 
 
-class AlbomComment(models.Model):
+class Comment(models.Model):
     
     albome = models.ForeignKey(
         Albom,
@@ -95,6 +96,12 @@ class AlbomComment(models.Model):
         verbose_name="متن"
     )
     
+    score =models.IntegerField(
+         default=1,
+         verbose_name="امتیاز",
+        validators=[MinValueValidator(1), MaxValueValidator(5)],
+    )
+    
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -106,3 +113,35 @@ class AlbomComment(models.Model):
       
     def __str__(self):
         return f'نظر کاربر:{self.user.username} درمورد آلبوم {self.albome.title} از {self.albome.singer}'
+    
+
+class CommentReply(models.Model):
+    
+    comment = models.ForeignKey(
+        Comment,
+        on_delete=models.CASCADE,
+        related_name="albome_comment_replies",
+        verbose_name="نظر"
+    )
+    
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="user_albome_replies",
+        verbose_name="کاربر",
+    )
+    
+    reply = models.TextField(
+        verbose_name="پاسخ"
+    )
+    
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        verbose_name = "پاسخ"
+        verbose_name_plural = "پاسخ ها"
+        
+    
+    def __str__(self):
+        return f'{self.user.username}--{self.comment.id}'
