@@ -42,11 +42,5 @@ class UserManager(BaseUserManager):
         
         user.save(using=self._db)
         
-        user_profile = UserProfile.objects.create(
-            user = user
-        )
-        
-        user_profile.save()
-        
         return user
     
