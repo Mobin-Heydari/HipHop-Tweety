@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'musices.apps.MusicesConfig',
     'profiles.apps.ProfilesConfig',
     'favorites.apps.FavoritesConfig',
+    'authentication.apps.AuthenticationConfig',
 ]
 
 MIDDLEWARE = [
