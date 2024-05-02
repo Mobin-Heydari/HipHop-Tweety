@@ -1,10 +1,12 @@
 from django.db import models
 from musices.models import Music
 from users.models import User
+from genres.models import Genre
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Albom(models.Model):
+    
     title = models.CharField(
         verbose_name="عنوان آلبوم",
         max_length=200
@@ -13,6 +15,13 @@ class Albom(models.Model):
     slug = models.SlugField(
         verbose_name="اسلاگ آلبوم",
         max_length=200
+    )
+    
+    genre = models.ForeignKey(
+        Genre,
+        on_delete=models.CASCADE,
+        verbose_name="ژانر",
+        related_name="albome_genre"
     )
     
     singer = models.CharField(
@@ -53,6 +62,7 @@ class Albom(models.Model):
     
 
 class MusicAlbom(models.Model):
+    
     albome = models.ForeignKey(
         Albom,
         on_delete=models.CASCADE,

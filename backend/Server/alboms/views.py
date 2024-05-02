@@ -22,17 +22,22 @@ class AlbomesList(View):
 class AlbomDetail(View):
     
     def get(self, request, slug):
+        
         albome = get_object_or_404(Albom, slug=slug)
         albome_musices = MusicAlbom.objects.filter(albome=albome)
+        
+        related_albomes = Albom.objects.filter(genre=albome.genre)
+        related_albomes = related_albomes.order_by('?')[:6]
         
         comment_form = forms.CommentForm()
         reply_form = forms.ReplyForm()
         
         return render(
             request, 'alboms/detail.html', {
-                'form' : comment_form,
+                'albome' : albome,
                 'reply' : reply_form,
-                'albome' : albome
+                'form' : comment_form,
+                'related_albomes' : related_albomes
             }
         )
         
