@@ -6,22 +6,27 @@ from . import managers
 
 class User(AbstractBaseUser, PermissionsMixin):
     
-    email = models.EmailField(verbose_name="ایمیل", unique=True)
+    email = models.EmailField(
+        verbose_name="ایمیل",
+        unique=True
+    )
     
-    username = models.CharField(verbose_name="نام کاربر", 
-                                 max_length=40, unique=True)
-    
-    id = models.CharField(
-        verbose_name="آیدی کاربر",
-        primary_key=True,
-        max_length=50,
+    username = models.CharField(
+        verbose_name="نام کاربر", 
+        max_length=40,
         unique=True
     )
     
     joined = models.DateField(auto_now_add=True,)
 
-    is_active = models.BooleanField(verbose_name="فعال", default=True)
-    is_admin = models.BooleanField(verbose_name="ادمین", default=False)
+    is_active = models.BooleanField(
+        verbose_name="فعال",
+        default=True
+    )
+    
+    is_admin = models.BooleanField(
+        verbose_name="ادمین", default=False
+    )
     
     # Managers
     objects = managers.UserManager()
