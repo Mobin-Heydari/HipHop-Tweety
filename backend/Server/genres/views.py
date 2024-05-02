@@ -9,16 +9,10 @@ class GenresView(View):
         
         genres = Genre.objects.all()
         
-        return render(request, 'musices/genres.html', {'geners':genres})
-
-
-class GenreDetail(View):
-    
-    def get(self, request, slug):
-        
-        genre = get_object_or_404(
-            Genre, slug=slug
+        return render(
+            request, 'genres/list.html', {
+                'genres' : genres
+            }
         )
-        
-        return render(request, 'musices/genre-detail', {'genre':genre})
+
         
