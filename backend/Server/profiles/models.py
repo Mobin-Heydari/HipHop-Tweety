@@ -22,10 +22,22 @@ class UserProfile(models.Model):
         verbose_name="تصویر پروفایل", 
     )
 
-    full_name = models.CharField(
+    f_name = models.CharField(
         max_length=200,
         blank=True, null=True,
-        verbose_name="نام کامل کاربر",
+        verbose_name="نام",
+    )
+    
+    l_name = models.CharField(
+        max_length=200,
+        blank=True, null=True,
+        verbose_name="نام خانوادگی",
+    )
+    
+    commen_name = models.CharField(
+        max_length=250,
+        blank=True, null=True,
+        verbose_name="نام نمایشی"
     )
     
     class Meta:

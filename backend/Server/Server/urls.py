@@ -9,5 +9,6 @@ urlpatterns = [
     path('musices/', include('musices.urls', namespace="musices")),
     path('genres/', include('genres.urls', namespace="genres")),
     path('albomes/', include('alboms.urls', namespace="albomes")),
-    path('auth/', include('authentication.urls', namespace="authentication"))
+    path('auth/', include('authentication.urls', namespace="authentication")),
+    path('profile/', include('profiles.urls', namespace="profile"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
