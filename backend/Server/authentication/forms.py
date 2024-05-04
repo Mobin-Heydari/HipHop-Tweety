@@ -65,3 +65,15 @@ class RegistrationForm(forms.Form):
             }
         )
     )
+    
+class OtpForm(forms.Form):
+    
+    otp = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'class' : 'form-control',
+                'id' : 'otp',
+                'type' : 'text'
+            }
+        )
+    )

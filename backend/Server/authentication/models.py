@@ -28,11 +28,12 @@ class Otp(models.Model):
         verbose_name="کد otp"
     )
     
-    id = models.CharField(
-        verbose_name="آیدی", max_length=500,
-        primary_key=True, unique=True,
-
+    token = models.CharField(
+        verbose_name="توکن",
+        max_length=100,
+        unique=True
     )
+
     
     class Meta:
         verbose_name = "کد اعتبارسنجی"
