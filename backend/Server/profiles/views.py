@@ -34,13 +34,27 @@ class ProfileView(View):
                 user=request.user
             )
             
-            profile.imgae = request.POST.get('image')
-            profile.f_name = request.POST.get('fname')
-            profile.l_name = request.POST.get('l_name')
-            profile.commen_name = request.POST.get('commen_name')
-            profile.bio = request.POST.get('bio')
+            if request.FILES.get('image'):
+                profile.image = request.FILES.get('image')
+                profile.save()
+                
+            if request.POST.get('f_name'):
+                profile.f_name = request.POST.get('f_name')
+                profile.save()
+                
+            if request.POST.get('l_name'):
+                profile.l_name = request.POST.get('l_name')
+                profile.save()
+                
+            if request.POST.get('commen_name'):
+                profile.commen_name = request.POST.get('commen_name')
+                profile.save()
             
-            profile.save()
+            if  request.POST.get('bio'):
+                profile.bio = request.POST.get('bio')
+                profile.save()
+            
+            
             return redirect(reverse('profile:profile_view'))
         else:
             return redirect('/')

@@ -148,7 +148,7 @@
           </div>
           <div class="plan__data">
             <div class="px-4 pt-2 ps-xl-0 pt-sm-0 mt-4 mb-3 my-sm-0 w-100">
-              <form method="post">
+              <form method="post" enctype="multipart/form-data" data-ajax="false">
                 {% csrf_token %}
                 <div class="d-flex align-items-center mb-4">
                     <div class="avatar avatar--xl">
@@ -161,7 +161,7 @@
                       </div>
                     </div>
                     <div class="ps-3">
-                      <input type="file" id="profile" class="d-none" name="image" />
+                      <input type="file" id="profile" class="d-none" name="image"/>
                       <label for="profile" class="btn btn-default rounded-pill"
                         >تغییر تصویر</label
                       >
@@ -176,7 +176,10 @@
                         type="text"
                         id="f_name"
                         class="form-control"
+                        name="f_name"
                         value="{{ profile.f_name}}"
+                        placeholder="{{ profile.f_name}}"
+
                       />
                     </div>
                     <div class="col-sm-6">
@@ -187,7 +190,9 @@
                         type="text"
                         id="l_name"
                         class="form-control"
-                        value="{{ profile.l_name}}"
+                        name="l_name"
+                        value="{{ profile.l_name }}"
+                        placeholder="{{ profile.l_name}}"
                       />
                     </div>
                     <div class="col-sm-6">
@@ -196,9 +201,11 @@
                       </label>
                       <input
                         type="text"
-                        id="commen_name"
+                        id="d_name"
+                        name="commen_name"
                         class="form-control"
                         value="{{ profile.commen_name }}"
+                        placeholder="{{ profile.commen_name }}"
                         
                       />
                     </div>
@@ -209,13 +216,12 @@
                       <textarea
                         name="bio"
                         id="about"
-                        cols="30"
                         rows="5"
                         class="form-control"
+                        placeholder="{{ profile.bio }}"
                         value="{{ profile.bio }}"
                         >
                         {{ profile.bio }}
-                        
                       </textarea>
                     </div>
                     <div class="col-12">

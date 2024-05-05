@@ -46,5 +46,5 @@ class UserProfile(models.Model):
     
        
     def __str__(self):
-        return f"{self.user.username}.....{self.full_name}"
+        return f"{self.user.username}.....{self.commen_name}"
 
