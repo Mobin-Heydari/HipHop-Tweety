@@ -148,80 +148,84 @@
           </div>
           <div class="plan__data">
             <div class="px-4 pt-2 ps-xl-0 pt-sm-0 mt-4 mb-3 my-sm-0 w-100">
-              <div class="d-flex align-items-center mb-4">
-                <div class="avatar avatar--xl">
-                  <div class="avatar__image">
-                        {% if profile.image %}
-                            <img src="{{ profile.image.url }}" class="img-fluid" alt=""/>
-                        {% else %}
-                            <img src="{% static "images/users/user.png" %}" class="img-fluid" alt=""/>
-                        {% endif %}
+              <form method="post">
+                {% csrf_token %}
+                <div class="d-flex align-items-center mb-4">
+                    <div class="avatar avatar--xl">
+                      <div class="avatar__image">
+                            {% if profile.image %}
+                                <img src="{{ profile.image.url }}" class="img-fluid" alt=""/>
+                            {% else %}
+                                <img src="{% static "images/users/user.png" %}" class="img-fluid" alt=""/>
+                            {% endif %}
+                      </div>
+                    </div>
+                    <div class="ps-3">
+                      <input type="file" id="profile" class="d-none" name="image" />
+                      <label for="profile" class="btn btn-default rounded-pill"
+                        >تغییر تصویر</label
+                      >
+                    </div>
+                  </div>
+                  <div class="row g-4">
+                    <div class="col-sm-6">
+                      <label for="f_name" class="form-label fw-medium"
+                        >نام</label
+                      >
+                      <input
+                        type="text"
+                        id="f_name"
+                        class="form-control"
+                        value="{{ profile.f_name}}"
+                      />
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="l_name" class="form-label fw-medium"
+                        >نام خانوادگی
+                      </label>
+                      <input
+                        type="text"
+                        id="l_name"
+                        class="form-control"
+                        value="{{ profile.l_name}}"
+                      />
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="d_name" class="form-label fw-medium"
+                        >نام نمایشی
+                      </label>
+                      <input
+                        type="text"
+                        id="commen_name"
+                        class="form-control"
+                        value="{{ profile.commen_name }}"
+                        
+                      />
+                    </div>
+                    <div class="col-12">
+                      <label for="about" class="form-label fw-medium"
+                        >درباره</label
+                      >
+                      <textarea
+                        name="bio"
+                        id="about"
+                        cols="30"
+                        rows="5"
+                        class="form-control"
+                        value="{{ profile.bio }}"
+                        >
+                        {{ profile.bio }}
+                        
+                      </textarea>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary">
+                        ذخیره تغییرات
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <div class="ps-3">
-                  <input type="file" id="profile" class="d-none" />
-                  <label for="profile" class="btn btn-default rounded-pill"
-                    >تغییر تصویر</label
-                  >
-                </div>
-              </div>
-              <div class="row g-4">
-                <div class="col-sm-6">
-                  <label for="f_name" class="form-label fw-medium"
-                    >نام</label
-                  >
-                  <input
-                    type="text"
-                    id="f_name"
-                    class="form-control"
-                    value="{{ profile.f_name}}"
-                  />
-                </div>
-                <div class="col-sm-6">
-                  <label for="l_name" class="form-label fw-medium"
-                    >نام خانوادگی
-                  </label>
-                  <input
-                    type="text"
-                    id="l_name"
-                    class="form-control"
-                    value="{{ profile.l_name}}"
-                  />
-                </div>
-                <div class="col-sm-6">
-                  <label for="d_name" class="form-label fw-medium"
-                    >نام نمایشی
-                  </label>
-                  <input
-                    type="text"
-                    id="d_name"
-                    class="form-control"
-                    value="{{ profile.commen_name }}"
-                  />
-                </div>
-                <div class="col-12">
-                  <label for="about" class="form-label fw-medium"
-                    >درباره</label
-                  >
-                  <textarea
-                    name="about"
-                    id="about"
-                    cols="30"
-                    rows="5"
-                    class="form-control"
-                    value="{{ profile.bio }}"
-                    >
-                    {{ profile.bio }}
-                    
-                  </textarea>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary">
-                    ذخیره تغییرات
-                  </button>
-                </div>
-              </div>
-            </div>
+              </form>
           </div>
         </div>
       </div>
