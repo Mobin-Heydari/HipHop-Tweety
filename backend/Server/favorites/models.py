@@ -86,18 +86,12 @@ class UserMusicFaver(models.Model):
         related_name="music_faver"
     )
     
-    
-    is_faver = models.BooleanField(
-        default=False,
-        verbose_name="علاقه دارد؟"
-    )
-    
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     
     class Meta:
-        ordering = ['is_faver', 'updated']
+        ordering = ['updated']
         verbose_name = "علاقمندی موزیک های کاربر"
         verbose_name_plural = "علاقمندی موزیک های کاربران"
         
