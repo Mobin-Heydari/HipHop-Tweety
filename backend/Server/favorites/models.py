@@ -15,11 +15,6 @@ class UserFavorite(models.Model):
         related_name="user_favorites"
     )
     
-    slug = models.SlugField(
-        verbose_name="اسلاگ",
-        unique=True
-    )
-    
     count = models.IntegerField(
         default=0,
         verbose_name="تعداد علاقه مندی ها"
