@@ -3,6 +3,7 @@ from musices.models import Music
 from users.models import User
 from genres.models import Genre
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.urls import reverse
 
 
 class Albom(models.Model):
@@ -58,6 +59,9 @@ class Albom(models.Model):
 
     def __str__(self):
         return f'آهنگ {self.title} از {self.singer}'
+    
+    def get_absolute_url(self):
+        return reverse("albomes:albome_detail", kwargs={"slug": self.slug})
 
     
 
