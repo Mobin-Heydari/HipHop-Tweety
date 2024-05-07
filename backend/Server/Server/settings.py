@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # Custome apps
+    'home.apps.HomeConfig',
     'users.apps.UsersConfig',
     'alboms.apps.AlbomsConfig',
     'genres.apps.GenresConfig',
