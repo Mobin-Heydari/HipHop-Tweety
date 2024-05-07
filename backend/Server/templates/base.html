@@ -345,7 +345,7 @@
                                 <img src="{% static "images/users/user.png" %}" alt="user"/>
                               {% endif %}
                             </div>
-                            <span class="ps-2 d-none d-sm-block">ادمین</span></a
+                            <span class="ps-2 d-none d-sm-block">{{ request.user.username }}</span></a
                         >
                         <ul
                             class="dropdown-menu dropdown-menu-md dropdown-menu-end"
@@ -361,8 +361,8 @@
                                   {% endif %}
                                 </div>
                                 <div class="avatar__content">
-                                <span class="avatar__title">ادمین</span>
-                                <span class="avatar__subtitle">ادمین</span>
+                                <span class="avatar__title">{{ request.user.username }}</span>
+                                <span class="avatar__subtitle">{{ request.user.user_profile.commen_name}}</span>
                                 </div>
                             </div>
                             </li>
@@ -393,6 +393,12 @@
                             >
                             </li>
                         </ul>
+                        </div>
+                      {% else %}
+                        <div class="d-flex align-items-center navbar-ex">
+                            <a class="btn btn-primary external" href="{% url "authentication:login" %}"
+                              >ورود / ثیت نام</a
+                            >
                         </div>
                       {% endif %}
                     </div>
@@ -429,11 +435,6 @@
                     </div>
                     <div class="cover d-flex align-items-center">
                       <div class="cover__image">
-                        <img
-                          data-amplitude-song-info="cover_art_url"
-                          src="images/cover/small/1.jpg"
-                          alt=""
-                        />
                       </div>
                       <div class="cover__content ps-3 d-none d-sm-block">
                         <a

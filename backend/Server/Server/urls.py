@@ -12,4 +12,5 @@ urlpatterns = [
     path('auth/', include('authentication.urls', namespace="authentication")),
     path('profile/', include('profiles.urls', namespace="profile")),
     path('favorites/', include('favorites.urls', namespace="favorites")),
+    path('', include('home.urls', namespace="home")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

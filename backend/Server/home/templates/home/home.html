@@ -1,0 +1,820 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidebar %}
+<aside id="sidebar">
+  <div
+    class="sidebar-head d-flex align-items-center justify-content-between"
+  >
+    <a href="{% url "home:home" %}" class="brand external"
+      ><img src="{% static "images/logos/logo.svg" %}" alt="Listen app" /> </a
+    ><a
+      href="javascript:void(0);"
+      role="button"
+      class="sidebar-toggler"
+      aria-label="Sidebar toggler"
+      ><div class="d-none d-lg-block">
+        <i class="ri-menu-3-line sidebar-menu-1"></i>
+        <i class="ri-menu-line sidebar-menu-2"></i>
+      </div>
+      <i class="ri-menu-fold-line d-lg-none"></i
+    ></a>
+  </div>
+  <div class="sidebar-body" data-scroll="true">
+    <nav class="navbar d-block p-0">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="{% url "home:home" %}" class="nav-link d-flex align-items-center active"
+            ><i class="ri-home-4-line fs-5"></i>
+            <span class="ps-3">خانه</span></a
+          >
+        </li>
+        <li class="nav-item nav-item--head">
+          <span class="nav-item--head__text">دسته بندی</span>
+          <span class="nav-item--head__dots">...</span>
+        </li>
+        <li class="nav-item">
+          <a href="{% url "genres:genres" %}" class="nav-link d-flex align-items-center"
+            ><i class="ri-disc-line fs-5"></i>
+            <span class="ps-3">سبک ها</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            href="{% url "musices:musices_list" %}"
+            class="nav-link d-flex align-items-center"
+            ><i class="ri-music-2-line fs-5"></i>
+            <span class="ps-3">موزیک ها</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="{% url "albomes:albomes_list" %}" class="nav-link d-flex align-items-center"
+            ><i class="ri-album-line fs-5"></i>
+            <span class="ps-3">آلبوم ها</span></a
+          >
+        </li>
+        <li class="nav-item nav-item--head">
+          <span class="nav-item--head__text">موزیک</span>
+          <span class="nav-item--head__dots">...</span>
+        </li>
+        <li class="nav-item">
+          <a
+            href="artists.html"
+            class="nav-link d-flex align-items-center"
+            ><i class="ri-mic-line fs-5"></i>
+            <span class="ps-3">هنرمندان</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            href="{% url "favorites:favorites" %}"
+            class="nav-link d-flex align-items-center"
+            ><i class="ri-heart-line fs-5"></i>
+            <span class="ps-3">مورد علاقه</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>
+{% endblock sidebar %}
+
+
+{% block main %}
+<main id="page_content">
+    <div
+      class="hero"
+      style="background-image: url({% static "images/banner/home.jpg" %})"
+    ></div>
+    <div class="under-hero container">
+      <div class="section">
+        <div class="section__head">
+          <div class="flex-grow-1">
+            <span class="section__subtitle"> محبوب ترین را گوش دهید</span>
+            <h3 class="mb-0">
+            محبوب ترین  <span class="text-primary">موزیک ها</span>
+            </h3>
+          </div>
+          <a href="{% url "musices:musices_list" %}" class="btn btn-link">نمایش همه</a>
+        </div>
+        <div class="swiper-carousel swiper-carousel-button">
+          <div
+            dir="rtl"
+            class="swiper"
+            data-swiper-slides="5"
+            data-swiper-autoplay="true"
+          >
+            <div class="swiper-wrapper">
+                {% for music in most_popular_musices %}
+                    <div class="swiper-slide">
+                        <div
+                        class="cover cover--round"
+                        data-song-id="{{ music.id }}"
+                        data-song-name="{{ music.title }}"
+                        data-song-artist="{{ music.artist }}"
+                        data-song-album="{{ music.title }}"
+                        data-song-url="{{ music.music_file.url }}"
+                        data-song-cover="{{ music.image.url }}"
+                        >
+                        <div class="cover__head">
+                            <ul class="cover__label d-flex">
+                            <li>
+                                <span class="badge rounded-pill bg-danger"
+                                ><i class="ri-heart-fill"></i
+                                ></span>
+                            </li>
+                            </ul>
+                            <div
+                            class="cover__options dropstart d-inline-flex ms-auto"
+                            >
+                            <a
+                                class="dropdown-link"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-label="Cover options"
+                                aria-expanded="false"
+                                ><i class="ri-more-2-fill"></i
+                            ></a>
+                            <ul class="dropdown-menu dropdown-menu-sm">
+                                <li>
+                                <a
+                                    class="dropdown-item"
+                                    href="javascript:void(0);"
+                                    role="button"
+                                    data-favorite-id="{{ music.id }}"
+                                    >مورد علاقه</a
+                                >
+                                </li>
+                                <li>
+                                <a
+                                    class="dropdown-item"
+                                    href="javascript:void(0);"
+                                    role="button"
+                                    data-playlist-id="{{ music.id }}"
+                                    >افزودن به لیست</a
+                                >
+                                </li>
+                                <li>
+                                <a
+                                    class="dropdown-item"
+                                    href="javascript:void(0);"
+                                    role="button"
+                                    data-queue-id="{{ music.id }}"
+                                    >افزودن به صف</a
+                                >
+                                </li>
+                                <li>
+                                <a
+                                    class="dropdown-item"
+                                    href="javascript:void(0);"
+                                    role="button"
+                                    data-next-id="{{ music.id }}"
+                                    >بعدی برای پخش</a
+                                >
+                                </li>
+                                <li>
+                                <a
+                                    class="dropdown-item"
+                                    href="javascript:void(0);"
+                                    role="button"
+                                    >اشتراک</a
+                                >
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li>
+                                <a
+                                    class="dropdown-item"
+                                    href="javascript:void(0);"
+                                    role="button"
+                                    data-play-id="{{ music.id }}"
+                                    >پخش</a
+                                >
+                                </li>
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="cover__image">
+                            <img src="{{ music.image.url }}" alt="{{ music.title }}" />
+                            <button
+                            type="button"
+                            class="btn btn-play btn-default btn-icon rounded-pill"
+                            data-play-id="{{ music.id }}"
+                            >
+                            <i class="ri-play-fill icon-play"></i>
+                            <i class="ri-pause-fill icon-pause"></i>
+                            </button>
+                        </div>
+                        <div class="cover__foot">
+                            <a
+                            href="song-details.html"
+                            class="cover__title text-truncate"
+                            >{{ music.title }}</a
+                            >
+                            <p class="cover__subtitle text-truncate">
+                            <a href="artist-details.html">{{ music.artist }}</a>
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+          </div>
+          <div class="swiper-button-prev btn-default rounded-pill"></div>
+          <div class="swiper-button-next btn-default rounded-pill"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="section col-xl-12">
+          <div class="mat-tabs">
+            <ul class="nav nav-tabs" id="songs_list" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="recent"
+                  data-bs-toggle="tab"
+                  data-bs-target="#recent_pane"
+                  type="button"
+                  role="tab"
+                  aria-controls="recent_pane"
+                  aria-selected="true"
+                >
+                پربازدید ترین ها
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="trending"
+                  data-bs-toggle="tab"
+                  data-bs-target="#trending_pane"
+                  type="button"
+                  role="tab"
+                  aria-controls="trending_pane"
+                  aria-selected="false"
+                >
+                  محبوب ترین ها 
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="international"
+                  data-bs-toggle="tab"
+                  data-bs-target="#international_pane"
+                  type="button"
+                  role="tab"
+                  aria-controls="international_pane"
+                  aria-selected="false"
+                >
+                    جدید ترین ها
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content mt-4" id="songs_list_content">
+            <div
+              class="tab-pane fade show active"
+              id="recent_pane"
+              role="tabpanel"
+              aria-labelledby="most_played"
+              tabindex="0"
+            >
+              <div class="list">
+                {% for music in most_played_musices %}
+                    <div
+                    class="list__item"
+                    data-song-id="{{ music.id }}"
+                    data-song-name="{{ music.title }}"
+                    data-song-artist="{{ music.artist }}"
+                    data-song-album="{{ music.titile }}"
+                    data-song-url="{{ music.music_file.url }}"
+                    data-song-cover="{{ music.image.url }}"
+                    >
+                    <div class="list__cover">
+                        <img src="{{ music.image.url }}" alt="{{ music.title }}" />
+                        <a
+                        href="javascript:void(0);"
+                        class="btn btn-play btn-sm btn-default btn-icon rounded-pill"
+                        data-play-id="{{ music.id }}"
+                        aria-label="Play pause"
+                        ><i class="ri-play-fill icon-play"></i>
+                        <i class="ri-pause-fill icon-pause"></i
+                        ></a>
+                    </div>
+                    <div class="list__content">
+                        <a
+                        href="{{ music.get_absolute_url }}"
+                        class="list__title text-truncate"
+                        >{{ music.title }}</a
+                        >
+                        <p class="list__subtitle text-truncate">
+                        <a href="artist-details.html">{{ music.artist }}</a>
+                        </p>
+                    </div>
+                    <ul class="list__option">
+                        <li>
+                        <a
+                            href="javascript:void(0);"
+                            role="button"
+                            class="d-inline-flex"
+                            aria-label="Favorite"
+                            data-favorite-id="{{ music.id }}"
+                            ><i class="ri-heart-line heart-empty"></i>
+                            <i class="ri-heart-fill heart-fill"></i
+                        ></a>
+                        </li>
+                        <li>{{ music.music_time }}</li>
+                        <li class="dropstart d-inline-flex">
+                        <a
+                            class="dropdown-link"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-label="Cover options"
+                            aria-expanded="false"
+                            ><i class="ri-more-fill"></i
+                        ></a>
+                        <ul class="dropdown-menu dropdown-menu-sm">
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-queue-id="{{ music.id }}"
+                                >افزودن به لیست</a
+                            >
+                            </li>
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-next-id="{{ music.id }}"
+                                >بعدی برای پخش</a
+                            >
+                            </li>
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                >اشتراک</a
+                            >
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-play-id="{{ music.id }}"
+                                >پخش</a
+                            >
+                            </li>
+                        </ul>
+                        </li>
+                    </ul>
+                    </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="trending_pane"
+              role="tabpanel"
+              aria-labelledby="trending"
+              tabindex="0"
+            >
+              <div class="list">
+                {% for music in most_popular_musices %}
+                    <div
+                    class="list__item"
+                    data-song-id="{{ music.id }}"
+                    data-song-name="{{ music.title }}"
+                    data-song-artist="{{ music.artist }}"
+                    data-song-album="{{ music.titile }}"
+                    data-song-url="{{ music.music_file.url }}"
+                    data-song-cover="{{ music.image.url }}"
+                    >
+                    <div class="list__cover">
+                        <img src="{{ music.image.url }}" alt="{{ music.title }}" />
+                        <a
+                        href="javascript:void(0);"
+                        class="btn btn-play btn-sm btn-default btn-icon rounded-pill"
+                        data-play-id="{{ music.id }}"
+                        aria-label="Play pause"
+                        ><i class="ri-play-fill icon-play"></i>
+                        <i class="ri-pause-fill icon-pause"></i
+                        ></a>
+                    </div>
+                    <div class="list__content">
+                        <a
+                        href="{{ music.get_absolute_url }}"
+                        class="list__title text-truncate"
+                        >{{ music.title }}</a
+                        >
+                        <p class="list__subtitle text-truncate">
+                        <a href="artist-details.html">{{ music.artist }}</a>
+                        </p>
+                    </div>
+                    <ul class="list__option">
+                        <li>
+                        <a
+                            href="javascript:void(0);"
+                            role="button"
+                            class="d-inline-flex"
+                            aria-label="Favorite"
+                            data-favorite-id="{{ music.id }}"
+                            ><i class="ri-heart-line heart-empty"></i>
+                            <i class="ri-heart-fill heart-fill"></i
+                        ></a>
+                        </li>
+                        <li>{{ music.music_time }}</li>
+                        <li class="dropstart d-inline-flex">
+                        <a
+                            class="dropdown-link"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-label="Cover options"
+                            aria-expanded="false"
+                            ><i class="ri-more-fill"></i
+                        ></a>
+                        <ul class="dropdown-menu dropdown-menu-sm">
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-queue-id="{{ music.id }}"
+                                >افزودن به لیست</a
+                            >
+                            </li>
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-next-id="{{ music.id }}"
+                                >بعدی برای پخش</a
+                            >
+                            </li>
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                >اشتراک</a
+                            >
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-play-id="{{ music.id }}"
+                                >پخش</a
+                            >
+                            </li>
+                        </ul>
+                        </li>
+                    </ul>
+                    </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="international_pane"
+              role="tabpanel"
+              aria-labelledby="international"
+              tabindex="0"
+            >
+            <div class="list">
+                {% for music in most_resent_musices %}
+                    <div
+                    class="list__item"
+                    data-song-id="{{ music.id }}"
+                    data-song-name="{{ music.title }}"
+                    data-song-artist="{{ music.artist }}"
+                    data-song-album="{{ music.titile }}"
+                    data-song-url="{{ music.music_file.url }}"
+                    data-song-cover="{{ music.image.url }}"
+                    >
+                    <div class="list__cover">
+                        <img src="{{ music.image.url }}" alt="{{ music.title }}" />
+                        <a
+                        href="javascript:void(0);"
+                        class="btn btn-play btn-sm btn-default btn-icon rounded-pill"
+                        data-play-id="{{ music.id }}"
+                        aria-label="Play pause"
+                        ><i class="ri-play-fill icon-play"></i>
+                        <i class="ri-pause-fill icon-pause"></i
+                        ></a>
+                    </div>
+                    <div class="list__content">
+                        <a
+                        href="{{ music.get_absolute_url }}"
+                        class="list__title text-truncate"
+                        >{{ music.title }}</a
+                        >
+                        <p class="list__subtitle text-truncate">
+                        <a href="artist-details.html">{{ music.artist }}</a>
+                        </p>
+                    </div>
+                    <ul class="list__option">
+                        <li>
+                        <a
+                            href="javascript:void(0);"
+                            role="button"
+                            class="d-inline-flex"
+                            aria-label="Favorite"
+                            data-favorite-id="{{ music.id }}"
+                            ><i class="ri-heart-line heart-empty"></i>
+                            <i class="ri-heart-fill heart-fill"></i
+                        ></a>
+                        </li>
+                        <li>{{ music.music_time }}</li>
+                        <li class="dropstart d-inline-flex">
+                        <a
+                            class="dropdown-link"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-label="Cover options"
+                            aria-expanded="false"
+                            ><i class="ri-more-fill"></i
+                        ></a>
+                        <ul class="dropdown-menu dropdown-menu-sm">
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-queue-id="{{ music.id }}"
+                                >افزودن به لیست</a
+                            >
+                            </li>
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-next-id="{{ music.id }}"
+                                >بعدی برای پخش</a
+                            >
+                            </li>
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                >اشتراک</a
+                            >
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-play-id="{{ music.id }}"
+                                >پخش</a
+                            >
+                            </li>
+                        </ul>
+                        </li>
+                    </ul>
+                    </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section__head">
+          <div class="flex-grow-1">
+            <span class="section__subtitle"
+              >بهترین ترین ها را گوش دهید</span
+            >
+            <h3 class="mb-0">
+              بهترین <span class="text-primary">آلبوم ها</span>
+            </h3>
+          </div>
+          <a href="{% url "albomes:albomes_list" %}" class="btn btn-link">نمایش همه</a>
+        </div>
+        <div class="list list--lg list--order">
+          <div class="row">
+            <div class="col-xl-12">
+                {% for album in most_popular_albums %}
+                    <div class="list__item">
+                    <a href="{{ album.get_absolute_url }}" class="list__cover"
+                        ><img src="{{ album.image.url }}" alt="{{ album.title }}"
+                    /></a>
+                    <div class="list__content">
+                        <a
+                        href="{{ album.get_absolute_url }}"
+                        class="list__title text-truncate"
+                        >{{ album.title }}</a
+                        >
+                        <p class="list__subtitle text-truncate">
+                        <a href="artist-details.html">{{ album.singer }}</a>
+                        </p>
+                    </div>
+                    <ul class="list__option">
+                        <li>
+                        <a
+                            href="javascript:void(0);"
+                            role="button"
+                            class="d-inline-flex"
+                            aria-label="Favorite"
+                            data-favorite-id="100"
+                            ><i class="ri-heart-line heart-empty"></i>
+                            <i class="ri-heart-fill heart-fill"></i
+                        ></a>
+                        </li>
+                        <li class="dropstart d-inline-flex">
+                        <a
+                            class="dropdown-link"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-label="Cover options"
+                            aria-expanded="false"
+                            ><i class="ri-more-fill"></i
+                        ></a>
+                        <ul class="dropdown-menu dropdown-menu-sm">
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-favorite-id="100"
+                                >مورد علاقه</a
+                            >
+                            </li>
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="audio/ringtone-1.mp3"
+                                download
+                                >دانلود</a
+                            >
+                            </li>
+                            <li>
+                            <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                >اشتراک</a
+                            >
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                            <a class="dropdown-item" href="{{ album.get_absolute_url }}"
+                                >نمایش جزئیات</a
+                            >
+                            </li>
+                        </ul>
+                        </li>
+                    </ul>
+                    </div>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section__head">
+          <div class="flex-grow-1">
+            <span class="section__subtitle">جدید ترین ها را گوش دهید </span>
+            <h3 class="mb-0">
+              جدید ترین <span class="text-primary">موزیک ها</span>
+            </h3>
+          </div>
+          <a href="songs.html" class="btn btn-link">نمایش همه</a>
+        </div>
+        <div class="swiper-carousel swiper-carousel-button">
+          <div
+            dir="rtl"
+            class="swiper"
+            data-swiper-slides="5"
+            data-swiper-autoplay="true"
+          >
+            <div class="swiper-wrapper">
+                {% for music in most_resent_musices %}
+                    <div class="swiper-slide">
+                    <div
+                        class="cover cover--round"
+                        data-song-id="{{ music.id }}"
+                        data-song-name="{{ music.title }}"
+                        data-song-artist="{{ music.artist }}"
+                        data-song-album="{{ music.title }}"
+                        data-song-url="{{ music.music_file.url }}"
+                        data-song-cover="{{ music.image.url }}"
+                    >
+                        <div class="cover__head">
+                        <ul class="cover__label d-flex">
+                            <li>
+                            <span class="badge rounded-pill bg-danger"
+                                ><i class="ri-heart-fill"></i
+                            ></span>
+                            </li>
+                        </ul>
+                        <div
+                            class="cover__options dropstart d-inline-flex ms-auto"
+                        >
+                            <a
+                            class="dropdown-link"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-label="Cover options"
+                            aria-expanded="false"
+                            ><i class="ri-more-2-fill"></i
+                            ></a>
+                            <ul class="dropdown-menu dropdown-menu-sm">
+                            <li>
+                                <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-favorite-id="{{ music.id }}"
+                                >مورد علاقه</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-queue-id="{{ music.id }}"
+                                >افزودن به لیست</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-next-id="{{ music.id }}"
+                                >بعدی برای پخش</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                >اشتراک</a
+                                >
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <a
+                                class="dropdown-item"
+                                href="javascript:void(0);"
+                                role="button"
+                                data-play-id="{{ music.id }}"
+                                >پخش</a
+                                >
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="cover__image">
+                        <img src="{{ music.image.url }}" alt="{{ music.title }}" />
+                        <button
+                            type="button"
+                            class="btn btn-play btn-default btn-icon rounded-pill"
+                            data-play-id="{{ music.id }}"
+                        >
+                            <i class="ri-play-fill icon-play"></i>
+                            <i class="ri-pause-fill icon-pause"></i>
+                        </button>
+                        </div>
+                        <div class="cover__foot">
+                        <a
+                            href="{{ music.get_absolute_url }}"
+                            class="cover__title text-truncate"
+                            >{{ music.title }}</a
+                        >
+                        <p class="cover__subtitle text-truncate">
+                            <a href="artist-details.html">{{ music.artist }}</a>
+                        </p>
+                        </div>
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+          </div>
+          <div class="swiper-button-prev btn-default rounded-pill"></div>
+          <div class="swiper-button-next btn-default rounded-pill"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock main %}
