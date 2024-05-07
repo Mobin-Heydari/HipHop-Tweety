@@ -2,119 +2,83 @@
 {% load static %}
 
 {% block sidebar %}
-    <aside id="sidebar">
-        <div
-        class="sidebar-head d-flex align-items-center justify-content-between"
-        >
-            <a href="home.html" class="brand external"
-                ><img src="images/logos/logo.svg" alt="Listen app" /> </a
-            ><a
-                href="javascript:void(0);"
-                role="button"
-                class="sidebar-toggler"
-                aria-label="Sidebar toggler"
-                ><div class="d-none d-lg-block">
-                <i class="ri-menu-3-line sidebar-menu-1"></i>
-                <i class="ri-menu-line sidebar-menu-2"></i>
-                </div>
-                <i class="ri-menu-fold-line d-lg-none"></i
-            ></a>
-        </div>
-        <div class="sidebar-body" data-scroll="true">
-        <nav class="navbar d-block p-0">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="home.html" class="nav-link d-flex align-items-center"
-                    ><i class="ri-home-4-line fs-5"></i>
-                    <span class="ps-3">خانه</span></a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a href="genres.html" class="nav-link d-flex align-items-center"
-                    ><i class="ri-disc-line fs-5"></i>
-                    <span class="ps-3">ژانر</span></a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a href="music.html" class="nav-link d-flex align-items-center"
-                    ><i class="ri-music-2-line fs-5"></i>
-                    <span class="ps-3">موزیک رایگان</span></a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                    href="albums.html"
-                    class="nav-link d-flex align-items-center active"
-                    ><i class="ri-album-line fs-5"></i>
-                    <span class="ps-3">آلبوم ها</span></a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                    href="artists.html"
-                    class="nav-link d-flex align-items-center"
-                    ><i class="ri-mic-line fs-5"></i>
-                    <span class="ps-3">هنرمندان</span></a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                    href="stations.html"
-                    class="nav-link d-flex align-items-center"
-                    ><i class="ri-radio-2-line fs-5"></i>
-                    <span class="ps-3">ایستگاه موزیک</span></a
-                    >
-                </li>
-                <li class="nav-item nav-item--head">
-                    <span class="nav-item--head__text">موزیک</span>
-                    <span class="nav-item--head__dots">...</span>
-                </li>
-                <li class="nav-item">
-                    <a
-                    href="analytics.html"
-                    class="nav-link d-flex align-items-center"
-                    ><i class="ri-pie-chart-line fs-5"></i>
-                    <span class="ps-3">آنالیز ها</span></a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                    href="favorites.html"
-                    class="nav-link d-flex align-items-center"
-                    ><i class="ri-heart-line fs-5"></i>
-                    <span class="ps-3">مورد علاقه</span></a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                    href="history.html"
-                    class="nav-link d-flex align-items-center"
-                    ><i class="ri-history-line fs-5"></i>
-                    <span class="ps-3">تاریخچه</span></a
-                    >
-                </li>
-                <li class="nav-item nav-item--head">
-                    <span class="nav-item--head__text">رویداد ها</span>
-                    <span class="nav-item--head__dots">...</span>
-                </li>
-                <li class="nav-item">
-                    <a href="events.html" class="nav-link d-flex align-items-center"
-                    ><i class="ri-calendar-event-line fs-5"></i>
-                    <span class="ps-3">رویداد ها</span></a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                    href="event-details.html"
-                    class="nav-link d-flex align-items-center"
-                    ><i class="ri-newspaper-line fs-5"></i>
-                    <span class="ps-3">جزئیات رویداد</span></a
-                    >
-                </li>
-            </ul>
-        </nav>
-    </aside>
+<aside id="sidebar">
+  <div
+    class="sidebar-head d-flex align-items-center justify-content-between"
+  >
+    <a href="home.html" class="brand external"
+      ><img src="{% static "images/logos/logo.svg" %}" alt="Listen app" /> </a
+    ><a
+      href="javascript:void(0);"
+      role="button"
+      class="sidebar-toggler"
+      aria-label="Sidebar toggler"
+      ><div class="d-none d-lg-block">
+        <i class="ri-menu-3-line sidebar-menu-1"></i>
+        <i class="ri-menu-line sidebar-menu-2"></i>
+      </div>
+      <i class="ri-menu-fold-line d-lg-none"></i
+    ></a>
+  </div>
+  <div class="sidebar-body" data-scroll="true">
+    <nav class="navbar d-block p-0">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="home.html" class="nav-link d-flex align-items-center"
+            ><i class="ri-home-4-line fs-5"></i>
+            <span class="ps-3">خانه</span></a
+          >
+        </li>
+        <li class="nav-item nav-item--head">
+          <span class="nav-item--head__text">دسته بندی</span>
+          <span class="nav-item--head__dots">...</span>
+        </li>
+        <li class="nav-item">
+          <a href="{% url "genres:genres" %}" class="nav-link d-flex align-items-center"
+            ><i class="ri-disc-line fs-5"></i>
+            <span class="ps-3">سبک ها</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            href="{% url "musices:musices_list" %}"
+            class="nav-link d-flex align-items-center"
+            ><i class="ri-music-2-line fs-5"></i>
+            <span class="ps-3">موزیک ها</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="{% url "albomes:albomes_list" %}" class="nav-link d-flex align-items-center active"
+            ><i class="ri-album-line fs-5"></i>
+            <span class="ps-3">آلبوم ها</span></a
+          >
+        </li>
+        <li class="nav-item nav-item--head">
+          <span class="nav-item--head__text">موزیک</span>
+          <span class="nav-item--head__dots">...</span>
+        </li>
+        <li class="nav-item">
+          <a
+            href="artists.html"
+            class="nav-link d-flex align-items-center"
+            ><i class="ri-mic-line fs-5"></i>
+            <span class="ps-3">هنرمندان</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            href="{% url "favorites:favorites" %}"
+            class="nav-link d-flex align-items-center"
+            ><i class="ri-heart-line fs-5"></i>
+            <span class="ps-3">مورد علاقه</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>
 {% endblock sidebar %}
+
 
 {% block main %}
 <main id="page_content">

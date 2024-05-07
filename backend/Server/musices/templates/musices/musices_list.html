@@ -30,25 +30,33 @@
             <span class="ps-3">خانه</span></a
           >
         </li>
+        <li class="nav-item nav-item--head">
+          <span class="nav-item--head__text">دسته بندی</span>
+          <span class="nav-item--head__dots">...</span>
+        </li>
         <li class="nav-item">
-          <a href="genres.html" class="nav-link d-flex align-items-center"
+          <a href="{% url "genres:genres" %}" class="nav-link d-flex align-items-center"
             ><i class="ri-disc-line fs-5"></i>
             <span class="ps-3">سبک ها</span></a
           >
         </li>
         <li class="nav-item">
           <a
-            href="music.html"
+            href="{% url "musices:musices_list" %}"
             class="nav-link d-flex align-items-center active"
             ><i class="ri-music-2-line fs-5"></i>
             <span class="ps-3">موزیک ها</span></a
           >
         </li>
         <li class="nav-item">
-          <a href="albums.html" class="nav-link d-flex align-items-center"
+          <a href="{% url "albomes:albomes_list" %}" class="nav-link d-flex align-items-center"
             ><i class="ri-album-line fs-5"></i>
             <span class="ps-3">آلبوم ها</span></a
           >
+        </li>
+        <li class="nav-item nav-item--head">
+          <span class="nav-item--head__text">موزیک</span>
+          <span class="nav-item--head__dots">...</span>
         </li>
         <li class="nav-item">
           <a
@@ -60,56 +68,10 @@
         </li>
         <li class="nav-item">
           <a
-            href="stations.html"
-            class="nav-link d-flex align-items-center"
-            ><i class="ri-radio-2-line fs-5"></i>
-            <span class="ps-3">ایستگاه موزیک</span></a
-          >
-        </li>
-        <li class="nav-item nav-item--head">
-          <span class="nav-item--head__text">موزیک</span>
-          <span class="nav-item--head__dots">...</span>
-        </li>
-        <li class="nav-item">
-          <a
-            href="analytics.html"
-            class="nav-link d-flex align-items-center"
-            ><i class="ri-pie-chart-line fs-5"></i>
-            <span class="ps-3">آنالیز ها</span></a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            href="favorites.html"
+            href="{% url "favorites:favorites" %}"
             class="nav-link d-flex align-items-center"
             ><i class="ri-heart-line fs-5"></i>
             <span class="ps-3">مورد علاقه</span></a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            href="history.html"
-            class="nav-link d-flex align-items-center"
-            ><i class="ri-history-line fs-5"></i>
-            <span class="ps-3">تاریخچه</span></a
-          >
-        </li>
-        <li class="nav-item nav-item--head">
-          <span class="nav-item--head__text">رویداد ها</span>
-          <span class="nav-item--head__dots">...</span>
-        </li>
-        <li class="nav-item">
-          <a href="events.html" class="nav-link d-flex align-items-center"
-            ><i class="ri-calendar-event-line fs-5"></i>
-            <span class="ps-3">رویداد ها</span></a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            href="event-details.html"
-            class="nav-link d-flex align-items-center"
-            ><i class="ri-newspaper-line fs-5"></i>
-            <span class="ps-3">جزئیات رویداد</span></a
           >
         </li>
       </ul>
