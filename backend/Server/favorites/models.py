@@ -51,18 +51,11 @@ class UserAlbomeFaver(models.Model):
         related_name="albome_faver"
     )
     
-    
-    is_faver = models.BooleanField(
-        default=False,
-        verbose_name="علاقه دارد؟"
-    )
-    
     created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
     
     
     class Meta:
-        ordering = ['is_faver', 'updated']
+        ordering = ['created']
         verbose_name = "علاقمندی آلبوم های کاربر"
         verbose_name_plural = "علاقمندی آلبوم های کاربران"
         
@@ -72,6 +65,7 @@ class UserAlbomeFaver(models.Model):
 
 
 class UserMusicFaver(models.Model):
+    
     user_favorite = models.ForeignKey(
         UserFavorite,
         on_delete=models.CASCADE,
@@ -87,11 +81,9 @@ class UserMusicFaver(models.Model):
     )
     
     created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    
     
     class Meta:
-        ordering = ['updated']
+        ordering = ['created']
         verbose_name = "علاقمندی موزیک های کاربر"
         verbose_name_plural = "علاقمندی موزیک های کاربران"
         

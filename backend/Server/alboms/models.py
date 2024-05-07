@@ -3,7 +3,7 @@ from musices.models import Music
 from users.models import User
 from genres.models import Genre
 from django.core.validators import MaxValueValidator, MinValueValidator
-from django.urls import reverselute 
+from django.urls import reverse 
 
 
 class Albom(models.Model):
