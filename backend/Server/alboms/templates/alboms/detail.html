@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block sidebar %}
+
 {% block sidebar %}
 <aside id="sidebar">
   <div
@@ -78,8 +78,6 @@
     </nav>
   </div>
 </aside>
-{% endblock sidebar %}
-
 {% endblock sidebar %}
 
 {% block main %}
@@ -242,7 +240,7 @@
                             <a
                                 href="javascript:void(0);"
                                 class="btn btn-play btn-sm btn-default btn-icon rounded-pill"
-                                data-play-id="1"
+                                data-play-id="{{ music.id }}"
                                 aria-label="Play pause"
                                 ><i class="ri-play-fill icon-play"></i>
                                 <i class="ri-pause-fill icon-pause"></i
@@ -250,7 +248,7 @@
                         </div>
                         <div class="list__content">
                             <a
-                                href="song-details.html"
+                                href="{{ music.get_absolute_url }}"
                                 class="list__title text-truncate"
                                 >{{ musices.music.title }}</a
                             >
@@ -265,7 +263,7 @@
                                 role="button"
                                 class="d-inline-flex"
                                 aria-label="Favorite"
-                                data-favorite-id="1"
+                                data-favorite-id="{{ music.id }}"
                                 ><i class="ri-heart-line heart-empty"></i>
                                 <i class="ri-heart-fill heart-fill"></i
                                 ></a>
@@ -314,7 +312,7 @@
                                     class="dropdown-item"
                                     href="javascript:void(0);"
                                     role="button"
-                                    data-play-id="1"
+                                    data-play-id="{{ music.id }}"
                                     >پخش</a
                                     >
                                 </li>

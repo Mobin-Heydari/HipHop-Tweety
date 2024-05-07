@@ -96,7 +96,7 @@
                   class="list__item"
                   data-song-id="{{ music.id }}"
                   data-song-name="{{ music.title }}"
-                  data-song-artist="عرفن "
+                  data-song-artist="{{ music.artist }}"
                   data-song-album="{{ music.title }}"
                   data-song-url="{{ music.music_file.url }}"
                   data-song-cover="{{ music.image.url }}"
@@ -109,7 +109,7 @@
                         </a>
                     </div>
                     <div class="list__content">
-                        <a href="song-details.html" class="list__title text-truncate">
+                        <a href="{{ music.get_absolute_url }}" class="list__title text-truncate">
                             {{ music.title }}
                         </a>
                         <p class="list__subtitle text-truncate">

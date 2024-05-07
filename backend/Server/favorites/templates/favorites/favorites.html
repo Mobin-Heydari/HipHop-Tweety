@@ -118,7 +118,7 @@
                   </div>
                   <div class="list__content">
                     <a
-                      href="song-details.html"
+                      href="{{ music.get_absolute_url }}"
                       class="list__title text-truncate"
                       >{{ music.music.title }}</a
                     >
@@ -249,19 +249,19 @@
                       </li>
                       <li class="dropdown-divider"></li>
                       <li>
-                        <a class="dropdown-item" href="album-details.html"
+                        <a class="dropdown-item" href="{{ albome.get_absolute_url }}"
                           >نمایش جزئیات</a
                         >
                       </li>
                     </ul>
                   </div>
                 </div>
-                <a href="album-details.html" class="cover__image"
+                <a href="{{ albome.get_absolute_url }}" class="cover__image"
                   ><img src="{{ albome.albome.image.url }}" alt="{{ albome.albome.title }}"
                 /></a>
                 <div class="cover__foot">
                   <a
-                    href="album-details.html"
+                    href="{{ albome.get_absolute_url }}"
                     class="cover__title text-truncate"
                     >{{ albome.albome.title }}</a
                   >

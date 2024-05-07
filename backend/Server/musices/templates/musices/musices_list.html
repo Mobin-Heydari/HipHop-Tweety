@@ -110,7 +110,7 @@
                 class="list__item"
                 data-song-id="{{ music.id }}"
                 data-song-name="{{ music.title }}"
-                data-song-artist="عرفن "
+                data-song-artist="{{ music.artist }}"
                 data-song-album="{{ music.title }}"
                 data-song-url="{{ music.music_file.url }}"
                 data-song-cover="{{ music.image.url }}"
@@ -123,11 +123,11 @@
                       </a>
                   </div>
                   <div class="list__content">
-                      <a href="song-details.html" class="list__title text-truncate">
+                      <a href="{{ music.get_absolute_url }}" class="list__title text-truncate">
                           {{ music.title }}
                       </a>
                       <p class="list__subtitle text-truncate">
-                          <a href="artist-details.html">{{music.artist}}</a>
+                          <a href="artist-details.html">{{ music.artist }}</a>
                       </p>
                   </div>
                   <ul class="list__option">
@@ -278,19 +278,19 @@
                         </li>
                         <li class="dropdown-divider"></li>
                         <li>
-                          <a class="dropdown-item" href="album-details.html"
+                          <a class="dropdown-item" href="{{ albom.get_absolute_url }}"
                             >نمایش جزئیات</a
                           >
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <a href="album-details.html" class="cover__image"
+                  <a href="{{ albom.get_absolute_url }}" class="cover__image"
                     ><img src="{{ albom.image.url }}" alt="{{ albome.title }}"
                   /></a>
                   <div class="cover__foot">
                     <a
-                      href="album-details.html"
+                      href="{{ albom.get_absolute_url }}"
                       class="cover__title text-truncate"
                       >{{ albome.title }}</a
                     >

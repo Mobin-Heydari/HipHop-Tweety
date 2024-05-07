@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Genre(models.Model):
     
@@ -30,5 +31,5 @@ class Genre(models.Model):
     
     
     def get_absolute_url(self):
-        return reverse("genre_detail", kwargs={"slug": self.slug})
+        return reverse("genres:genre_detail", kwargs={"slug": self.slug})
     

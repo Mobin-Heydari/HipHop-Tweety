@@ -98,7 +98,7 @@
           {% for genre in genres %}
             <div class="col-xl-3 col-sm-6">
                 <div class="cover cover--round">
-                    <a href="genre-details.html" class="cover__image"
+                    <a href="{{ genre.get_absolute_url }}" class="cover__image"
                         ><img
                         src="{{ genre.image.url }}"
                         alt="{{ genre.genre }}"
