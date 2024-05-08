@@ -27,3 +27,84 @@ class UserFavoritesView(View):
             )
         else:
             return redirect(reverse('authentication:login'))
+
+class UserMusicFavoriteView(View):
+    
+    def get(self, request, slug):
+        
+        if request.user.is_authenticated == True:
+            
+            music = get_object_or_404(
+                Music, 
+                slug = slug
+            )
+            
+            try:
+                
+                faver = UserMusicFavorite.objects.get(
+                    user = request.user,
+                    music = music
+                )
+                
+                faver.delete()
+                
+                music.likes -= 1
+                music.save()
+                
+                return redirect('favorites:favorites')
+            except:
+                
+                faver = UserMusicFavorite.objects.create(
+                    user = request.user,
+                    music = music
+                )
+                
+                faver.save
+                
+                music.likes += 1
+                music.save()
+                
+                return redirect('favorites:favorites')
+        else:
+            return redirect(reverse('authentication:login'))
+        
+
+class UserAlbumeFavoriteView(View):
+    
+    def get(self, request, slug):
+        
+        if request.user.is_authenticated == True:
+            
+            albume = get_object_or_404(
+                Albom, 
+                slug = slug
+            )
+            
+            try:
+                
+                faver = UserAlbumFavorite.objects.get(
+                    user = request.user,
+                    albume = albume
+                )
+                
+                faver.delete()
+                
+                albume.likes -= 1
+                albume.save()
+                
+                return redirect('favorites:favorites')
+            except:
+                
+                faver = UserAlbumFavorite.objects.create(
+                    user = request.user,
+                    albume = albume
+                )
+                
+                faver.save
+                
+                albume.likes += 1
+                albume.save()
+                
+                return redirect('favorites:favorites')
+        else:
+            return redirect(reverse('authentication:login'))
