@@ -95,7 +95,7 @@
           <div class="row">
             <div class="col-xl-12">
               {% comment %} Favorites musices list {% endcomment %}
-              {% for music in favers.user_music_faver.all %}
+              {% for music in user_musices_faver %}
                 <div
                   class="list__item"
                   data-song-id="{{ music.music.id }}"
@@ -199,8 +199,8 @@
       <div class="section">
         <div class="section__head"><h3 class="mb-0">آلبوم ها</h3></div>
         <div class="row g-4">
-          {% comment %} Albome favorites {% endcomment %}
-          {% for albome in favers.user_albome_faver.all %}
+          {% comment %} Album favorites {% endcomment %}
+          {% for albume in user_albums_faver %}
             <div class="col-6 col-xl-2 col-md-3 col-sm-4">
               <div class="cover cover--round">
                 <div class="cover__head">
@@ -227,7 +227,7 @@
                           class="dropdown-item"
                           href="javascript:void(0);"
                           role="button"
-                          data-favorite-id="{{ albome.id }}"
+                          data-favorite-id="{{ albume.albume.id }}"
                           >مورد علاقه</a
                         >
                       </li>
@@ -249,24 +249,24 @@
                       </li>
                       <li class="dropdown-divider"></li>
                       <li>
-                        <a class="dropdown-item" href="{{ albome.get_absolute_url }}"
+                        <a class="dropdown-item" href="{{ albume.albume.get_absolute_url }}"
                           >نمایش جزئیات</a
                         >
                       </li>
                     </ul>
                   </div>
                 </div>
-                <a href="{{ albome.get_absolute_url }}" class="cover__image"
-                  ><img src="{{ albome.albome.image.url }}" alt="{{ albome.albome.title }}"
+                <a href="{{ album.get_absolute_url }}" class="cover__image"
+                  ><img src="{{ albume.albume.image.url }}" alt="{{ albume.albume.title }}"
                 /></a>
                 <div class="cover__foot">
                   <a
-                    href="{{ albome.get_absolute_url }}"
+                    href="{{ albume.albume.get_absolute_url }}"
                     class="cover__title text-truncate"
-                    >{{ albome.albome.title }}</a
+                    >{{ albume.albume.title }}</a
                   >
                   <p class="cover__subtitle text-truncate">
-                    <a href="artist-details.html">{{ albome.albome.singer }}</a>
+                    <a href="artist-details.html">{{ albume.albume.singer }}</a>
                   </p>
                 </div>
               </div>
