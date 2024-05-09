@@ -330,12 +330,14 @@
           <div class="col-xl-8 col-lg-10 mx-auto mb-5">
             <div class="card p-lg-4">
               <div class="card-body">
-                <form action="" method="Post" class="row">
+                <form action="{% url "landing:contact" %}" method="Post" class="row">
+                  {% csrf_token %}
                   <div class="col-sm-6 mb-4">
                     <label for="f_name" class="form-label fw-medium">نام</label>
                     <input
                       type="text"
                       id="f_name"
+                      name="f_name"
                       class="form-control"
                     />
                   </div>
@@ -346,6 +348,7 @@
                     <input
                       type="text"
                       id="l_name"
+                      name="l_name"
                       class="form-control"
                     />
                   </div>
@@ -354,7 +357,7 @@
                     <input
                       type="text"
                       id="mail"
-                      name="mail"
+                      name="email"
                       class="form-control"
                     />
                   </div>
@@ -384,7 +387,7 @@
                   </div>
                   <div class="col-12 text-center">
                     <button
-                      type="button"
+                      type="submit"
                       class="btn btn-primary"
                       style="min-width: 180px"
                     >
