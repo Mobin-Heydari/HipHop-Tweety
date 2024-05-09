@@ -13,10 +13,20 @@ class SubscriptionPlansView(View):
             
             plans = SubscriptionPlan.objects.all()
             
-            return render(
-                request, 'subscription/subscription_plans.html', {
-                    'plans' : plans
-                }
-            )
+            try:
+                user_subscription = UserSubscription.objects.get(user=request.user)
+                
+                return render(
+                    request, 'subscription/subscription_plans.html', {
+                        'plans' : plans,
+                        'user_subscription' : user_subscription
+                    }
+                )
+            except:
+                return render(
+                    request, 'subscription/subscription_plans.html', {
+                        'plans' : plans,
+                    }
+                )
         else:
             return redirect('authentication:login')

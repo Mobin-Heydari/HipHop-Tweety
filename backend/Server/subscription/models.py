@@ -81,3 +81,9 @@ class UserSubscription(models.Model):
             self.is_active = True
             self.save()
             return True
+        
+    def validated_day(self):
+        if self.end_date < timezone.now():
+            return 0
+        else:
+            return (self.end_date - timezone.now()).days
