@@ -262,86 +262,57 @@
                 </div>
               </div>
               <div class="plan__data">
-                <div class="card plan__col">
-                  <div class="card-body fw-medium">
-                    <div class="d-flex align-items-center text-dark mb-4">
-                      <i class="ri-music-2-line fs-3"></i>
-                      <h4 class="mb-0 ps-3">
-                        اشتراک <span class="text-primary">پلاس</span>
-                      </h4>
+                {% for plan in plans %}
+                  <div class="card plan__col">
+                    <div class="card-body fw-medium">
+                      <div class="d-flex align-items-center text-dark mb-4">
+                        <i class="ri-vip-crown-line fs-3"></i>
+                        <h4 class="mb-0 ps-3">{{ plan.name }}</h4>
+                      </div>
+                      <p class="fs-6 opacity-50">شامل چه چیزی میباشد</p>
+                      <div class="d-flex mb-3">
+                        <i
+                          class="ri-checkbox-circle-fill text-primary opacity-75 fs-6"
+                        ></i>
+                        <span class="ps-2">دسترسی به تمام موزیک ها</span>
+                      </div>
+                      <div class="d-flex mb-3">
+                        <i
+                          class="ri-checkbox-circle-fill text-primary opacity-75 fs-6"
+                        ></i>
+                        <span class="ps-2">بدون تبلیغات</span>
+                      </div>
+                      <div class="d-flex mb-3">
+                        <i
+                          class="ri-checkbox-circle-fill text-primary opacity-75 fs-6"
+                        ></i>
+                        <span class="ps-2"
+                          >ایجاد لیست پخش و دسترسی به بخش آمار</span
+                        >
+                      </div>
+                      <div class="d-flex mb-3">
+                        <i
+                          class="ri-checkbox-circle-fill text-primary opacity-75 fs-6"
+                        ></i>
+                        <span class="ps-2">گوش دادن به موزیک های پولی</span>
+                      </div>
+                      <div class="d-flex mb-3">
+                        <i
+                          class="ri-checkbox-circle-fill text-primary opacity-75 fs-6"
+                        ></i>
+                        <span class="ps-2">دانلود آفلاین موزیک ها</span>
+                      </div>
                     </div>
-                    <p class="fs-6 opacity-50">شامل چه چیزی میباشد</p>
-                    <div class="d-flex mb-3">
-                      <i
-                        class="ri-checkbox-circle-fill text-primary opacity-75 fs-6"
-                      ></i>
-                      <span class="ps-2">دسترسی به تمام موزیک ها</span>
-                    </div>
-                    <div class="d-flex mb-3">
-                      <i
-                        class="ri-checkbox-circle-fill text-primary opacity-75 fs-6"
-                      ></i>
-                      <span class="ps-2">بدون تبلیغات</span>
-                    </div>
-                  </div>
-                  <div class="card-footer pb-4 pb-sm-0">
-                    <div class="text-dark mb-3">
-                      <span class="fs-4 fw-bold">110 هزار تومان</span>/سالانه
-                    </div>
-                    <button type="button" class="btn btn-primary w-100">
-                      انتخاب
-                    </button>
-                  </div>
-                </div>
-                <div class="card plan__col">
-                  <div class="card-body fw-medium">
-                    <div class="d-flex align-items-center text-dark mb-4">
-                      <i class="ri-vip-crown-line fs-3"></i>
-                      <h4 class="mb-0 ps-3">ویژه</h4>
-                    </div>
-                    <p class="fs-6 opacity-50">شامل چه چیزی میباشد</p>
-                    <div class="d-flex mb-3">
-                      <i
-                        class="ri-checkbox-circle-fill text-primary opacity-75 fs-6"
-                      ></i>
-                      <span class="ps-2">دسترسی به تمام موزیک ها</span>
-                    </div>
-                    <div class="d-flex mb-3">
-                      <i
-                        class="ri-checkbox-circle-fill text-primary opacity-75 fs-6"
-                      ></i>
-                      <span class="ps-2">بدون تبلیغات</span>
-                    </div>
-                    <div class="d-flex mb-3">
-                      <i
-                        class="ri-checkbox-circle-fill text-primary opacity-75 fs-6"
-                      ></i>
-                      <span class="ps-2"
-                        >ایجاد لیست پخش و دسترسی به بخش آمار</span
-                      >
-                    </div>
-                    <div class="d-flex mb-3">
-                      <i
-                        class="ri-checkbox-circle-fill text-primary opacity-75 fs-6"
-                      ></i>
-                      <span class="ps-2">گوش دادن به موزیک های پولی</span>
-                    </div>
-                    <div class="d-flex mb-3">
-                      <i
-                        class="ri-checkbox-circle-fill text-primary opacity-75 fs-6"
-                      ></i>
-                      <span class="ps-2">دانلود آفلاین موزیک ها</span>
+                    <div class="card-footer">
+                      <div class="text-dark mb-3">
+                        <span class="fs-4 fw-bold">{{ plan.price_pre_month }} هزار تومان</span>/ماهانه
+                      </div>
+                      <button type="button" class="btn btn-primary w-100">
+                        انتخاب
+                      </button>
                     </div>
                   </div>
-                  <div class="card-footer">
-                    <div class="text-dark mb-3">
-                      <span class="fs-4 fw-bold">200 هزار تومان</span>/سالانه
-                    </div>
-                    <button type="button" class="btn btn-primary w-100">
-                      انتخاب
-                    </button>
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
           </div>
@@ -359,14 +330,13 @@
           <div class="col-xl-8 col-lg-10 mx-auto mb-5">
             <div class="card p-lg-4">
               <div class="card-body">
-                <form action="#" class="row">
+                <form action="" method="Post" class="row">
                   <div class="col-sm-6 mb-4">
                     <label for="f_name" class="form-label fw-medium">نام</label>
                     <input
                       type="text"
                       id="f_name"
                       class="form-control"
-                      placeholder="ادمین"
                     />
                   </div>
                   <div class="col-sm-6 mb-4">
@@ -377,7 +347,6 @@
                       type="text"
                       id="l_name"
                       class="form-control"
-                      placeholder="هشت"
                     />
                   </div>
                   <div class="col-sm-6 mb-4">
@@ -385,8 +354,8 @@
                     <input
                       type="text"
                       id="mail"
+                      name="mail"
                       class="form-control"
-                      placeholder="johndoe@xzy.com"
                     />
                   </div>
                   <div class="col-sm-6 mb-4">
@@ -396,8 +365,8 @@
                     <input
                       type="text"
                       id="phone"
+                      name="phone"
                       class="form-control"
-                      placeholder="000 1111 222 333"
                     />
                   </div>
                   <div class="col-12 mb-4">
