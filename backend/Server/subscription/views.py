@@ -5,10 +5,12 @@ from users.models import User
 
 
 
-def test_subscription(request):
-    sub = UserSubscription.objects.get(user=request.user)
-    sub.validate_subscription()
-    if sub.is_active == True:
-        return HttpResponse("True")
-    else:
-        return HttpResponse("False")
+class SubscriptionPlansView(View):
+    
+    def get(self, request):
+        
+        if request.user.is_authenticated == True:
+            
+            return render(request, 'subscription/subscription_plans.html')
+        else:
+            return redirect('authentication:login')
