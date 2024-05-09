@@ -3,6 +3,37 @@ from users.models import User
 from django.utils import timezone
 
 
+
+class SubscriptionPlan(models.Model):
+    
+    name = models.CharField(
+        verbose_name="عنوان پلن اشتراک",
+        max_length=200,
+    )
+    
+    price_pre_month = models.IntegerField(
+        verbose_name="قیمت پلن اشتراک برای هر ماه"
+    )
+    
+    is_active = models.BooleanField(
+        verbose_name="وضعیت پلن اشتراک",
+        default=True,
+    )
+    
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['created']
+        verbose_name = "پلن اشتراک"
+        verbose_name_plural = "پلن های اشتراک"
+        
+    
+    def __str__(self):
+        return f'{self.name} price for month : {self.price_pre_month}'
+
+
+
 class UserSubscription(models.Model):
     
     user = models.ForeignKey(
@@ -24,6 +55,15 @@ class UserSubscription(models.Model):
         verbose_name="وضعیت اشتراک",
         default=False
     )
+    
+    plan = models.ForeignKey(
+        SubscriptionPlan,
+        on_delete=models.SET_NULL,
+        related_name="plans",
+        verbose_name="پلن",
+        null=True
+    )
+    
     
     class Meta:
         verbose_name = "اشتراک کاربر"
