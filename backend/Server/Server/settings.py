@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'musices.apps.MusicesConfig',
     'profiles.apps.ProfilesConfig',
     'favorites.apps.FavoritesConfig',
+    'subscription.apps.SubscriptionConfig',
     'authentication.apps.AuthenticationConfig',
 ]
 
