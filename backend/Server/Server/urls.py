@@ -13,4 +13,5 @@ urlpatterns = [
     path('profile/', include('profiles.urls', namespace="profile")),
     path('favorites/', include('favorites.urls', namespace="favorites")),
     path('', include('home.urls', namespace="home")),
+    path('sub/', include('subscription.urls', namespace="subscription")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
