@@ -6,7 +6,7 @@ from .models import UserMusicFavorite, UserAlbumFavorite
 
 from musices.models import Music
 from alboms.models import Albom
-
+from subscription.models import UserSubscription
 
 
 class UserFavoritesView(View):
@@ -14,19 +14,31 @@ class UserFavoritesView(View):
     def get(self, request):
         
         if request.user.is_authenticated == True:
-            
-            user_musices_faver = UserMusicFavorite.objects.filter(user=request.user).order_by('-created')
-            
-            user_albums_faver = UserAlbumFavorite.objects.filter(user=request.user).order_by('-created')
-            
-            return render(
-                request, 'favorites/favorites.html', {
-                    'user_musices_faver' : user_musices_faver,
-                    'user_albums_faver' : user_albums_faver
-                }
-            )
+            try:
+                user_sub = UserSubscription.objects.get(user=request.user)
+                
+                user_sub.validate_subscription()
+                
+                if user_sub.is_active == True:
+                    
+                    user_musices_faver = UserMusicFavorite.objects.filter(user=request.user).order_by('-created')
+                    
+                    user_albums_faver = UserAlbumFavorite.objects.filter(user=request.user).order_by('-created')
+                    
+                    return render(
+                        request, 'favorites/favorites.html', {
+                            'user_musices_faver' : user_musices_faver,
+                            'user_albums_faver' : user_albums_faver
+                        }
+                    )
+                else:
+                    return redirect('subscription:plans')
+            except:
+                return redirect('subscription:plans')
         else:
-            return redirect(reverse('authentication:login'))
+            return redirect('authentication:login')
+            
+        
 
 class UserMusicFavoriteView(View):
     
@@ -34,39 +46,52 @@ class UserMusicFavoriteView(View):
         
         if request.user.is_authenticated == True:
             
-            music = get_object_or_404(
-                Music, 
-                slug = slug
-            )
-            
             try:
                 
-                faver = UserMusicFavorite.objects.get(
-                    user = request.user,
-                    music = music
-                )
+                user_sub = UserSubscription.objects.get(user=request.user)
                 
-                faver.delete()
+                user_sub.validate_subscription()
                 
-                music.likes -= 1
-                music.save()
-                
-                return redirect('favorites:favorites')
+                if user_sub.is_active == True:
+                    
+                    music = get_object_or_404(
+                        Music, 
+                        slug = slug
+                    )
+                    
+                    try:
+                        
+                        faver = UserMusicFavorite.objects.get(
+                            user = request.user,
+                            music = music
+                        )
+                        
+                        faver.delete()
+                        
+                        music.likes -= 1
+                        music.save()
+                        
+                        return redirect('favorites:favorites')
+                    except:
+                        
+                        faver = UserMusicFavorite.objects.create(
+                            user = request.user,
+                            music = music
+                        )
+                        
+                        faver.save
+                        
+                        music.likes += 1
+                        music.save()
+                        
+                        return redirect('favorites:favorites')   
+                else:
+                    return redirect('subscription:plans')
             except:
-                
-                faver = UserMusicFavorite.objects.create(
-                    user = request.user,
-                    music = music
-                )
-                
-                faver.save
-                
-                music.likes += 1
-                music.save()
-                
-                return redirect('favorites:favorites')
+                return redirect('subscription:plans')
         else:
-            return redirect(reverse('authentication:login'))
+            return redirect('authentication:login')
+            
         
 
 class UserAlbumeFavoriteView(View):
@@ -75,36 +100,47 @@ class UserAlbumeFavoriteView(View):
         
         if request.user.is_authenticated == True:
             
-            albume = get_object_or_404(
-                Albom, 
-                slug = slug
-            )
-            
             try:
+                user_sub = UserSubscription.objects.get(user=request.user)
                 
-                faver = UserAlbumFavorite.objects.get(
-                    user = request.user,
-                    albume = albume
-                )
+                user_sub.validate_subscription()
                 
-                faver.delete()
-                
-                albume.likes -= 1
-                albume.save()
-                
-                return redirect('favorites:favorites')
+                if user_sub.is_active == True:
+                    
+                    albume = get_object_or_404(
+                        Albom, 
+                        slug = slug
+                    )
+            
+                try:
+                    
+                    faver = UserAlbumFavorite.objects.get(
+                        user = request.user,
+                        albume = albume
+                    )
+                    
+                    faver.delete()
+                    
+                    albume.likes -= 1
+                    albume.save()
+                    
+                    return redirect('favorites:favorites')
+                except:
+                    
+                    faver = UserAlbumFavorite.objects.create(
+                        user = request.user,
+                        albume = albume
+                    )
+                    
+                    faver.save
+                    
+                    albume.likes += 1
+                    albume.save()
+                    
+                    return redirect('favorites:favorites')
+                else:
+                    return redirect('subscription:plans')
             except:
-                
-                faver = UserAlbumFavorite.objects.create(
-                    user = request.user,
-                    albume = albume
-                )
-                
-                faver.save
-                
-                albume.likes += 1
-                albume.save()
-                
-                return redirect('favorites:favorites')
+                return redirect('subscription:plans')
         else:
-            return redirect(reverse('authentication:login'))
+            return redirect('authentication:login')
