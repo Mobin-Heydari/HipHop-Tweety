@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% comment %} Sidebar {% endcomment %}
+{% block title %}موزیک {{ music.title }} از {{ music.artist }} | Hip Hop Tweety{% endblock title %}
+
+{% block description %}{% endblock description %}
+
 {% block sidebar %}
 <aside id="sidebar">
   <div
@@ -79,7 +82,6 @@
   </div>
 </aside>
 {% endblock sidebar %}
-
 
 {% block main %}
 <main id="page_content">
