@@ -27,7 +27,8 @@ class ProfileView(View):
                     
                     return render(
                         request, 'profiles/profile.html', {
-                            'profile' : profile
+                            'profile' : profile,
+                            'subscription' : user_sub
                         }
                     )
                 else:
