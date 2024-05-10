@@ -15,4 +15,5 @@ urlpatterns = [
     path('subscription/', include('subscription.urls', namespace="subscription")),
     path('home/', include('home.urls', namespace="home")),
     path('', include('landing.urls', namespace="landing")),
+    path('search/', include('search.urls', namespace="search")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
