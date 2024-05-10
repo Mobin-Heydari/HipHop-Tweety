@@ -1,6 +1,4 @@
 from django.db import models
-from alboms.models import Albom
-from musices.models import Music
 from users.models import User
 
     
@@ -17,7 +15,7 @@ class UserMusicFavorite(models.Model):
     )
     
     music = models.ForeignKey(
-        Music,
+        'musices.Music',
         verbose_name="آهنگ",
         on_delete=models.CASCADE,
         related_name="music_faver"
@@ -46,7 +44,7 @@ class UserAlbumFavorite(models.Model):
     )
     
     albume = models.ForeignKey(
-        Albom,
+        'alboms.Albom',
         verbose_name="آلبوم",
         on_delete=models.CASCADE,
         related_name="albome_faver"

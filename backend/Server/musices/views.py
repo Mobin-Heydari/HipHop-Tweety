@@ -27,11 +27,9 @@ class MusicesView(View):
                     albomes_queryset = albomes_queryset.order_by('-likes')[0:5]
                     
                     return render(
-                        request, 'musices/musices_list.html',
-                        {
+                        request, 'musices/musices_list.html', {
                             'musices' : musices_queryset,
-                            'alboms' : albomes_queryset
-                        
+                            'alboms' : albomes_queryset,
                         }
                     )
                 else:

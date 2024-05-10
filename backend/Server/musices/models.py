@@ -3,6 +3,7 @@ from django.urls import reverse
 from users.models import User
 from genres.models import Genre
 from django.core.validators import MinValueValidator, MaxValueValidator
+from favorites.models import UserMusicFavorite
 
 
 
@@ -99,6 +100,25 @@ class Music(models.Model):
     def get_absolute_url(self):
         return reverse("musices:music_detail", kwargs={"slug": self.slug})
     
+    def faver_validator(self, user_Name):
+        try:
+            return True
+            user = User.objects.get(username=user_name)
+            if user is not None:
+                try:
+                    faver = UserMusicFavorite.objects.get(
+                        # user = user,
+                        music = self
+                    )
+                    if faver is not None:
+                        print(faver)
+                        return True
+                    else:
+                        return False
+                except:
+                    return False
+        except:
+            return False
     
     
 class Comment(models.Model):
