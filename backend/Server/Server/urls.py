@@ -6,13 +6,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('musices/', include('musices.urls', namespace="musices")),
-    path('genres/', include('genres.urls', namespace="genres")),
-    path('albomes/', include('alboms.urls', namespace="albomes")),
+    path('music/', include('musices.urls', namespace="musices")),
+    path('genre/', include('genres.urls', namespace="genres")),
+    path('albume/', include('alboms.urls', namespace="albomes")),
     path('auth/', include('authentication.urls', namespace="authentication")),
     path('profile/', include('profiles.urls', namespace="profile")),
     path('favorites/', include('favorites.urls', namespace="favorites")),
-    path('sub/', include('subscription.urls', namespace="subscription")),
+    path('subscription/', include('subscription.urls', namespace="subscription")),
     path('home/', include('home.urls', namespace="home")),
     path('', include('landing.urls', namespace="landing")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
