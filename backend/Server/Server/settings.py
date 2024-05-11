@@ -146,3 +146,9 @@ EMAIL_HOST_PASSWORD = "SZPM7008"
 EMAIL_USE_TLS = True
 # EMAIL_USE_SSL = False
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+
+#   Zarinpal --api--merchand
+# SANDBOX MODE
+MERCHANT = "00000000-0000-0000-0000-000000000000"
+SANDBOX = True
