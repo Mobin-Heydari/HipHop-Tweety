@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load faver_validator %}
+
 
 {% block title %}در جستوجوی آهنگ {{ searched_data }} آلبوم {{ searched_data }}| Hip Hop Tweety{% endblock title %}
 
@@ -158,18 +160,33 @@
                       </p>
                   </div>
                   <ul class="list__option">
-                      <li>
+                    {% faver_validator user_id=user.id music_id=music.id as is_faver %}
+                      {% if is_faver %}
+                        <li>
                           <a
-                          href="javascript:void(0);"
-                          role="button"
-                          class="d-inline-flex"
-                          aria-label="Favorite"
-                          data-favorite-id="1"
-                          >
-                              <i class="ri-heart-line heart-empty"></i>
-                              <i class="ri-heart-fill heart-fill"></i>
+                            href="{% url "favorites:user_music_faver" music.slug %}?next=/search/?q={{searched_data}}"
+                            role="button"
+                            class="d-inline-flex active"
+                            aria-label="Favorite"
+                            data-favorite-id="{{  music.music.id }}"
+                            ><i class="ri-heart-line heart-empty"></i>
+                            <i class="ri-heart-fill heart-fill"></i>
                           </a>
-                      </li>
+                        </li>
+                      {% else %}
+                        <li>
+                            <a
+                            href="{% url "favorites:user_music_faver" music.slug %}?next=/search/?q={{searched_data}}"
+                            role="button"
+                            class="d-inline-flex"
+                            aria-label="Favorite"
+                            data-favorite-id="{{ music.id }}"
+                            >
+                                <i class="ri-heart-line heart-empty"></i>
+                                <i class="ri-heart-fill heart-fill"></i>
+                            </a>
+                        </li>
+                      {% endif %}
                       <li>{{ music.music_time }}</li>
                       <li class="dropstart d-inline-flex">
                           <a
