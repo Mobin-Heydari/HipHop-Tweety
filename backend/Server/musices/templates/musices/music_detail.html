@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load faver_validator %}
 
 {% block title %}موزیک {{ music.title }} از {{ music.artist }} | Hip Hop Tweety{% endblock title %}
 
@@ -211,18 +212,33 @@
                   <span class="ps-2 fw-semi-bold">{{ music.plays }}</span>
                 </div>
               </li>
-              <li>
-                <a
-                  href="javascript:void(0);"
-                  role="button"
-                  class="text-dark d-flex align-items-center"
-                  aria-label="Favorite"
-                  data-favorite-id="{{ music.id }}"
-                  ><i class="ri-heart-line heart-empty"></i>
-                  <i class="ri-heart-fill heart-fill"></i>
-                  <span class="ps-2 fw-medium">{{ music.likes }}</span></a
-                >
-              </li>
+                {% faver_validator user_id=user.id music_id=music.id as is_faver %}
+                {% if is_faver %}
+                  <li>
+                    <a
+                      href="{% url "favorites:user_music_faver" music.slug %}?next=/music/{{music.slug}}/"
+                      role="button"
+                      class="d-inline-flex active"
+                      aria-label="Favorite"
+                      data-favorite-id="{{  music.music.id }}"
+                      ><i class="ri-heart-line heart-empty"></i>
+                      <i class="ri-heart-fill heart-fill"></i>
+                    </a>
+                  </li>
+                {% else %}
+                  <li>
+                      <a
+                      href="{% url "favorites:user_music_faver" music.slug %}?next=/music/{{music.slug}}/"
+                      role="button"
+                      class="d-inline-flex"
+                      aria-label="Favorite"
+                      data-favorite-id="{{ music.id }}"
+                      >
+                          <i class="ri-heart-line heart-empty"></i>
+                          <i class="ri-heart-fill heart-fill"></i>
+                      </a>
+                  </li>
+                {% endif %}
               <li>
                 <span class="text-dark d-flex align-items-center"
                   ><i class="ri-star-fill text-warning"></i>
@@ -267,11 +283,33 @@
                     >
                         <div class="cover__head">
                             <ul class="cover__label d-flex">
+                              {% faver_validator user_id=user.id music_id=music.id as is_faver %}
+                              {% if is_faver %}
                                 <li>
-                                    <span class="badge rounded-pill bg-danger"
-                                    ><i class="ri-heart-fill"></i
-                                    ></span>
+                                  <a
+                                    href="{% url "favorites:user_music_faver" music.slug %}?next=/music/{{music.slug}}/"
+                                    role="button"
+                                    class="d-inline-flex active"
+                                    aria-label="Favorite"
+                                    data-favorite-id="{{  music.music.id }}"
+                                    ><i class="ri-heart-line heart-empty"></i>
+                                    <i class="ri-heart-fill heart-fill"></i>
+                                  </a>
                                 </li>
+                              {% else %}
+                                  <li>
+                                      <a
+                                      href="{% url "favorites:user_music_faver" music.slug %}?next=/music/{{music.slug}}/"
+                                      role="button"
+                                      class="d-inline-flex"
+                                      aria-label="Favorite"
+                                      data-favorite-id="{{ music.id }}"
+                                      >
+                                          <i class="ri-heart-line heart-empty"></i>
+                                          <i class="ri-heart-fill heart-fill"></i>
+                                      </a>
+                                  </li>
+                              {% endif %}
                             </ul>
                             <div class="cover__options dropstart d-inline-flex ms-auto">
                                 <a class="dropdown-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-label="Cover options" aria-expanded="false">

@@ -45,14 +45,14 @@ class MusicDetail(View):
     
     def get(self, request, slug):
         
-        if request.user.is_authenticated == True:
+        # if request.user.is_authenticated == True:
             
-            try:
-                user_sub = UserSubscription.objects.get(user=request.user)
+        #     try:
+        #         user_sub = UserSubscription.objects.get(user=request.user)
                 
-                user_sub.validate_subscription()
+        #         user_sub.validate_subscription()
                 
-                if user_sub.is_active == True:
+        #         if user_sub.is_active == True:
                     
                     music = get_object_or_404(Music, slug=slug)
                     
@@ -72,12 +72,12 @@ class MusicDetail(View):
                             'reply' : reply
                         }
                     )
-                else:
-                    return redirect('subscription:plans')
-            except:
-                return redirect('subscription:plans')
-        else:
-            return redirect('authentication:login')
+        #         else:
+        #             return redirect('subscription:plans')
+        #     except:
+        #         return redirect('subscription:plans')
+        # else:
+        #     return redirect('authentication:login')
         
     
     
