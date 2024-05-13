@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import User
+# from users.models import User
 from django.utils import timezone
 
 
@@ -37,7 +37,7 @@ class SubscriptionPlan(models.Model):
 class UserSubscription(models.Model):
     
     user = models.ForeignKey(
-        User,
+        'users.User',
         on_delete=models.CASCADE,
         related_name="user_sub",
         verbose_name="کاربر",
