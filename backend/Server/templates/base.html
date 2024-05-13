@@ -33,18 +33,17 @@
         <![endif]-->
     </head>
     <body>
-        {% comment %} Loder {% endcomment %}
-        <div id="line_loader"></div>
-        <div id="loader">
-            <div class="loader">
-                <div class="loader__eq mx-auto">
-                    <span></span> <span></span> <span></span> <span></span> <span></span>
-                    <span></span>
-                </div>
-                <span class="loader__text mt-2">در حال بارگیری . . .</span>
-            </div>
+      <div id="line_loader"></div>
+      <div id="loader">
+        <div class="loader">
+          <div class="loader__eq mx-auto">
+            <span></span> <span></span> <span></span> <span></span> <span></span>
+            <span></span>
+          </div>
+          <span class="loader__text mt-2">در حال بارگیری . . .</span>
         </div>
-        <div id="wrapper">
+      </div>
+      <div id="wrapper">
             {% comment %} Sidebar {% endcomment %}
             {% block sidebar %}
             
@@ -328,6 +327,6 @@
             <div id="backdrop"></div>
             <script src="{% static "js/plugins.bundle.js" %}"></script>
             <script src="{% static "js/scripts.bundle.js" %}"></script>
-        </div>
     </body>
-<html>
+</html>
+        
