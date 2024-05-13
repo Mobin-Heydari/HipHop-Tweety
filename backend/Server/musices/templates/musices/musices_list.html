@@ -60,18 +60,6 @@
           >
         </li>
         <li class="nav-item nav-item--head">
-          <span class="nav-item--head__text">هنرمندان</span>
-          <span class="nav-item--head__dots">...</span>
-        </li>
-        <li class="nav-item">
-          <a
-            href="artists.html"
-            class="nav-link d-flex align-items-center"
-            ><i class="ri-mic-line fs-5"></i>
-            <span class="ps-3">هنرمندان</span></a
-          >
-        </li>
-        <li class="nav-item nav-item--head">
           <span class="nav-item--head__text">علاقمندی ها</span>
           <span class="nav-item--head__dots">...</span>
         </li>
@@ -111,7 +99,7 @@
       <div class="section">
         <div class="section__head align-items-center">
           <span class="d-block pe-3 fs-6 fw-semi-bold"
-            >5240 موزیک در لیست</span
+            >{{ musices.count }} موزیک در لیست</span
           >
           <div>
             <select class="form-select" aria-label="Filter song">
@@ -148,7 +136,7 @@
                           {{ music.title }}
                       </a>
                       <p class="list__subtitle text-truncate">
-                          <a href="artist-details.html">{{ music.artist }}</a>
+                          {{ music.artist }}
                       </p>
                   </div>
                   <ul class="list__option">
@@ -333,10 +321,10 @@
                     <a
                       href="{{ albom.get_absolute_url }}"
                       class="cover__title text-truncate"
-                      >{{ albome.title }}</a
+                      >{{ albom.title }}</a
                     >
                     <p class="cover__subtitle text-truncate">
-                      <a href="artist-details.html">{{ albom.singer }}</a>
+                      {{ albom.singer }}
                     </p>
                   </div>
                 </div>

@@ -59,18 +59,7 @@
             <span class="ps-3">آلبوم ها</span></a
           >
         </li>
-        <li class="nav-item nav-item--head">
-          <span class="nav-item--head__text">هنرمندان</span>
-          <span class="nav-item--head__dots">...</span>
-        </li>
-        <li class="nav-item">
-          <a
-            href="artists.html"
-            class="nav-link d-flex align-items-center"
-            ><i class="ri-mic-line fs-5"></i>
-            <span class="ps-3">هنرمندان</span></a
-          >
-        </li>
+        
         <li class="nav-item nav-item--head">
           <span class="nav-item--head__text">علاقمندی ها</span>
           <span class="nav-item--head__dots">...</span>
@@ -105,7 +94,7 @@
 <main id="page_content">
     <div
       class="hero"
-      style="background-image: url(images/banner/song.jpg)"
+      style="background-image: url({% static "images/banner/song.jpg" %})"
     ></div>
     <div class="under-hero container">
       <div class="section">
@@ -195,9 +184,7 @@
                         class="cover__title text-truncate"
                         >{{ albome.title }}</a
                       >
-                      <p class="cover__subtitle text-truncate">
-                        <a href="artist-details.html">{{ albome.singer }}</a>
-                      </p>
+                        <p>{{ albome.singer }}</p>
                     </div>
                   </div>
                 </div>
@@ -238,9 +225,7 @@
                         class="list__title text-truncate"
                         >{{ albome.title }}</a
                       >
-                      <p class="list__subtitle text-truncate">
-                        <a href="artist-details.html">{{ albome.singer }}</a>
-                      </p>
+                      <p>{{ albome.singer }}</p>
                     </div>
                     <ul class="list__option">
                       {% faver_albume_validator user_id=user.id albume_id=albome.id as is_albume_faver %}
