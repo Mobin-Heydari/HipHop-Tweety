@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load faver_validator %}
+{% load faver_albume_validator %}
 
 {% block title %}آلبوم {{ albome.title }} از {{ albome.singer }} | Hip Hop Tweety{% endblock title %}
 
@@ -178,7 +179,7 @@
             </div>
             <ul class="info-list info-list--dotted mb-3">
               <li>آلبوم</li>
-              <li>10 موزیک</li>
+              <li>{{ albome.albom_musics.all.count }} موزیک</li>
               <li>01:21:41</li>
               <li>{{ albome.singer }}</li>
             </ul>
@@ -209,18 +210,33 @@
                   >
                 </div>
               </li>
-              <li>
-                <a
-                  href="javascript:void(0);"
-                  role="button"
-                  class="text-dark d-flex align-items-center"
-                  aria-label="Favorite"
-                  data-favorite-id="{{ albome.id }}"
-                  ><i class="ri-heart-line heart-empty"></i>
-                  <i class="ri-heart-fill heart-fill"></i>
-                  <span class="ps-2 fw-medium">{{ albome.likes }}</span></a
-                >
-              </li>
+              {% faver_albume_validator user_id=user.id albume_id=albome.id as is_albume_faver %}
+              {% if is_albume_faver %}
+                <li>
+                  <a
+                    href="{% url "favorites:user_albume_faver" albome.slug %}?next=/albume/{{ albome.slug }}/"
+                    role="button"
+                    class="d-inline-flex active"
+                    aria-label="Favorite"
+                    data-favorite-id="{{ albome.id }}"
+                    ><i class="ri-heart-line heart-empty"></i>
+                    <i class="ri-heart-fill heart-fill"></i>
+                  </a>
+                </li>
+              {% else %}
+                <li>
+                    <a
+                    href="{% url "favorites:user_albume_faver" albome.slug %}?next=/albume/{{ albome.slug }}/"
+                    role="button"
+                    class="d-inline-flex"
+                    aria-label="Favorite"
+                    data-favorite-id="{{ albomeid }}"
+                    >
+                        <i class="ri-heart-line heart-empty"></i>
+                        <i class="ri-heart-fill heart-fill"></i>
+                    </a>
+                </li>
+              {% endif %}
               <li>
                 <span class="text-dark d-flex align-items-center"
                   ><i class="ri-star-fill text-warning"></i>
@@ -370,11 +386,33 @@
                   <div class="cover cover--round">
                     <div class="cover__head">
                       <ul class="cover__label d-flex">
-                        <li>
-                          <span class="badge rounded-pill bg-danger"
-                            ><i class="ri-heart-fill"></i
-                          ></span>
-                        </li>
+                        {% faver_albume_validator user_id=user.id albume_id=albome.id as is_albume_faver %}
+                        {% if is_albume_faver %}
+                          <li>
+                            <a
+                              href="{% url "favorites:user_albume_faver" albome.slug %}?next=/albume/{{ albome.slug }}/"
+                              role="button"
+                              class="d-inline-flex active"
+                              aria-label="Favorite"
+                              data-favorite-id="{{ albome.id }}"
+                              ><i class="ri-heart-line heart-empty"></i>
+                              <i class="ri-heart-fill heart-fill"></i>
+                            </a>
+                          </li>
+                        {% else %}
+                          <li>
+                              <a
+                              href="{% url "favorites:user_albume_faver" albome.slug %}?next=/albume/{{ albome.slug }}/"
+                              role="button"
+                              class="d-inline-flex"
+                              aria-label="Favorite"
+                              data-favorite-id="{{ albomeid }}"
+                              >
+                                  <i class="ri-heart-line heart-empty"></i>
+                                  <i class="ri-heart-fill heart-fill"></i>
+                              </a>
+                          </li>
+                        {% endif %}
                       </ul>
                       <div
                         class="cover__options dropstart d-inline-flex ms-auto"

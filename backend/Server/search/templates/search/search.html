@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load faver_validator %}
+{% load faver_albume_validator %}
 
 
 {% block title %}در جستوجوی آهنگ {{ searched_data }} آلبوم {{ searched_data }}| Hip Hop Tweety{% endblock title %}
@@ -276,11 +277,33 @@
                 <div class="cover cover--round">
                   <div class="cover__head">
                     <ul class="cover__label d-flex">
-                      <li>
-                        <span class="badge rounded-pill bg-danger"
-                          ><i class="ri-heart-fill"></i
-                        ></span>
-                      </li>
+                      {% faver_albume_validator user_id=user.id albume_id=albom.id as is_albume_faver %}
+                      {% if is_albume_faver %}
+                        <li>
+                          <a
+                            href="{% url "favorites:user_albume_faver" albom.slug %}?next=/search/?q={{searched_data}}"
+                            role="button"
+                            class="d-inline-flex active"
+                            aria-label="Favorite"
+                            data-favorite-id="{{ albom.id }}"
+                            ><i class="ri-heart-line heart-empty"></i>
+                            <i class="ri-heart-fill heart-fill"></i>
+                          </a>
+                        </li>
+                      {% else %}
+                        <li>
+                            <a
+                            href="{% url "favorites:user_albume_faver" albom.slug %}?next=/search/?q={{searched_data}}"
+                            role="button"
+                            class="d-inline-flex"
+                            aria-label="Favorite"
+                            data-favorite-id="{{ albomid }}"
+                            >
+                                <i class="ri-heart-line heart-empty"></i>
+                                <i class="ri-heart-fill heart-fill"></i>
+                            </a>
+                        </li>
+                      {% endif %}
                     </ul>
                     <div
                       class="cover__options dropstart d-inline-flex ms-auto"

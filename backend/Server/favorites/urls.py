@@ -11,5 +11,5 @@ urlpatterns = [
     # Music favorite (add&remove) url
     path('music-favorite/<slug:slug>/', views.UserMusicFavoriteView.as_view(), name="user_music_faver"),
     # Albume favorite (add&remove) url
-    path('albume-favorite/<slug:slug>/', views.UserAlbumeFavoriteView.as_view(), name="user_malbume_faver"),
+    path('albume-favorite/<slug:slug>/', views.UserAlbumeFavoriteView.as_view(), name="user_albume_faver"),
 ]

@@ -72,6 +72,7 @@ TEMPLATES = [
             ],
             'libraries': {
                 'faver_validator': 'musices.templatetags.faver_validator',
+                'faver_albume_validator': 'alboms.templatetags.faver_albume_validator',
             },
         },
     },

@@ -132,6 +132,10 @@ class UserAlbumeFavoriteView(View):
                     albume.likes -= 1
                     albume.save()
                     
+                    next_page = request.GET.get('next')
+                    if next_page is not None:
+                        return redirect(next_page)
+                    
                     return redirect('favorites:favorites')
                 except:
                     
@@ -144,6 +148,10 @@ class UserAlbumeFavoriteView(View):
                     
                     albume.likes += 1
                     albume.save()
+                    
+                    next_page = request.GET.get('next')
+                    if next_page is not None:
+                        return redirect(next_page)
                     
                     return redirect('favorites:favorites')
                 else:
