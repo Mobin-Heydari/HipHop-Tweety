@@ -140,11 +140,33 @@
                         >
                         <div class="cover__head">
                             <ul class="cover__label d-flex">
-                            <li>
-                                <span class="badge rounded-pill bg-danger"
-                                ><i class="ri-heart-fill"></i
-                                ></span>
-                            </li>
+                              {% faver_validator user_id=user.id music_id=music.id as is_faver %}
+                              {% if is_faver %}
+                                <li>
+                                  <a
+                                    href="{% url "favorites:user_music_faver" music.slug %}?next=home:home"
+                                    role="button"
+                                    class="d-inline-flex active"
+                                    aria-label="Favorite"
+                                    data-favorite-id="{{  music.music.id }}"
+                                    ><i class="ri-heart-line heart-empty"></i>
+                                    <i class="ri-heart-fill heart-fill"></i>
+                                  </a>
+                                </li>
+                              {% else %}
+                                <li>
+                                    <a
+                                    href="{% url "favorites:user_music_faver" music.slug %}?next=home:home"
+                                    role="button"
+                                    class="d-inline-flex"
+                                    aria-label="Favorite"
+                                    data-favorite-id="{{ music.id }}"
+                                    >
+                                        <i class="ri-heart-line heart-empty"></i>
+                                        <i class="ri-heart-fill heart-fill"></i>
+                                    </a>
+                                </li>
+                              {% endif %}
                             </ul>
                             <div
                             class="cover__options dropstart d-inline-flex ms-auto"
@@ -796,11 +818,33 @@
                     >
                         <div class="cover__head">
                         <ul class="cover__label d-flex">
+                          {% faver_validator user_id=user.id music_id=music.id as is_faver %}
+                          {% if is_faver %}
                             <li>
-                            <span class="badge rounded-pill bg-danger"
-                                ><i class="ri-heart-fill"></i
-                            ></span>
+                              <a
+                                href="{% url "favorites:user_music_faver" music.slug %}?next=home:home"
+                                role="button"
+                                class="d-inline-flex active"
+                                aria-label="Favorite"
+                                data-favorite-id="{{  music.music.id }}"
+                                ><i class="ri-heart-line heart-empty"></i>
+                                <i class="ri-heart-fill heart-fill"></i>
+                              </a>
                             </li>
+                          {% else %}
+                            <li>
+                                <a
+                                href="{% url "favorites:user_music_faver" music.slug %}?next=home:home"
+                                role="button"
+                                class="d-inline-flex"
+                                aria-label="Favorite"
+                                data-favorite-id="{{ music.id }}"
+                                >
+                                    <i class="ri-heart-line heart-empty"></i>
+                                    <i class="ri-heart-fill heart-fill"></i>
+                                </a>
+                            </li>
+                          {% endif %}
                         </ul>
                         <div
                             class="cover__options dropstart d-inline-flex ms-auto"
