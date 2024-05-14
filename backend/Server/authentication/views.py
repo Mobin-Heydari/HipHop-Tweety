@@ -18,9 +18,13 @@ class Logout(View):
     
     def get(self, request):
         
-        logout(request)
-        
-        return redirect('/')
+        if request.user.is_authenticated == True:
+                
+            logout(request)
+            
+            return redirect('/')
+        else:
+            return redirect('authentication:login')
 
 
 
@@ -28,21 +32,26 @@ class Login(View):
     
     def get(self, request):
         
-        form = LoginForm()
+        if request.user.is_authenticated == False:
+            
+            form = LoginForm()
+
+            return render(
+                request, 'authentication/login.html', {
+                    'form' : form
+                }
+            )
+        else:
+            return redirect('authentication:login')
         
-        return render(
-            request, 'authentication/login.html', {
-                'form' : form
-            }
-        )
-    
+        
     
     def post(self, request):
         
         if request.user.is_authenticated == False:
-            
+
             form = LoginForm(request.POST)
-            
+    
             if form.is_valid():
                 
                 cd = form.cleaned_data
@@ -56,7 +65,7 @@ class Login(View):
                     
                     login(request, user)
                     
-                    return redirect('/')
+                    return redirect('home:home')
                 else:
                     return render(
                         request, 'authentication/login.html', {
@@ -66,7 +75,7 @@ class Login(View):
             else:
                 return redirect('authentication:login')
         else:
-            return redirect('/')
+            return redirect('authentication:login')
 
 
 
@@ -75,15 +84,16 @@ class Register(View):
     def get(self, request):
         
         if request.user.is_authenticated == False:
+            
             form = RegistrationForm()
-        
+            
             return render(
                 request, 'authentication/register.html', {
                     'form' : form
                 }
             )
         else:
-            return redirect('/')
+            return redirect('authentication:login')
         
     
     def post(self, request):
@@ -112,13 +122,13 @@ class Register(View):
                             token = token
                         )
                         
-                        send_mail(
-                            subject = 'Hip Hop Tweety veryfication',
-                            message = f'به Hip Hop Tweety خوش آمدید. برای تایید ایمیل خودتون کد: {otp_code} را وارد کنید',
-                            from_email = 'specila.me.szpm@gmail.com',
-                            recipient_list = [cd['email']],
-                            fail_silently = False,
-                        )
+                        # send_mail(
+                        #     subject = 'Hip Hop Tweety veryfication',
+                        #     message = f'به Hip Hop Tweety خوش آمدید. برای تایید ایمیل خودتون کد: {otp_code} را وارد کنید',
+                        #     from_email = 'specila.me.szpm@gmail.com',
+                        #     recipient_list = [cd['email']],
+                        #     fail_silently = False,
+                        # )
                         
                         print(f'token : {token}, otp_code : {otp_code}')
                         
@@ -140,14 +150,14 @@ class CheckOtp(View):
         if request.user.is_authenticated == False:
             
             form = OtpForm()
-            
+        
             return render(
                 request, 'authentication/check_otp.html', {
                     'form' : form
                 }
             )
         else:
-            return redirect('/')
+            return redirect('authentication:login')
         
     
     def post(self, request):
@@ -155,7 +165,7 @@ class CheckOtp(View):
         if request.user.is_authenticated == False:
             
             form = OtpForm(request.POST)
-            
+
             token = request.GET.get('token')
             
             otp = get_object_or_404(
@@ -180,7 +190,7 @@ class CheckOtp(View):
                     
                     login(request, user)
                     
-                    return redirect('/')
+                    return redirect('home:home')
                 else:
                     return render(
                         request, 'authentication/check_otp.html', {
@@ -194,5 +204,4 @@ class CheckOtp(View):
                     }
                 )
         else:
-            return redirect('/')
-            
+            return redirect('authentication:login')
