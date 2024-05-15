@@ -24,7 +24,7 @@ class Logout(View):
             
             return redirect('/')
         else:
-            return redirect('authentication:login')
+            return redirect('home:home')
 
 
 
@@ -42,7 +42,7 @@ class Login(View):
                 }
             )
         else:
-            return redirect('authentication:login')
+            return redirect('home:home')
         
         
     
@@ -75,7 +75,7 @@ class Login(View):
             else:
                 return redirect('authentication:login')
         else:
-            return redirect('authentication:login')
+            return redirect('home:home')
 
 
 
@@ -93,7 +93,7 @@ class Register(View):
                 }
             )
         else:
-            return redirect('authentication:login')
+            return redirect('home:home')
         
     
     def post(self, request):
@@ -140,7 +140,7 @@ class Register(View):
             else:
                 return redirect('authentication:register')
         else:
-            return redirect('/')
+            return redirect('home:home')
         
         
 class CheckOtp(View):
@@ -157,7 +157,7 @@ class CheckOtp(View):
                 }
             )
         else:
-            return redirect('authentication:login')
+            return redirect('home:home')
         
     
     def post(self, request):
@@ -204,4 +204,4 @@ class CheckOtp(View):
                     }
                 )
         else:
-            return redirect('authentication:login')
+            return redirect('homehome:homehome')
