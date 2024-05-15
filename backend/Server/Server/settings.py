@@ -171,25 +171,77 @@ PWA_APP_DESCRIPTION = "Hip Hop Tweety bigest music platform in iran"
 PWA_APP_THEME_COLOR = '#000000'
 PWA_APP_BACKGROUND_COLOR = '#ffffff'
 PWA_APP_DISPLAY = 'standalone'
-PWA_APP_SCOPE = '/'
+PWA_APP_SCOPE = 'home/'
 PWA_APP_ORIENTATION = 'any'
-PWA_APP_START_URL = '/'
+PWA_APP_START_URL = 'home/'
 PWA_APP_STATUS_BAR_COLOR = 'default'
 PWA_APP_ICONS = [
     {
-        'src': 'static/images/logos/logo.svg',
-        'sizes': '160x160'
-    }
+        'src': '/static/images/pwa/logos/win/192x192.png',
+        'sizes': '192x192'
+    },
+    {
+        'src': '/static/images/pwa/logos/win/256x256.png',
+        'sizes': '256x256'
+    },
+    {
+        'src': '/static/images/pwa/logos/win/384x384.png',
+        'sizes': '384x384'
+    },
+    {
+        'src': '/static/images/pwa/logos/win/512x512.png',
+        'sizes': '512x512'
+    },
+    
+    # Androids
+    {
+        'src': '/static/images/pwa/logos/android/72x72.png',
+        'sizes': '72x72'
+    },
+    {
+        'src': '/static/images/pwa/logos/android/96x96.png',
+        'sizes': '96x96'
+    },
+    
+    {
+        'src': '/static/images/pwa/logos/android/128x128.png',
+        'sizes': '128x128'
+    },
+    
+    {
+        'src': '/static/images/pwa/logos/android/144x144.png',
+        'sizes': '144x144'
+    },
+    
+    {
+        'src': '/static/images/pwa/logos/android/152x152.png',
+        'sizes': '152x152'
+    },
+    
+    {
+        'src': '/static/images/pwa/logos/android/192x192.png',
+        'sizes': '192x192'
+    },
+    
+    {
+        'src': '/static/images/pwa/logos/android/384x384.png',
+        'sizes': '384x384'
+    },
+    
+    {
+        'src': '/static/images/pwa/logos/android/512x512.png',
+        'sizes': '512x512'
+    },
 ]
 PWA_APP_ICONS_APPLE = [
     {
-        'src': 'static/images/pwa/logos/ios/120x120.png',
+        'src': '/static/images/pwa/logos/ios/120x120.png',
         'sizes': '120x120'
     }
 ]
 PWA_APP_SPLASH_SCREEN = [
     {
-        'src': 'static/images/icon.png',
+        'src': '/static/images/icon.svg',
         'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
     }
 ]
