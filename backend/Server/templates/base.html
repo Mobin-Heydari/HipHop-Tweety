@@ -1,4 +1,5 @@
 {% load static %}
+{% load pwa %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +9,9 @@
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>{% block title %}{% endblock title %}</title>
         <meta name="description" content="{% block description %} {% endblock description %}">
+
+        {% progressive_web_app_meta %}
+
         <link href="{% static "images/logos/favicon.png" %}" rel="icon" />
         <link rel="apple-touch-icon" href="{% static "images/logos/touch-icon-iphone.png" %}" />
         <link

@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'favorites.apps.FavoritesConfig',
     'subscription.apps.SubscriptionConfig',
     'authentication.apps.AuthenticationConfig',
+    
+    # PWA
+    'pwa'
 ]
 
 MIDDLEWARE = [
@@ -156,3 +159,39 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 # SANDBOX MODE
 MERCHANT = "00000000-0000-0000-0000-000000000000"
 SANDBOX = True
+
+
+# Service worker path
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+
+
+# PWA manifest settings
+PWA_APP_NAME = "Hip Hop Tweety"
+PWA_APP_DESCRIPTION = "Hip Hop Tweety bigest music platform in iran"
+PWA_APP_THEME_COLOR = '#000000'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        'src': 'static/images/logos/logo.svg',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': 'static/images/pwa/logos/ios/120x120.png',
+        'sizes': '120x120'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': 'static/images/icon.png',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]
+PWA_APP_DIR = 'rtl'
+PWA_APP_LANG = 'fa-IR'

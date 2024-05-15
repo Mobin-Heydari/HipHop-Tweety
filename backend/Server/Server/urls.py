@@ -16,5 +16,8 @@ urlpatterns = [
     path('home/', include('home.urls', namespace="home")),
     path('', include('landing.urls', namespace="landing")),
     path('search/', include('search.urls', namespace="search")),
-    path('payment/', include('payment.urls', namespace="payment"))
+    path('payment/', include('payment.urls', namespace="payment")),
+    
+    # PWA url
+    path('', include('pwa.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
