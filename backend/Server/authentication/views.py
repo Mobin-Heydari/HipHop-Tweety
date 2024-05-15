@@ -122,15 +122,13 @@ class Register(View):
                             token = token
                         )
                         
-                        # send_mail(
-                        #     subject = 'Hip Hop Tweety veryfication',
-                        #     message = f'به Hip Hop Tweety خوش آمدید. برای تایید ایمیل خودتون کد: {otp_code} را وارد کنید',
-                        #     from_email = 'specila.me.szpm@gmail.com',
-                        #     recipient_list = [cd['email']],
-                        #     fail_silently = False,
-                        # )
-                        
-                        print(f'token : {token}, otp_code : {otp_code}')
+                        send_mail(
+                            subject = 'Hip Hop Tweety veryfication',
+                            message = f'به Hip Hop Tweety خوش آمدید. برای تایید ایمیل خودتون کد: {otp_code} را وارد کنید',
+                            from_email = 'specila.me.szpm@gmail.com',
+                            recipient_list = [cd['email']],
+                            fail_silently = False,
+                        )
                         
                         return redirect(reverse('authentication:check_otp') + f'?token={token}')
                     else:
@@ -230,15 +228,21 @@ class ResetPassword(View):
             
             token = get_random_string(100)
             
-            print(code)
             
             otp = ResetPasswordOtp.objects.create(
                 email = email,
                 otp_code = code,
                 token = token
             )
-            
             otp.save()
+            
+            send_mail(
+                subject = 'Hip Hop Tweety ریست کردن رمزعبور',
+                message = f'به Hip Hop Tweety خوش آمدید. برای تایید ایمیل خودتون کد: {otp_code} را وارد کنید',
+                from_email = 'specila.me.szpm@gmail.com',
+                recipient_list = [cd['email']],
+                fail_silently = False,
+            )
             
             return redirect(reverse('authentication:validate_otp')+ f'?token={token}')
         except User.DoesNotExist:

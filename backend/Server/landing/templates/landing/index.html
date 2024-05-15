@@ -10,23 +10,9 @@
     <title>hip hop tweety | پلتفرم پخش موزیک</title>
     <meta name="description" content="hip hop tweety - پلتفرم پخش موزیک">
     {% progressive_web_app_meta %}
-    <link href="{% static "images/logos/favicon.png" %}" rel="icon" />
-    <link rel="apple-touch-icon" href="{% static "images/logos/touch-icon-iphone.png" %}" />
-    <link
-      rel="apple-touch-icon"
-      sizes="152x152"
-      href="{% static "images/logos/touch-icon-ipad.png" %}"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="{% static "images/logos/touch-icon-iphone-retina.png" %}"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="167x167"
-      href="{% static "images/logos/touch-icon-ipad-retina.png" %}"
-    />
+    
+    <link href="{% static "images/logos/logo.svg" %}" rel="icon"/>
+
     <link href="{% static "css/plugins.bundle.css" %}" rel="stylesheet" type="text/css" />
     <link href="{% static "css/styles.bundle.css" %}" rel="stylesheet" type="text/css" />
     <!--[if lt IE 9]>
@@ -48,13 +34,13 @@
       <header id="main_header">
         <div class="container">
           <nav class="navbar navbar-expand-lg">
-            <a href="{% url "home:home" %}" class="brand external"
-              ><img src="{% static "images/logos/logo.svg" %}" alt="Listen app"
-            /></a>
+            {% comment %} <a href="{% url "home:home" %}" class="brand external"
+              ><img src="{% static "images/pwa/logos/android/72X72.png" %}" alt="Hip Hop Tweety"
+            /></a> {% endcomment %}
+            <a class="btn btn-primary external" href="{% url "authentication:register" %}"
+              >رایگان امتحان کنید</a
+            >
             <div class="d-flex align-items-center navbar-ex">
-              <a class="btn btn-primary external" href="{% url "authentication:register" %}"
-                >رایگان امتحان کنید</a
-              >
               <button
                 class="navbar-toggler ms-3 ms-sm-4"
                 type="button"
@@ -250,9 +236,6 @@
                       ><span class="me-1">حالا ثبت نام کنید</span>
                       <i class="ri-arrow-right-line fs-6"></i
                     ></a>
-                  </div>
-                  <div class="px-3 text-center mt-auto">
-                    <img src="images/misc/plan.png" class="img-fluid" alt="" />
                   </div>
                 </div>
               </div>
