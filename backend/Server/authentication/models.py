@@ -42,3 +42,32 @@ class Otp(models.Model):
         
     def __str__(self):
         return f'{self.id}---{self.email}---{self.otp_code}'
+    
+
+class ResetPasswordOtp(models.Model):
+    
+    otp_code = models.IntegerField(
+        verbose_name="کد otp"
+    )
+    
+    token = models.CharField(
+        verbose_name="توکن",
+        max_length=100,
+        unique=True
+    )
+    
+    email = models.EmailField(
+        max_length=255,
+        verbose_name="ایمیل",
+        validators=[
+            validators.EmailValidator
+        ]
+    )
+    
+    class Meta:
+        verbose_name = "کد اعتبار سنجی رمزعبور"
+        verbose_name_plural = "کد های اعتبار سنجی رمزعبور"
+        
+    
+    def __str__(self):
+        return f'{self.token}----{self.otp_code}'

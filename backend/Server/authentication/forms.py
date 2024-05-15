@@ -77,3 +77,25 @@ class OtpForm(forms.Form):
             }
         )
     )
+    
+class CahngePasswordForm(forms.Form):
+    
+    password = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'class' : 'form-control',
+                'id' : 'password',
+                'type' : 'text'
+            }
+        )
+    )
+    
+    password_conf = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'class' : 'form-control',
+                'id' : 'password',
+                'type' : 'text'
+            }
+        )
+    )

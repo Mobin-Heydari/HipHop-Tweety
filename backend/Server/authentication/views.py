@@ -7,8 +7,8 @@ from django.views import View
 
 from users.models import User
 
-from .forms import LoginForm, RegistrationForm, OtpForm
-from .models import Otp
+from .forms import LoginForm, RegistrationForm, OtpForm, CahngePasswordForm
+from .models import Otp, ResetPasswordOtp
 
 from random import randint
 
@@ -205,3 +205,135 @@ class CheckOtp(View):
                 )
         else:
             return redirect('homehome:homehome')
+        
+        
+
+class ResetPassword(View):
+    
+    def get(self, request):
+        
+        return render(
+            request, 'authentication/reset_password.html', {
+                
+            }
+        )
+        
+    
+    def post(self, request):
+        
+        email = request.POST.get('email')
+        
+        try:
+            user = User.objects.get(email = email)
+            
+            code = randint(100000, 999999)
+            
+            token = get_random_string(100)
+            
+            print(code)
+            
+            otp = ResetPasswordOtp.objects.create(
+                email = email,
+                otp_code = code,
+                token = token
+            )
+            
+            otp.save()
+            
+            return redirect(reverse('authentication:validate_otp')+ f'?token={token}')
+        except User.DoesNotExist:
+            return redirect('authentication:reset_password')
+        
+
+class ValidatePasswordOtp(View):
+    
+    def get(self, request):
+        
+        token = request.GET.get('token')
+        
+        try:
+            otp = ResetPasswordOtp.objects.get(token=token)
+            
+            return render(
+                request, 'authentication/validate_otp.html', {
+                    
+                }
+            )
+        except otp.DoesNotExist:
+            return redirect('authentication:reset_password')
+        
+    
+    def post(self, request):
+        
+        token = request.GET.get('token')
+        
+        try:
+            otp = ResetPasswordOtp.objects.get(token=token)
+            
+            code = request.POST.get('code')
+            
+            if int(code) == int(otp.otp_code):
+                return redirect(reverse('authentication:change_password')+ f'?token={token}')
+            else:
+                return redirect('authentication:reset_password')
+        except otp.DoesNotExist:
+            return redirect('authentication:reset_password')
+
+class ChangePassword(View):
+    
+    def get(self, request):
+        
+        form = CahngePasswordForm()
+        
+        return render(
+            request, 'authentication/change_password.html', {
+                'form' : form
+            }
+        )
+        
+    def post(self, request):
+        
+        form = CahngePasswordForm(request.POST)
+        
+        token = request.GET.get('token')
+        
+        password_otp = get_object_or_404(
+            ResetPasswordOtp,
+            token = token
+        )
+        
+        if form.is_valid():
+            
+            cd = form.cleaned_data
+            
+            if len(cd['password_conf']) <= 8 and len(cd['password_conf']) >= 8:
+            
+                if cd['password'] == cd['password_conf']:
+                    
+                    user = User.objects.get(email=password_otp.email)
+                
+                    if user is not None:
+                        
+                        user.password = cd['password']
+                        
+                        user.save()
+                        
+                        password_otp.delete()
+                        
+                        return redirect('home:home')
+                    else:
+                        return redirect('authentication:reset_password')
+                else:
+                    return render(
+                        request, 'authentication/changepassword.html', {
+                            
+                        }
+                    )
+            else:
+                return render(
+                    request, 'authentication/changepassword.html', {
+                        
+                    }
+                )
+        else:
+            return redirect('authentication:reset_password')
