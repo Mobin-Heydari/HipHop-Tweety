@@ -202,6 +202,7 @@
               </li>
                 {% faver_validator user_id=user.id music_id=music.id as is_faver %}
                 {% if is_faver %}
+                <span class="ps-2 fw-medium">{{ music.likes }}</span>
                   <li>
                     <a
                       href="{% url "favorites:user_music_faver" music.slug %}?next=/music/{{music.slug}}/"
@@ -214,6 +215,7 @@
                     </a>
                   </li>
                 {% else %}
+                <span class="ps-2 fw-medium">{{ music.likes }}</span>
                   <li>
                       <a
                       href="{% url "favorites:user_music_faver" music.slug %}?next=/music/{{music.slug}}/"

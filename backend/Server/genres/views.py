@@ -54,7 +54,7 @@ class GenreDetail(View):
                     genres = Genre.objects.all().order_by('?')
                     
                     page_number = request.GET.get('page')
-                    paginator = Paginator(queryset, 1)
+                    paginator = Paginator(queryset, 15)
                     queryset = paginator.get_page(page_number)
                     
                     return render(

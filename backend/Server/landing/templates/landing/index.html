@@ -1,4 +1,5 @@
 {% load static %}
+{% load pwa %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +9,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>hip hop tweety | پلتفرم پخش موزیک</title>
     <meta name="description" content="hip hop tweety - پلتفرم پخش موزیک">
+    {% progressive_web_app_meta %}
     <link href="{% static "images/logos/favicon.png" %}" rel="icon" />
     <link rel="apple-touch-icon" href="{% static "images/logos/touch-icon-iphone.png" %}" />
     <link
@@ -74,14 +76,6 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#pricing">قیمت</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link external" href="about.html">درباره ما</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link external" href="contact.html"
-                    >ارتباط با ما</a
-                  >
                 </li>
               </ul>
             </div>
@@ -401,22 +395,6 @@
           </div>
         </div>
       </div>
-      <div class="container">
-        <div class="newsبی حسی text-white">
-          <div class="col-xl-7 col-lg-10 fs-5 mx-auto text-center">
-            <h2 class="text-white">
-              به لِسِن <span class="newsبی حسی__title-text">بپیوندید</span>
-            </h2>
-            <p class="text-center">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-              استفاده از طراحان گرافیک است،
-            </p>
-            <a href="{% url "authentication:register" %}" class="btn btn-lg btn-default external mt-3"
-              >حالا ثبت نام کنید</a
-            >
-          </div>
-        </div>
-      </div>
       <footer id="main_footer">
         <div class="container">
           <div class="col-xl-6 col-lg-8 col-md-10 mx-auto text-center">
@@ -424,19 +402,9 @@
               <span class="text-primary">میلیون ها موزیک</span> که با اطلاعات
               اولیه خود به آنها دسترسی دارید.
             </h3>
-            <div class="app-btn-group">
-              <a href="#" class="btn btn-lg btn-default"
-                ><div class="btn__wrap">
-                  <i class="ri-google-play-fill"></i>
-                  <span class="ms-2">Google Play</span>
-                </div></a
-              ><a href="#" class="btn btn-lg btn-default"
-                ><div class="btn__wrap">
-                  <i class="ri-app-store-fill"></i>
-                  <span class="ms-2">App Store</span>
-                </div></a
-              >
-            </div>
+            <a href="{% url "authentication:register" %}" class="btn btn-lg btn-default external mt-3"
+              >حالا ثبت نام کنید</a
+            >
           </div>
           <div class="col-xl-6 col-lg-8 col-md-10 mx-auto text-center">
           </div>

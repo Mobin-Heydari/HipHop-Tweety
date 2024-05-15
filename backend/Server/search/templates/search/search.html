@@ -110,14 +110,6 @@
           <span class="d-block pe-3 fs-6 fw-semi-bold"
             >{{ searched_musices.count }} موزیک در لیست</span
           >
-          <div>
-            <select class="form-select" aria-label="Filter song">
-              <option value="Popular">محبوب</option>
-              <option value="Most played">بیشترین پخش</option>
-              <option value="A to Z">الفبا (صعودی)</option>
-              <option value="Z to A">الفبا (نزولی)</option>
-            </select>
-          </div>
         </div>
         <div class="list">
           <div class="row">
@@ -233,13 +225,25 @@
             </div>
           </div>
         </div>
-        <div class="mt-5 text-center">
-          <a href="javascript:void(0);" class="btn btn-primary"
-            ><div class="btn__wrap">
-              <i class="ri-loader-3-fill"></i> <span>بارگیری بیشتر</span>
-            </div></a
-          >
-        </div>
+        {% if searched_musices.has_other_pages %}
+          <div class="mt-5 text-center">
+            {% if searched_musices.has_previous %}
+              <a href="?page={{ searched_musices.previous_page_number }}&q={{ searched_data }}" class="btn btn-primary">
+                <div class="btn__wrap">
+                  <span>قبلی</span>
+                  <i class="ri-arrow-left-line fs-6"></i>
+                </div>
+              </a>
+            {% endif %}
+            {% if searched_musices.has_next %}
+              <a href="?page={{ searched_musices.next_page_number }}&q={{ searched_data }}" class="btn btn-primary"
+                ><div class="btn__wrap">
+                  <i class="ri-arrow-right-line fs-6"></i> <span>بعدی</span>
+                </div></a
+              >
+            {% endif %}
+          </div>
+      {% endif %}
       </div>
       {% comment %} Albomes section {% endcomment %}
       <div class="section">

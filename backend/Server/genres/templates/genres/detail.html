@@ -244,7 +244,7 @@
                 {% for genre in genres %}
                     <div class="swiper-slide">
                         <div class="cover cover--round">
-                        <a href="genre-details.html" class="cover__image"
+                        <a href="{{ genere.get_absolute_url }}" class="cover__image"
                             ><img
                             src="{{ genre.image.url }}"
                             alt="{{ genre.genre }}"

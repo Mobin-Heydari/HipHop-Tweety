@@ -168,7 +168,6 @@
             <ul class="info-list info-list--dotted mb-3">
               <li>آلبوم</li>
               <li>{{ albome.albom_musics.all.count }} موزیک</li>
-              <li>01:21:41</li>
               <li>{{ albome.singer }}</li>
             </ul>
             <p class="mb-5">
@@ -218,7 +217,7 @@
                     role="button"
                     class="d-inline-flex"
                     aria-label="Favorite"
-                    data-favorite-id="{{ albomeid }}"
+                    data-favorite-id="{{ albome.id }}"
                     >
                         <i class="ri-heart-line heart-empty"></i>
                         <i class="ri-heart-fill heart-fill"></i>
@@ -262,7 +261,7 @@
                         </div>
                         <div class="list__content">
                             <a
-                                href="{{ music.get_absolute_url }}"
+                                href="{{ musices.music.get_absolute_url }}"
                                 class="list__title text-truncate"
                                 >{{ musices.music.title }}</a
                             >
@@ -425,19 +424,19 @@
                           </li>
                           <li class="dropdown-divider"></li>
                           <li>
-                            <a class="dropdown-item" href="album-details.html"
+                            <a class="dropdown-item" href="{% url "albomes:albome_detail" albome.slug %}"
                               >نمایش جزئیات</a
                             >
                           </li>
                         </ul>
                       </div>
                     </div>
-                    <a href="album-details.html" class="cover__image"
+                    <a href="{% url "albomes:albome_detail" albome.slug %}" class="cover__image"
                       ><img src="{{ albome.image.url }}" alt="{{ albome.title }}"
                     /></a>
                     <div class="cover__foot">
                       <a
-                        href="album-details.html"
+                        href="{% url "albomes:albome_detail" albome.slug %}"
                         class="cover__title text-truncate"
                         >{{ albome.title }}</a
                       >

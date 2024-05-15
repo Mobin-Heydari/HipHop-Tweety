@@ -230,7 +230,7 @@
                         </div>
                         <div class="cover__foot">
                             <a
-                            href="song-details.html"
+                            href="{{ music.get_absolute_url }}"
                             class="cover__title text-truncate"
                             >{{ music.title }}</a
                             >
@@ -765,7 +765,7 @@
               جدید ترین <span class="text-primary">موزیک ها</span>
             </h3>
           </div>
-          <a href="songs.html" class="btn btn-link">نمایش همه</a>
+          <a href="{% url "musices:musices_list" %}" class="btn btn-link">نمایش همه</a>
         </div>
         <div class="swiper-carousel swiper-carousel-button">
           <div

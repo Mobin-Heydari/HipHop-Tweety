@@ -28,7 +28,7 @@ class MusicesView(View):
                     albomes_queryset = albomes_queryset.order_by('-likes')[0:5]
                     
                     page_number = request.GET.get('page')
-                    paginator = Paginator(queryset, 1)
+                    paginator = Paginator(queryset, 15)
                     queryset = paginator.get_page(page_number)
                         
                     return render(

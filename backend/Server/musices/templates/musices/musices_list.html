@@ -99,16 +99,8 @@
       <div class="section">
         <div class="section__head align-items-center">
           <span class="d-block pe-3 fs-6 fw-semi-bold"
-            >{{ musices.count }} موزیک در لیست</span
+            >لیست موزیک ها</span
           >
-          <div>
-            <select class="form-select" aria-label="Filter song">
-              <option value="Popular">محبوب</option>
-              <option value="Most played">بیشترین پخش</option>
-              <option value="A to Z">الفبا (صعودی)</option>
-              <option value="Z to A">الفبا (نزولی)</option>
-            </select>
-          </div>
         </div>
         <div class="list">
           <div class="row">
@@ -252,7 +244,7 @@
               آلبوم های <span class="text-primary">برتر</span>
             </h3>
           </div>
-          <a href="albums.html" class="btn btn-link">نمایش همه</a>
+          <a href="{% url "albomes:albomes_list" %}" class="btn btn-link">نمایش همه</a>
         </div>
         <div class="swiper-carousel swiper-carousel-button">
           <div

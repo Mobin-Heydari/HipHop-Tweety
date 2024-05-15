@@ -129,9 +129,9 @@
                     <div class="text-dark mb-3">
                       <span class="fs-4 fw-bold">{{ plan.price_pre_month }} هزار تومان</span>/ماهانه
                     </div>
-                    <button type="button" class="btn btn-primary w-100">
+                    <a href="{% url "payment:zarinpal_send_request" plan.id %}" type="button" class="btn btn-primary w-100">
                       انتخاب
-                    </button>
+                    </a>
                   </div>
                 <div class="px-3 text-center mt-auto">
               </div>

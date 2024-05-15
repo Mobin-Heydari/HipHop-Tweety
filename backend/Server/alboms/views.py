@@ -23,7 +23,7 @@ class AlbomesList(View):
                     most_rated_albomes = queryset.order_by('-likes')[:6]
                     
                     page_number = request.GET.get('page')
-                    paginator = Paginator(queryset, 1)
+                    paginator = Paginator(queryset, 12)
                     queryset = paginator.get_page(page_number)
                     
                     return render(
