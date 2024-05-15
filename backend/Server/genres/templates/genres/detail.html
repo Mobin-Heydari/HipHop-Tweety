@@ -204,6 +204,25 @@
                 {% endfor %}
               {% comment %} Musices list ended {% endcomment %}
               <br>
+              {% if genere_musices.has_other_pages %}
+                <div class="mt-5 text-center">
+                  {% if genere_musices.has_previous %}
+                    <a href="/genre/{{ genre.slug }}/?page={{ genere_musices.previous_page_number }}" class="btn btn-primary">
+                      <div class="btn__wrap">
+                        <span>قبلی</span>
+                        <i class="ri-arrow-left-line fs-6"></i>
+                      </div>
+                    </a>
+                  {% endif %}
+                  {% if genere_musices.has_next %}
+                    <a href="/genre/{{ genre.slug }}/?page={{ genere_musices.next_page_number }}" class="btn btn-primary"
+                      ><div class="btn__wrap">
+                        <i class="ri-arrow-right-line fs-6"></i> <span>بعدی</span>
+                      </div></a
+                    >
+                  {% endif %}
+                </div>
+              {% endif %}
               </div>
             </div>
           </div>

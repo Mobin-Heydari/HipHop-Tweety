@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator
 from django.views import View
 from .models import Albom, MusicAlbom, Comment, CommentReply
 from . import forms
@@ -17,13 +18,17 @@ class AlbomesList(View):
                 
                 if user_sub.is_active == True:
                     
-                    albomes = Albom.objects.all()
+                    queryset = Albom.objects.all()
                     
-                    most_rated_albomes = albomes.order_by('-likes')[:6]
+                    most_rated_albomes = queryset.order_by('-likes')[:6]
+                    
+                    page_number = request.GET.get('page')
+                    paginator = Paginator(queryset, 1)
+                    queryset = paginator.get_page(page_number)
                     
                     return render(
                         request, 'alboms/list.html', {
-                            'albomes' : albomes,
+                            'albomes' : queryset,
                             'most_rated_albomes' : most_rated_albomes
                         }
                     )

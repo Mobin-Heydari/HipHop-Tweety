@@ -289,13 +289,25 @@
             </div>
           </div>
         </div>
-        <div class="mt-5 text-center">
-          <a href="javascript:void(0);" class="btn btn-primary"
-            ><div class="btn__wrap">
-              <i class="ri-loader-3-fill"></i> <span>بارگیری بیشتر</span>
-            </div></a
-          >
-        </div>
+        {% if albomes.has_other_pages %}
+          <div class="mt-5 text-center">
+            {% if albomes.has_previous %}
+              <a href="/albume/list/?page={{ albomes.previous_page_number }}" class="btn btn-primary">
+                <div class="btn__wrap">
+                  <span>قبلی</span>
+                  <i class="ri-arrow-left-line fs-6"></i>
+                </div>
+              </a>
+            {% endif %}
+            {% if albomes.has_next %}
+              <a href="/albume/list/?page={{ albomes.next_page_number }}" class="btn btn-primary"
+                ><div class="btn__wrap">
+                  <i class="ri-arrow-right-line fs-6"></i> <span>بعدی</span>
+                </div></a
+              >
+            {% endif %}
+          </div>
+        {% endif %}
       </div>
     </div>
   </main>

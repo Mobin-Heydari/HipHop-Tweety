@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator
 from django.views import View
 from .models import Genre
 from musices.models import Music
@@ -48,15 +49,19 @@ class GenreDetail(View):
                     
                     genre = get_object_or_404(Genre, slug=slug)
                     
-                    genere_musices = Music.objects.filter(genre=genre).order_by('-likes')
+                    queryset = Music.objects.filter(genre=genre).order_by('-likes')
                     
                     genres = Genre.objects.all().order_by('?')
+                    
+                    page_number = request.GET.get('page')
+                    paginator = Paginator(queryset, 1)
+                    queryset = paginator.get_page(page_number)
                     
                     return render(
                         request, 'genres/detail.html', {
                             'genre' : genre,
                             'genres' : genres,
-                            'genere_musices' : genere_musices
+                            'genere_musices' : queryset
                         }
                     )
                 else:

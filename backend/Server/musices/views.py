@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from .models import Music, Comment,CommentReply
@@ -20,15 +21,19 @@ class MusicesView(View):
                 
                 if user_sub.is_active == True:
                     
-                    musices_queryset = Music.objects.all()
+                    queryset = Music.objects.all()
                     
                     albomes_queryset = Albom.objects.all()
                     
                     albomes_queryset = albomes_queryset.order_by('-likes')[0:5]
                     
+                    page_number = request.GET.get('page')
+                    paginator = Paginator(queryset, 1)
+                    queryset = paginator.get_page(page_number)
+                        
                     return render(
                         request, 'musices/musices_list.html', {
-                            'musices' : musices_queryset,
+                            'musices' : queryset,
                             'alboms' : albomes_queryset,
                         }
                     )
