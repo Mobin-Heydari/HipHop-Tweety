@@ -101,6 +101,19 @@ class Music(models.Model):
         return reverse("musices:music_detail", kwargs={"slug": self.slug})
     
     
+    def get_score(self):
+        
+        try:
+            music_comments = Comment.objects.filter(music__id=self.id)
+            
+            total_scores = sum(comment.score for comment in music_comments)
+            
+            score = total_scores // len(music_comments)
+            
+            return score
+        except:
+            return 0
+    
 class Comment(models.Model):
     
     music = models.ForeignKey(

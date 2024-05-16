@@ -232,7 +232,7 @@
               <li>
                 <span class="text-dark d-flex align-items-center"
                   ><i class="ri-star-fill text-warning"></i>
-                  <span class="ps-2 fw-medium">4.5</span></span
+                  <span class="ps-2 fw-medium">{{ music.get_score }}</span></span
                 >
               </li>
             </ul>
@@ -451,6 +451,7 @@
                   <span class="avatar__title mb-1">{{ request.user.username }}</span>
                   <span class="avatar__subtitle mb-2">{{ comment.created }}</span>
                   <div class="text-warning d-flex mb-1">
+                      <p> {{ comment.score }}</p>
                     <i class="ri-star-s-fill"></i>
                   </div>
                   <p>

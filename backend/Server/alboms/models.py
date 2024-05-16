@@ -62,6 +62,19 @@ class Albom(models.Model):
     
     def get_absolute_url(self):
         return reverse("albomes:albome_detail", kwargs={"slug": self.slug})
+    
+    def get_score(self):
+        
+        try:
+            music_comments = Comment.objects.filter(albome=self)
+            
+            total_scores = sum(comment.score for comment in music_comments)
+            
+            score = total_scores // len(music_comments)
+            
+            return score
+        except:
+            return 0
 
     
 
