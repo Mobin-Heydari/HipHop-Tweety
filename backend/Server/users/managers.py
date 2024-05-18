@@ -29,7 +29,7 @@ class UserManager(BaseUserManager):
         user_profile.save()
         
         now = timezone.now()
-        then = now + timezone.timedelta(days=30)
+        then = now + timezone.timedelta(days=91)
         
         user_sub = UserSubscription.objects.create(
             user = user,

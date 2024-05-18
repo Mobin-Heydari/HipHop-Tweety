@@ -66,11 +66,11 @@ class Albom(models.Model):
     def get_score(self):
         
         try:
-            music_comments = Comment.objects.filter(albome=self)
+            albume_comment = Comment.objects.filter(albome=self)
             
-            total_scores = sum(comment.score for comment in music_comments)
+            total_scores = sum(comment.score for comment in albume_comment)
             
-            score = total_scores // len(music_comments)
+            score = total_scores // len(albume_comment)
             
             return score
         except:
