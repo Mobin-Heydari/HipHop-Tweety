@@ -17,6 +17,7 @@ urlpatterns = [
     path('', include('landing.urls', namespace="landing")),
     path('search/', include('search.urls', namespace="search")),
     path('payment/', include('payment.urls', namespace="payment")),
+    path('events/', include('events.urls', namespace="events")),
     
     # PWA url
     path('', include('pwa.urls'))
