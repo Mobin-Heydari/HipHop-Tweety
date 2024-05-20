@@ -121,14 +121,15 @@ class Register(View):
                             otp_code = otp_code,
                             token = token
                         )
+                        print(otp_code, otp.email)
                         
-                        send_mail(
-                            subject = 'Hip Hop Tweety veryfication',
-                            message = f'به Hip Hop Tweety خوش آمدید. برای تایید ایمیل خودتون کد: {otp_code} را وارد کنید',
-                            from_email = 'specila.me.szpm@gmail.com',
-                            recipient_list = [cd['email']],
-                            fail_silently = False,
-                        )
+                        # send_mail(
+                        #     subject = 'Hip Hop Tweety veryfication',
+                        #     message = f'به Hip Hop Tweety خوش آمدید. برای تایید ایمیل خودتون کد: {otp_code} را وارد کنید',
+                        #     from_email = 'specila.me.szpm@gmail.com',
+                        #     recipient_list = [cd['email']],
+                        #     fail_silently = False,
+                        # )
                         
                         return redirect(reverse('authentication:check_otp') + f'?token={token}')
                     else:
