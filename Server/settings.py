@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'alboms.apps.AlbomsConfig',
     'genres.apps.GenresConfig',
     'search.apps.SearchConfig',
+    'events.apps.EventsConfig',
     'payment.apps.PaymentConfig',
     'musices.apps.MusicesConfig',
     'landing.apps.LandingConfig',
