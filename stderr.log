@@ -4424,3 +4424,635 @@ Not Found: /wp2/wp-includes/wlwmanifest.xml
 Not Found: /site/wp-includes/wlwmanifest.xml
 Not Found: /cms/wp-includes/wlwmanifest.xml
 Not Found: /sito/wp-includes/wlwmanifest.xml
+Not Found: /tink_chat/
+Not Found: /favicon.ico
+Not Found: /tink_chat/
+Not Found: /favicon.ico
+Not Found: /lander/gazinvest-forma9maymadrid-thanksqz9may/thank-QZ/
+Not Found: /favicon.ico
+Not Found: /lander/gazinvest-forma9maymadrid-thanksqz9may/thank-QZ/
+Not Found: /favicon.ico
+Not Found: /lander/sber-fix/
+Not Found: /favicon.ico
+Not Found: /lander/sber-fix/
+Not Found: /favicon.ico
+Not Found: /refresher
+Not Found: /favicon.ico
+Not Found: /refresher
+Not Found: /favicon.ico
+Not Found: /lander/test
+Not Found: /favicon.ico
+Not Found: /lander/test
+Not Found: /favicon.ico
+Not Found: /refresher
+Not Found: /favicon.ico
+Not Found: /refresher
+Not Found: /favicon.ico
+Not Found: /sberchat008-prilca/
+Not Found: /favicon.ico
+Not Found: /sberchat008-prilca/
+Not Found: /favicon.ico
+Not Found: /lander/testsberv4-copy--1/
+Not Found: /favicon.ico
+Not Found: /lander/testsberv4-copy--1/
+Not Found: /favicon.ico
+Not Found: /lander/gazprom-prelandergnidanewkomment-thanksstory2-objv2/land/thank-you/
+Not Found: /favicon.ico
+Not Found: /lander/gazprom-prelandergnidanewkomment-thanksstory2-objv2/land/thank-you/
+Not Found: /favicon.ico
+Not Found: /sberbank-quiz-v2/
+Not Found: /favicon.ico
+Not Found: /sberbank-quiz-v2/
+Not Found: /favicon.ico
+Not Found: /KQRDmgB
+Not Found: /favicon.ico
+Not Found: /KQRDmgB
+Not Found: /favicon.ico
+Not Found: /refresher
+Not Found: /favicon.ico
+Not Found: /refresher
+Not Found: /favicon.ico
+Not Found: /lander/gp_newmain_calc_ru_land_obj_js_v2/index.php
+Not Found: /favicon.ico
+Not Found: /lander/gp_newmain_calc_ru_land_obj_js_v2/index.php
+Not Found: /favicon.ico
+Not Found: /lander/gpb_rus_short_obfs_nonetext/
+Not Found: /favicon.ico
+Not Found: /lander/gpb_rus_short_obfs_nonetext/
+Not Found: /favicon.ico
+Not Found: /index_sber.php
+Not Found: /favicon.ico
+Not Found: /index_sber.php
+Not Found: /favicon.ico
+Not Found: /lander/testsberv4_1703110539/
+Not Found: /favicon.ico
+Not Found: /lander/testsberv4_1703110539/
+Not Found: /favicon.ico
+Not Found: /events/images/banner/event.jpg
+Not Found: /events/images/banner/event.jpg
+Not Found: /events/images/banner/event.jpg
+Not Found: /subscription/plans/images/misc/plan.png
+Not Found: /subscription/plans/images/misc/plan.png
+Not Found: /subscription/plans/images/misc/plan.png
+Not Found: /subscription/plans/images/misc/plan.png
+Internal Server Error: /events/
+Traceback (most recent call last):
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/views.py", line 28, in get
+    return render(
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 909, in _resolve_lookup
+    current = current()
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/models.py", line 46, in get_absolute_url
+    return reverse("events:event_detail", kwargs={"slug": self.slug})
+NameError: name 'reverse' is not defined
+Internal Server Error: /events/
+Traceback (most recent call last):
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/views.py", line 28, in get
+    return render(
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 909, in _resolve_lookup
+    current = current()
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/models.py", line 46, in get_absolute_url
+    return reverse("events:event_detail", kwargs={"slug": self.slug})
+NameError: name 'reverse' is not defined
+Internal Server Error: /events/
+Traceback (most recent call last):
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/views.py", line 28, in get
+    return render(
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 909, in _resolve_lookup
+    current = current()
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/models.py", line 46, in get_absolute_url
+    return reverse("events:event_detail", kwargs={"slug": self.slug})
+NameError: name 'reverse' is not defined
+Internal Server Error: /events/
+Traceback (most recent call last):
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/views.py", line 28, in get
+    return render(
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 909, in _resolve_lookup
+    current = current()
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/models.py", line 46, in get_absolute_url
+    return reverse("events:event_detail", kwargs={"slug": self.slug})
+NameError: name 'reverse' is not defined
+Internal Server Error: /events/
+Traceback (most recent call last):
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/views.py", line 28, in get
+    return render(
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 909, in _resolve_lookup
+    current = current()
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/models.py", line 46, in get_absolute_url
+    return reverse("events:event_detail", kwargs={"slug": self.slug})
+NameError: name 'reverse' is not defined
+Internal Server Error: /events/
+Traceback (most recent call last):
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/views.py", line 28, in get
+    return render(
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 909, in _resolve_lookup
+    current = current()
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/models.py", line 46, in get_absolute_url
+    return reverse("events:event_detail", kwargs={"slug": self.slug})
+NameError: name 'reverse' is not defined
+Internal Server Error: /events/
+Traceback (most recent call last):
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/views.py", line 28, in get
+    return render(
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 909, in _resolve_lookup
+    current = current()
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/models.py", line 46, in get_absolute_url
+    return reverse("events:event_detail", kwargs={"slug": self.slug})
+NameError: name 'reverse' is not defined
+Internal Server Error: /events/
+Traceback (most recent call last):
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/views.py", line 28, in get
+    return render(
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 909, in _resolve_lookup
+    current = current()
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/models.py", line 46, in get_absolute_url
+    def get_absolute_url(self):
+NameError: name 'reverse' is not defined
+Internal Server Error: /events/
+Traceback (most recent call last):
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/views.py", line 28, in get
+    return render(
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/hiphoptw/virtualenv/Hip-Hop-Tweety/3.10/lib/python3.10/site-packages/django/template/base.py", line 909, in _resolve_lookup
+    current = current()
+  File "/home/hiphoptw/Hip-Hop-Tweety/events/models.py", line 46, in get_absolute_url
+    def get_absolute_url(self):
+NameError: name 'reverse' is not defined
+Not Found: /events/images/banner/event.jpg
+Not Found: /events/event.get_absolute_url
+Not Found: /events/404.html
+Not Found: /events/images/banner/event.jpg
+Not Found: /events/images/banner/event.jpg
+Not Found: /subscription/plans/images/misc/plan.png
+Not Found: /subscription/plans/images/misc/plan.png
+Not Found: /subscription/plans/images/misc/plan.png
+Not Found: /subscription/plans/images/misc/plan.png
+Not Found: /subscription/plans/images/misc/plan.png
+Not Found: /events/images/banner/event.jpg
+Not Found: /favicon.ico
