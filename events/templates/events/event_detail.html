@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} {{ event.titile }} | Hip Hop Tweety{% endblock title %}
+
+{% block description %}{% endblock description %}
+
+{% block sidebar %}
+<aside id="sidebar">
+    <div
+      class="sidebar-head d-flex align-items-center justify-content-between"
+    >
+      <a href="{% url "home:home" %}" class="brand external"
+        ><img src="{% static "images/logos/logo.svg" %}" alt="Listen app" /> </a
+      ><a
+        href="javascript:void(0);"
+        role="button"
+        class="sidebar-toggler"
+        aria-label="Sidebar toggler"
+        ><div class="d-none d-lg-block">
+          <i class="ri-menu-3-line sidebar-menu-1"></i>
+          <i class="ri-menu-line sidebar-menu-2"></i>
+        </div>
+        <i class="ri-menu-fold-line d-lg-none"></i
+      ></a>
+    </div>
+    <div class="sidebar-body" data-scroll="true">
+      <nav class="navbar d-block p-0">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="{% url "home:home" %}" class="nav-link d-flex align-items-center active"
+              ><i class="ri-home-4-line fs-5"></i>
+              <span class="ps-3">خانه</span></a
+            >
+          </li>
+          <li class="nav-item nav-item--head">
+            <span class="nav-item--head__text">دسته بندی</span>
+            <span class="nav-item--head__dots">...</span>
+          </li>
+          <li class="nav-item">
+            <a href="{% url "genres:genres" %}" class="nav-link d-flex align-items-center"
+              ><i class="ri-disc-line fs-5"></i>
+              <span class="ps-3">سبک ها</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="{% url "musices:musices_list" %}"
+              class="nav-link d-flex align-items-center"
+              ><i class="ri-music-2-line fs-5"></i>
+              <span class="ps-3">موزیک ها</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="{% url "albomes:albomes_list" %}" class="nav-link d-flex align-items-center"
+              ><i class="ri-album-line fs-5"></i>
+              <span class="ps-3">آلبوم ها</span></a
+            >
+          </li>
+          <li class="nav-item nav-item--head">
+            <span class="nav-item--head__text">علاقمندی ها</span>
+            <span class="nav-item--head__dots">...</span>
+          </li>
+          <li class="nav-item">
+            <a
+              href="{% url "favorites:favorites" %}"
+              class="nav-link d-flex align-items-center"
+              ><i class="ri-heart-line fs-5"></i>
+              <span class="ps-3">مورد علاقه</span></a
+            >
+          </li>
+          <li class="nav-item nav-item--head">
+            <span class="nav-item--head__text">اشتراک</span>
+            <span class="nav-item--head__dots">...</span>
+          </li>
+          <li class="nav-item">
+            <a
+              href="{% url "subscription:plans" %}"
+              class="nav-link d-flex align-items-center"
+              ><i class="ri-vip-crown-line fs-5"></i>
+              <span class="ps-3">پلن ها</span></a
+            >
+          </li>
+          <li class="nav-item nav-item--head">
+            <span class="nav-item--head__text">رویداد ها</span>
+            <span class="nav-item--head__dots">...</span>
+          </li>
+          <li class="nav-item">
+            <a
+              href="events.html"
+              class="nav-link d-flex align-items-center"
+              ><i class="ri-calendar-event-line fs-5"></i>
+              <span class="ps-3">رویداد ها</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+</aside>
+{% endblock sidebar %}
+
+{% block main %}
+<main id="page_content">
+  <div
+    class="hero"
+    style="background-image: url({% static "images/banner/event.jpg" %})"
+  ></div>
+  <div class="under-hero container">
+    <div class="section">
+      <div class="row text-right">
+        <div class="col-xl-8 px-4 px-md-5 px-xl-0 mx-auto mb-5">
+          <h1>{{ event.title }}</h1>
+          <ul class="info-list info-list--dotted mt-3">
+            <li>
+              <div class="d-flex align-items-center">
+                <div class="ps-1">240+</div>
+              </div>
+            </li>
+            <li class="fw-semi-bold">{{ event.event_date }}</li>
+          </ul>
+          <a
+            href="{{ event.event_url }}"
+            class="btn btn-primary mt-4"
+            style="min-width: 140px"
+            ><div class="btn__wrap">
+              <i class="ri-add-circle-line"></i> <span>بازدید</span>
+            </div></a
+          >
+        </div>
+        <div class="col-xl-10 mx-auto mb-5">
+          <div class="cover cover--round">
+            <div class="cover__image">
+              <img
+                src="{{ event.image.url }}"
+                alt="Event cover"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8 px-4 px-md-5 px-xl-0 mx-auto">
+          <p>
+            {{ event.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock main %}

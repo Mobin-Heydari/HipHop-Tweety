@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}جدیدترین اتفاقات رپ فارسی | Hip Hop Tweety{% endblock title %}
+
+{% block description %}{% endblock description %}
+
+{% block sidebar %}
+<aside id="sidebar">
+    <div
+      class="sidebar-head d-flex align-items-center justify-content-between"
+    >
+      <a href="{% url "home:home" %}" class="brand external"
+        ><img src="{% static "images/logos/logo.svg" %}" alt="Listen app" /> </a
+      ><a
+        href="javascript:void(0);"
+        role="button"
+        class="sidebar-toggler"
+        aria-label="Sidebar toggler"
+        ><div class="d-none d-lg-block">
+          <i class="ri-menu-3-line sidebar-menu-1"></i>
+          <i class="ri-menu-line sidebar-menu-2"></i>
+        </div>
+        <i class="ri-menu-fold-line d-lg-none"></i
+      ></a>
+    </div>
+    <div class="sidebar-body" data-scroll="true">
+      <nav class="navbar d-block p-0">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="{% url "home:home" %}" class="nav-link d-flex align-items-center active"
+              ><i class="ri-home-4-line fs-5"></i>
+              <span class="ps-3">خانه</span></a
+            >
+          </li>
+          <li class="nav-item nav-item--head">
+            <span class="nav-item--head__text">دسته بندی</span>
+            <span class="nav-item--head__dots">...</span>
+          </li>
+          <li class="nav-item">
+            <a href="{% url "genres:genres" %}" class="nav-link d-flex align-items-center"
+              ><i class="ri-disc-line fs-5"></i>
+              <span class="ps-3">سبک ها</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="{% url "musices:musices_list" %}"
+              class="nav-link d-flex align-items-center"
+              ><i class="ri-music-2-line fs-5"></i>
+              <span class="ps-3">موزیک ها</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="{% url "albomes:albomes_list" %}" class="nav-link d-flex align-items-center"
+              ><i class="ri-album-line fs-5"></i>
+              <span class="ps-3">آلبوم ها</span></a
+            >
+          </li>
+          <li class="nav-item nav-item--head">
+            <span class="nav-item--head__text">علاقمندی ها</span>
+            <span class="nav-item--head__dots">...</span>
+          </li>
+          <li class="nav-item">
+            <a
+              href="{% url "favorites:favorites" %}"
+              class="nav-link d-flex align-items-center"
+              ><i class="ri-heart-line fs-5"></i>
+              <span class="ps-3">مورد علاقه</span></a
+            >
+          </li>
+          <li class="nav-item nav-item--head">
+            <span class="nav-item--head__text">اشتراک</span>
+            <span class="nav-item--head__dots">...</span>
+          </li>
+          <li class="nav-item">
+            <a
+              href="{% url "subscription:plans" %}"
+              class="nav-link d-flex align-items-center"
+              ><i class="ri-vip-crown-line fs-5"></i>
+              <span class="ps-3">پلن ها</span></a
+            >
+          </li>
+          <li class="nav-item nav-item--head">
+            <span class="nav-item--head__text">رویداد ها</span>
+            <span class="nav-item--head__dots">...</span>
+          </li>
+          <li class="nav-item">
+            <a
+              href="events.html"
+              class="nav-link d-flex align-items-center active"
+              ><i class="ri-calendar-event-line fs-5"></i>
+              <span class="ps-3">رویداد ها</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+</aside>
+{% endblock sidebar %}
+
+{% block main %}
+<main id="page_content">
+    <div
+      class="hero"
+      style="background-image: url(images/banner/event.jpg)"
+    ></div>
+    <div class="under-hero container">
+      <div class="section">
+        <div class="section__head">
+          <div class="flex-grow-1">
+            <h3 class="mb-0">
+              رویداد های <span class="text-primary">رپ فارس</span>
+            </h3>
+          </div>
+        </div>
+        <div class="row g-4">
+            {% for event in events %}
+                <div class="col-xl-4 col-md-6">
+                    <div class="cover cover--round">
+                        <a href="{{ event.get_absolute_url }}" class="cover__image"
+                        ><img
+                            src="{{ event.image.url }}"
+                            alt="Event cover"
+                        /></a>
+                        <div class="cover__foot mt-3 px-2">
+                            <a class="cover__subtitle d-flex mb-2" href="{{ event.event_url }}">
+                                <i class="ri-map-pin-fill fs-6"></i>
+                                <p>بازدید</P>
+                            </a>
+                            <a href="{{ event.get_absolute_url }}" class="cover__title fs-6 mb-3">{{ event.title }}</a>
+                            <div
+                                class="d-flex align-items-center justify-content-between"
+                            >
+                                <div class="ps-1">24+</div>
+                                <a href="{{ event.get_absolute_url }}" class="btn btn-sm btn-light-primary">مشاهده</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+      </div>
+        {% if event.has_other_pages %}
+            <div class="mt-5 text-center">
+                {% if event.has_previous %}
+                <a href="?page={{ event.previous_page_number }}" class="btn btn-primary">
+                    <div class="btn__wrap">
+                        <span>قبلی</span>
+                        <i class="ri-arrow-left-line fs-6"></i>
+                    </div>
+                </a>
+                {% endif %}
+                {% if event.has_next %}
+                <a href="?page={{ event.next_page_number }}" class="btn btn-primary">
+                    <div class="btn__wrap">
+                        <i class="ri-arrow-right-line fs-6"></i> 
+                        <span>بعدی</span>
+                    </div>
+                </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+  </main>
+{% endblock main %}
