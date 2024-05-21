@@ -62,7 +62,6 @@
                         />
                     </form>
                     <div class="d-flex align-items-center">
-                      {% if request.user.is_authenticated %}
                         <div class="dropdown ms-3 ms-sm-4">
                         <a
                             href="javascript:void(0);"
@@ -128,28 +127,23 @@
                             </li>
                         </ul>
                         </div>
-                      {% else %}
-                        <div class="d-flex align-items-center navbar-ex">
-                            <a class="btn btn-primary external" href="{% url "authentication:login" %}"
-                              >ورود / ثیت نام</a
-                            >
-                        </div>
-                      {% endif %}
                     </div>
                     </div>
                 </div>
                 </div>
             </header>
-            {% block main %}
-            
-            {% endblock main %}
-            <footer id="footer">
-              <div class="container">
-                <div class="text-center mb-4">
-                  <a href="" class="display-5 email">info@listen.net</a>
+            <main id="page_content">
+              {% block main %}
+
+              {% endblock main %}
+              <footer id="footer">
+                <div class="container">
+                  <div class="text-center mb-4">
+                    <a href="" class="display-5 email">hip.hop.tweety.company@gmail.com</a>
+                  </div>
                 </div>
-              </div>
-            </footer>
+              </footer>
+            </main>
             <div id="player">
                 <div class="container">
                   <div class="player-container">
