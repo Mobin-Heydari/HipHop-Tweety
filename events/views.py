@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.core.paginator import Paginator
 from subscription.models import UserSubscription
-from .models import Event, EventDescription
+from .models import Event
 
 
 

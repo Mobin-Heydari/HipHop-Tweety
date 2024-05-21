@@ -46,7 +46,7 @@ class Event(models.Model):
         return reverse("events:event_detail", kwargs={"slug": self.slug})
     
 
-class EventDescription(models.Model):
+class EventSection(models.Model):
     
     event = models.ForeignKey(
         Event,
@@ -58,18 +58,28 @@ class EventDescription(models.Model):
     title = models.CharField(
         verbose_name="عنوان",
         max_length=200,
+        blank=True,
+        null=True
     )
 
-    description = models.TextField(verbose_name="توضیحات")
+    description = models.TextField(
+        verbose_name="توضیحات",
+        blank=True,
+        null=True
+    )
     
     image = models.ImageField(
         verbose_name="تصویر",
-        upload_to="Events/Desciption/images/"
+        upload_to="Events/Desciption/images/",
+        blank=True,
+        null=True
     )
     
     video = models.FileField(
         verbose_name="ویدیو",
-        upload_to="Events/Desciption/video/"
+        upload_to="Events/Desciption/video/",
+        blank=True,
+        null=True
     )
     
     created = models.DateTimeField(auto_now_add=True)
