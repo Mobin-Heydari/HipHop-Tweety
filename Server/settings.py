@@ -91,11 +91,14 @@ WSGI_APPLICATION = 'Server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hiphoptw_DataBase',                      
-        'USER': 'hiphoptw_Hip_Hop_Tweety',
-        'PASSWORD': 'k6=_JR(eD5ZB',
+        'NAME': 'hiphoptw_DB',                      
+        'USER': 'hiphoptw_DB_admin',
+        'PASSWORD': '3),RB@9KLR0O',
         'HOST' : '127.0.0.1',
-        'PORT' : '3306'
+        'PORT' : '3306',
+        'OPTIONS': {
+            'charset': 'utf8mb4'
+        },
     }
 }
 
