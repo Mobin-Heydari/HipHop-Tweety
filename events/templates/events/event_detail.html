@@ -143,5 +143,49 @@
         </div>
       </div>
     </div>
+    {% if event.event_section.all %}
+        {% for section in event.event_section.all %}
+          <div class="section">
+            <div class="row text-right">
+              <div class="col-xl-8 px-4 px-md-5 px-xl-0 mx-auto mb-5">
+                {% if section.title %}
+                  <h1>{{ section.title }}</h1> 
+                {% endif %}
+                <ul class="info-list info-list--dotted mt-3">
+                  <li>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-xl-10 mx-auto mb-5">
+                <div class="cover cover--round">
+                  {% if section.image %}
+                    <div class="cover__image">
+                      <img
+                        src="{{ section.image.url }}"
+                        alt="section cover"
+                      />
+                    </div>
+                  {% endif %}
+                  {% if section.video %}
+                    <div class="cover__image">
+                      <video
+                        src="{{ section.video.url }}"
+                        alt="section cover"
+                      />
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+              {% if section.description %}
+                <div class="col-xl-8 px-4 px-md-5 px-xl-0 mx-auto">
+                  <p>
+                    {{ section.description }}
+                  </p>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+    {% endif %}
   </div>
 {% endblock main %}

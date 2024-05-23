@@ -53,7 +53,7 @@ class EventSection(models.Model):
         Event,
         on_delete=models.CASCADE,
         verbose_name="اتفاق",
-        related_name="event_description"
+        related_name="event_section"
     )
     
     title = models.CharField(
