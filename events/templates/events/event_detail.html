@@ -166,12 +166,13 @@
                       />
                     </div>
                   {% endif %}
+                  <br>
+                  <br>
                   {% if section.video %}
                     <div class="cover__image">
-                      <video
-                        src="{{ section.video.url }}"
-                        alt="section cover"
-                      />
+                        <video width="100%" height="20%" autoplay>
+                         <source src="{{ section.video.url }}" type="video/mp4">
+                        </video>
                     </div>
                   {% endif %}
                 </div>

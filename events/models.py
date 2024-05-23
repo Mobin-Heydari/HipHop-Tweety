@@ -89,6 +89,3 @@ class EventSection(models.Model):
     class Meta:
         verbose_name = "توضیح اتفاق"
         verbose_name_plural = "توضیحات اتفاق"
-        
-    def __str__(self):
-        return self.title
