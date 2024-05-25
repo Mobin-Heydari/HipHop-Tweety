@@ -115,26 +115,38 @@
                 {% csrf_token %}
                 <div class="mb-3">
                   <label for="email" class="form-label fw-medium"
-                    >ایمیل</label
+                  >ایمیل</label
                   >
+                  <p class="link-primary fw-medium" style="text-color : red;">
+                    {{ form.email.errors }}
+                  </p>
                   {{ form.email }}
                 </div>
                 <div class="mb-3">
-                    <label for="username" class="form-label fw-medium"
-                      >نام کاربری</label
-                    >
+                  <label for="username" class="form-label fw-medium"
+                  >نام کاربری</label
+                  >
+                  <p class="link-primary fw-medium" style="text-color : red;">
+                    {{ form.username.errors }}
+                  </p>
                     {{ form.username }}
-                  </div>
+                </div>
                 <div class="mb-2">
                   <label for="password" class="form-label fw-medium"
-                    >رمز عبور</label
+                  >رمز عبور</label
                   >
+                  <p class="link-primary fw-medium" style="text-color : red;">
+                    {{ form.password.errors }}
+                  </p>
                  {{ form.password }}
                 </div>
                 <div class="mb-2">
-                    <label for="password" class="form-label fw-medium"
-                      > تکرار رمز عبور</label
-                    >
+                  <label for="password" class="form-label fw-medium"
+                  > تکرار رمز عبور</label
+                  >
+                  <p class="link-primary fw-medium" style="text-color : red;">
+                    {{ form.password.errors }}
+                </p>
                    {{ form.password_conf }}
                   </div>
                 <div class="mb-5">

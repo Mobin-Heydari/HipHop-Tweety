@@ -111,8 +111,11 @@
               <p class="fs-6">
                 خوش برگشتی! با اطلاعاتی که ثبت نام کرده اید وارد شوید
               </p>
-              <form action="#" method="post" class="mt-5">
+              <form method="post" class="mt-5">
                 {% csrf_token %}
+                <p class="link-primary fw-medium" style="text-color : red;">
+                    {{ form.email.errors }}
+                </p>
                 <div class="mb-3">
                   <label for="email" class="form-label fw-medium"
                     >ایمیل</label

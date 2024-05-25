@@ -67,15 +67,16 @@ class Login(View):
                     
                     return redirect('home:home')
                 else:
-                    return render(
-                        request, 'authentication/login.html', {
-                            'form' : form
-                        }
-                    )
+                    form.add_error('email', 'ایمیل یا رمزعبور معتبر نیست!')
             else:
-                return redirect('authentication:login')
+                form.add_error('email', 'ایمیل یا رمزعبور معتبر نیست!')
         else:
             return redirect('home:home')
+        return render(
+            request, 'authentication/login.html', {
+                'form' : form
+            }
+        )
 
 
 
@@ -110,35 +111,52 @@ class Register(View):
                     
                     if len(cd['password_conf']) <= 8 and len(cd['password_conf']) >= 8:
                         
-                        otp_code = randint(100000, 999999)
+                        user_username_validation = User.objects.filter(username=cd['username']).exists()
                         
-                        token = get_random_string(100)
-                        
-                        otp = Otp.objects.create(
-                            email = cd['email'],
-                            username = cd['username'],
-                            password = cd['password'],
-                            otp_code = otp_code,
-                            token = token
-                        )
-                        
-                        send_mail(
-                            subject = 'Hip Hop Tweety veryfication',
-                            message = f'به Hip Hop Tweety خوش آمدید. برای تایید ایمیل خودتون کد: {otp_code} را وارد کنید',
-                            from_email = 'email@hip-hop-tweety.com',
-                            recipient_list = [cd['email']],
-                            fail_silently = False,
-                        )
-                        
-                        return redirect(reverse('authentication:check_otp') + f'?token={token}')
+                        if user_username_validation == False:
+                            
+                            user_email_validation = User.objects.filter(email=cd['email']).exists()
+                            
+                            if user_email_validation == False:
+                                
+                                otp_code = randint(100000, 999999)
+                                
+                                token = get_random_string(100)
+                                
+                                otp = Otp.objects.create(
+                                    email = cd['email'],
+                                    username = cd['username'],
+                                    password = cd['password'],
+                                    otp_code = otp_code,
+                                    token = token
+                                )
+                                
+                                send_mail(
+                                    subject = 'Hip Hop Tweety veryfication',
+                                    message = f'به Hip Hop Tweety خوش آمدید. برای تایید ایمیل خودتون کد: {otp_code} را وارد کنید',
+                                    from_email = 'email@hip-hop-tweety.com',
+                                    recipient_list = [cd['email']],
+                                    fail_silently = False,
+                                )
+                                
+                                return redirect(reverse('authentication:check_otp') + f'?token={token}')
+                            else:
+                                form.add_error('email', 'این ایمیل قبلا ثبت شده است!')
+                        else:
+                            form.add_error('username', 'این نام کاربری از قبل وجود دارد!')
                     else:
-                        return redirect('authentication:register')
+                        form.add_error('password', 'اندازه رمزعبور باید بین 8 تا 16 کاراکتر باشد!')
                 else:
-                    return redirect('authentication:register')
+                    form.add_error('password', 'پسورد های وارد شده باهم برابر نیستند!')
             else:
-                return redirect('authentication:register')
+                form.add_error('email', 'اطلاعات وارد شده معتبر نیستند!')
         else:
             return redirect('home:home')
+        return render(
+                request, 'authentication/register.html', {
+                    'form' : form
+                }
+            )
         
         
 class CheckOtp(View):
@@ -190,19 +208,16 @@ class CheckOtp(View):
                     
                     return redirect('home:home')
                 else:
-                    return render(
-                        request, 'authentication/check_otp.html', {
-                        'form' : form,
-                        }
-                    )
+                    form.add_error('otp', 'کد وارد شده معتبر نیست!')
             else:
-                return render(
-                    request, 'authentication/check_otp.html', {
-                        'form' : form,
-                    }
-                )
+                form.add_error('otp', 'کد وارد شده معتبر نیست!')
         else:
             return redirect('homehome:homehome')
+        return render(
+            request, 'authentication/check_otp.html', {
+                'form' : form,
+            }
+        )
         
         
 
@@ -221,9 +236,10 @@ class ResetPassword(View):
         
         email = request.POST.get('email')
         
-        try:
-            user = User.objects.get(email = email)
-            
+        user_email_validation = User.objects.filter(email=email).exists()
+        
+        if user_email_validation == True:
+        
             code = randint(100000, 999999)
             
             token = get_random_string(100)
@@ -245,8 +261,14 @@ class ResetPassword(View):
             )
             
             return redirect(reverse('authentication:validate_otp')+ f'?token={token}')
-        except User.DoesNotExist:
+        else:
             return redirect('authentication:reset_password')
+        return render(
+            request, 'authentication/reset_password.html', {
+                
+            }
+        )
+
         
 
 class ValidatePasswordOtp(View):
@@ -322,22 +344,19 @@ class ChangePassword(View):
                         
                         user.save()
                         
-                        # password_otp.delete()
+                        password_otp.delete()
                         
                         return redirect('home:home')
                     else:
                         return redirect('authentication:reset_password')
                 else:
-                    return render(
-                        request, 'authentication/changepassword.html', {
-                            
-                        }
-                    )
+                    form.add_error('password', 'اندازه رمزعبور باید بین 8 تا 16 کاراکتر باشد!')
             else:
-                return render(
-                    request, 'authentication/changepassword.html', {
-                        
-                    }
-                )
+                form.add_error('password', 'پسورد های وارد شده باهم برابر نیستند!')
         else:
-            return redirect('authentication:reset_password')
+            form.add_error('email', 'اطلاعات وارد شده معتبر نیستند!')
+        return render(
+            request, 'authentication/changepassword.html', {
+                
+            }
+        )
