@@ -111,12 +111,15 @@
             <p class="fs-6">
               
             </p>
-            <form action="" method="post" class="mt-5">
+            <form method="post" class="mt-5">
               {% csrf_token %}
               <div class="mb-3">
                 <label for="otp" class="form-label fw-medium"
                   >کد اعتبارسنجی</label
                 >
+                <p class="link-primary fw-medium" style="text-color : red;">
+                  {{ form.otp.errors }}
+                </p>
                 {{ form.otp }}
               </div>
               <p>
