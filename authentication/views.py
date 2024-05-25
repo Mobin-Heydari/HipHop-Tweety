@@ -125,16 +125,16 @@ class Register(View):
                         send_mail(
                             subject = 'Hip Hop Tweety veryfication',
                             message = f'به Hip Hop Tweety خوش آمدید. برای تایید ایمیل خودتون کد: {otp_code} را وارد کنید',
-                            from_email = 'hip.hop.tweety.company@gmail.com',
+                            from_email = 'email@hip-hop-tweety.com',
                             recipient_list = [cd['email']],
                             fail_silently = False,
                         )
                         
                         return redirect(reverse('authentication:check_otp') + f'?token={token}')
                     else:
-                        form.add_error('password_conf', 'رمز عبور وارد شده کوچکتر از ۸ و یا بزرگتر از ۱۶ است')
+                        return redirect('authentication:register')
                 else:
-                    form.add_error('password_conf', 'رمز عبور خود را اشتباه وارد کردید')   
+                    return redirect('authentication:register')
             else:
                 return redirect('authentication:register')
         else:
@@ -318,11 +318,11 @@ class ChangePassword(View):
                 
                     if user is not None:
                         
-                        user.password = cd['password']
+                        user.set_password(cd['password'])
                         
                         user.save()
                         
-                        password_otp.delete()
+                        # password_otp.delete()
                         
                         return redirect('home:home')
                     else:
