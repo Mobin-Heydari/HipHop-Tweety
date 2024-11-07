@@ -54,6 +54,13 @@ env/
 venv/ 
 ENV/ 
 env.bak/ 
+<<<<<<< HEAD
 venv.bak/ 
 
 stderr.log
+=======
+venv.bak/
+
+# Logs
+.log
+>>>>>>> 9000df78aa17a8af2d9e5820cd25dc60c285d9ef

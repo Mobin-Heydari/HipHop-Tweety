@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-tmg*2c3rl3j-arawl4+mctn*_q53uw8%y^y4b(0oy01soxynn('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.hip-hop-tweety.com', 'hip-hop-tweety.com']
 
@@ -138,10 +138,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL = 'media/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-MEDIA_ROOT = '/home/hiphoptw/public_html/media'
 STATIC_ROOT = '/home/hiphoptw/public_html/static'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = '/home/hiphoptw/public_html/media'
+
 
 
 # Default primary key field type
